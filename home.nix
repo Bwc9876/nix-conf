@@ -3,7 +3,7 @@
 with lib;
 
 {
-
+ 
   home.username = "bean";
   home.homeDirectory = "/home/bean";
 
@@ -43,4 +43,17 @@ with lib;
     vimAlias = true;
   };
   
+  programs.firefox = {
+    enable = true;
+  };
+
+  programs.chromium.enable = true;
+
+  programs.thunderbird = {
+    enable = true;
+    profiles.bean.isDefault = true;
+  };
+
+  services.kdeconnect.enable = true;
+
 }

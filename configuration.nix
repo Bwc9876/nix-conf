@@ -83,9 +83,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    helix
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    neofetch
+    wget
+    obsidian
+    keepassxc
+    spotify
+    libsForQt5.kdenlive
+    libsForQt5.gwenview
+    libsForQt5.kruler
+    qmplay2
+    gimp
+    inkscape
+    libreoffice-qt
+    peek
   ];
 
 
