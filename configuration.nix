@@ -10,10 +10,22 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot = {
+    loader.grub = {
+      enable = true;
+      device = "/dev/sda";
+      useOSProber = true;
+    };
+    plymouth = { 
+      enable = true; 
+      themePackages = with pkgs; [ (adi1090x-plymouth-themes.override {selected_themes = [ "angular" ]; }) ];
+      theme = "angular";
+    };
+  };
+
+  systemd.services.plymouth-quit = {
+    preStart = "${pkgs.coreutils}/bin/sleep 3";
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -33,7 +45,10 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    theme = "Sweet-Ambar-Blue";
+  };
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -96,6 +111,7 @@
     inkscape
     libreoffice-qt
     peek
+    (callPackage ./pkgs/sweet-ambar-blue.nix {})
   ];
 
 
