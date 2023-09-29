@@ -16,6 +16,11 @@
       device = "/dev/sda";
       useOSProber = true;
     };
+    loader.grub2-theme = {
+      enable = true;
+      theme = "whitesur";
+      icon = "color";
+    };
     plymouth = { 
       enable = true; 
       themePackages = with pkgs; [ (adi1090x-plymouth-themes.override {selected_themes = [ "angular" ]; }) ];
@@ -102,16 +107,20 @@
     wget
     obsidian
     keepassxc
+    discord
     spotify
     libsForQt5.kdenlive
     libsForQt5.gwenview
     libsForQt5.kruler
+    libsForQt5.kate
     qmplay2
     gimp
     inkscape
     libreoffice-qt
     peek
-    (callPackage ./pkgs/sweet-ambar-blue.nix {})
+    just
+    nix-output-monitor
+    (callPackage ./pkgs/kde-theming.nix {})
   ];
 
 

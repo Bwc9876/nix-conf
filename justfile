@@ -14,7 +14,7 @@ _rebuild COMMAND:
 alias b := build
 # b:    build the configuration
 build:
-    nom build .#toplevel
+    nom build .#nixosConfigurations.nixos.config.system.build.toplevel
 
 [private]
 alias s := switch
