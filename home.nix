@@ -57,6 +57,7 @@ with lib;
   };
 
   home.file.".face.icon".source = ./cow.png;
+  xdg.configFile."plasma-org.kde.plasma.desktop-appletsrc".source = ./plasma-org.kde.plasma.desktop-appletsrc;
 
   programs.plasma = {
     enable = true;
