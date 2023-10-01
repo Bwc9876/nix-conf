@@ -120,6 +120,7 @@
     peek
     just
     nix-output-monitor
+    git
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 

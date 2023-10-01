@@ -34,12 +34,6 @@ with lib;
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Ben C";
-    userEmail = "bwc9876@gmail.com";
-  };
-
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;
