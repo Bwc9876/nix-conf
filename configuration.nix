@@ -113,6 +113,9 @@
     libsForQt5.gwenview
     libsForQt5.kruler
     libsForQt5.kate
+    libsForQt5.yakuake
+    libsForQt5.filelight
+    partition-manager
     qmplay2
     gimp
     inkscape
@@ -121,6 +124,18 @@
     just
     nix-output-monitor
     git
+    github-desktop
+#     python3
+#     cargo
+#     nodejs
+#     nodePackages.pnpm
+#     yarn
+#     cargo-tauri
+#     vscode.fhs
+#     jetbrains.rider
+#     jetbrains.webstorm
+#     jetbrains.rust-rover
+#     jetbrains.pycharm-professional
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 
