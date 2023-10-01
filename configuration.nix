@@ -121,8 +121,6 @@
     just
     nix-output-monitor
     git
-    github-desktop
-    jetbrains-toolbox
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 
