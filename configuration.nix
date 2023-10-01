@@ -125,17 +125,17 @@
     nix-output-monitor
     git
     github-desktop
-#     python3
-#     cargo
-#     nodejs
-#     nodePackages.pnpm
-#     yarn
-#     cargo-tauri
-#     vscode.fhs
-#     jetbrains.rider
-#     jetbrains.webstorm
-#     jetbrains.rust-rover
-#     jetbrains.pycharm-professional
+    python3
+    cargo
+    nodejs
+    nodePackages.pnpm
+    yarn
+    cargo-tauri
+    vscode.fhs
+    jetbrains.rider
+    jetbrains.webstorm
+    jetbrains.rust-rover
+    jetbrains.pycharm-professional
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 
