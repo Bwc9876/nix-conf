@@ -19,11 +19,15 @@ runCommand "sweet-ambar-blue" {} ''
   chmod 755 $out/share/sddm/themes/Sweet-Ambar-Blue
 
   # SDDM PFP
-
   mkdir -p $out/share/sddm/faces
   cp ${pfp-src} $out/share/sddm/faces/bean.face.icon
 
+  # Plasma Look and Feel
   mkdir -p $out/share/plasma/look-and-feel
   cp -r ${src}/kde/plasma/look-and-feel/Sweet-Ambar-Blue $out/share/plasma/look-and-feel
+
+  # Konsole Color Scheme
+  mkdir -p $out/share/konsole
+  cp ${src}/kde/konsole/Sweet-Ambar-Blue.colorscheme $out/share/konsole
 ''
 

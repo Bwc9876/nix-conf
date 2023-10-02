@@ -83,6 +83,7 @@
   };
 
   environment.shells = with pkgs; [ nushell ];
+  users.defaultUserShell = pkgs.nushell;
 
   fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraMono" ]; }) ];
 
@@ -104,6 +105,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neofetch
+    nushell
     wget
     obsidian
     keepassxc
@@ -136,6 +138,7 @@
     jetbrains.webstorm
     jetbrains.rust-rover
     jetbrains.pycharm-professional
+    webkitgtk
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 

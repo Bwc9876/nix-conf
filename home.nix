@@ -97,9 +97,29 @@ with lib;
       kcminputrc = {
         Keyboard.NumLock = 1;
       };
+      konsolerc = {
+        "Desktop Entry".DefaultProfile = "Main.profile";
+      };
     };
   };
 
+  xdg.dataFile."konsole/Main.profile".text = ''
+    [Appearance]
+    AntiAliasFonts=true
+    BoldIntense=true
+    ColorScheme=Sweet-Ambar-Blue
+    Font=FiraMono Nerd Font Mono,12,-1,5,50,0,0,0,0,0
+    LineSpacing=0
+    UseFontLineChararacters=false
+
+    [General]
+    Command=nu
+    DimWhenInactive=false
+    Environment=TERM=konsole-256color,COLORTERM=truecolor
+    InvertSelectionColors=false
+    Name=Main
+    Parent=FALLBACK/
+  '';
 
   services.kdeconnect.enable = true;
 
