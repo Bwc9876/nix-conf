@@ -138,7 +138,6 @@
     jetbrains.webstorm
     jetbrains.rust-rover
     jetbrains.pycharm-professional
-    webkitgtk
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 
