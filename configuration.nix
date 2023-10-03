@@ -45,7 +45,6 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -116,40 +115,77 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neofetch
+    # Shell Stuff
     nushell
+
+    # Useful CLI Tools
+    neofetch
     wget
+    just
+    nix-output-monitor
+
+    # Apps
     obsidian
     keepassxc
     discord
     spotify
-    libsForQt5.kdenlive
-    libsForQt5.gwenview
-    libsForQt5.kruler
-    libsForQt5.kate
-    libsForQt5.yakuake
-    libsForQt5.filelight
     partition-manager
     qmplay2
     gimp
     inkscape
     libreoffice-qt
     peek
-    just
-    nix-output-monitor
-    git
     github-desktop
+
+    ## LibsForQt5
+    libsForQt5.kdenlive
+    libsForQt5.gwenview
+    libsForQt5.kruler
+    libsForQt5.kate
+    libsForQt5.yakuake
+    libsForQt5.filelight
+    libsForQt5.ark
+    libsForQt5.booth
+    libsForQt5.kmousetool
+    libsForQt5.kolourpaint
+    libsForQt5.soundkonverter
+
+    ## Games
+    libsForQt5.kmines
+    libsForQt5.kolf
+    libsForQt5.klines
+    libsForQt5.ksudoku
+    libsForQt5.kbreakout
+    libsForQt5.kmahjongg
+    ace-of-penguins
+
+    # Programming
+    git
+
+    ## Python
     python3
+    poetry
+    pipenv
+    black
+
+    ## Rust
     cargo
+    cargo-tauri
+    mprocs
+    vscode.fhs
+
+    ## JavaScript
     nodejs
     nodePackages.pnpm
     yarn
-    cargo-tauri
-    vscode.fhs
+
+    ## JetBrains
     jetbrains.rider
     jetbrains.webstorm
     jetbrains.rust-rover
     jetbrains.pycharm-professional
+
+    # Custom
     (callPackage ./pkgs/kde-theming.nix {})
   ];
 
