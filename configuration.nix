@@ -65,6 +65,18 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.fwupd.enable = true;
+
+  powerManagement.enable = true;
+  services.thermald.enable = true;
+  services.power-profiles-daemon.enable = false;
+  services.tlp.enable = true;
+
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
