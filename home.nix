@@ -123,4 +123,51 @@ with lib;
 
   services.kdeconnect.enable = true;
 
+  home.file.".gtkrc-2.0".text = ''
+    gtk-theme-name="Sweet-Ambar-Blue"
+    gtk-enable-animations=1
+    gtk-primary-button-warps-slider=0
+    gtk-toolbar-style=3
+    gtk-menu-images=1
+    gtk-button-images=1
+    gtk-cursor-theme-size=24
+    gtk-cursor-theme-name="Sweet-cursors"
+    gtk-icon-theme-name="candy-icons"
+    gtk-font-name="FiraMono Nerd Font Mono 12"
+
+    gtk-modules=appmenu-gtk-module
+  '';
+
+  xdg.configFile."gtk-3.0/settings.ini".text = ''
+    [Settings]
+    gtk-application-prefer-dark-theme=true
+    gtk-button-images=true
+    gtk-cursor-theme-name=Sweet-cursors
+    gtk-cursor-theme-size=24
+    gtk-decoration-layout=icon:minimize,maximize,close
+    gtk-enable-animations=true
+    gtk-font-name=FiraMono Nerd Font Mono,  10
+    gtk-icon-theme-name=candy-icons
+    gtk-menu-images=true
+    gtk-modules=colorreload-gtk-module:window-decorations-gtk-module:appmenu-gtk-module
+    gtk-primary-button-warps-slider=false
+    gtk-shell-shows-menubar=1
+    gtk-theme-name=Sweet-Ambar-Blue
+    gtk-toolbar-style=3
+    gtk-xft-dpi=98304
+  '';
+
+  xdg.configFile."gtk-4.0/settings.ini".text = '' 
+    [Settings]
+    gtk-application-prefer-dark-theme=true
+    gtk-cursor-theme-name=Sweet-cursors
+    gtk-cursor-theme-size=24
+    gtk-decoration-layout=icon:minimize,maximize,close
+    gtk-enable-animations=true
+    gtk-font-name=FiraMono Nerd Font Mono,  10
+    gtk-icon-theme-name=candy-icons
+    gtk-primary-button-warps-slider=false
+    gtk-xft-dpi=98304
+  '';
+
 }

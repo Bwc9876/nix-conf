@@ -5,7 +5,7 @@ let
     owner = "EliverLara";
     repo = "Sweet";
     rev = "Ambar-Blue";
-    hash = "sha256-uLthKtrC5nQd+jfPH636wVN82q+kEa08QoMprc1gaNs=";
+    hash = "sha256-kvLc6UC42CoFtnywbLASdZW4EVMnJRTf/OXNNnzvaLo=";
   };
   bg-src = ../background.jpg;
   pfp-src = ../cow.png;
@@ -25,6 +25,14 @@ runCommand "sweet-ambar-blue" {} ''
   # Plasma Look and Feel
   mkdir -p $out/share/plasma/look-and-feel
   cp -r ${src}/kde/plasma/look-and-feel/Sweet-Ambar-Blue $out/share/plasma/look-and-feel
+
+  # GTK Themes
+
+  mkdir -p $out/share/themes/Sweet-Ambar-Blue
+  cp -r ${src}/gtk-2.0 $out/share/themes/Sweet-Ambar-Blue
+  cp -r ${src}/gtk-3.0 $out/share/themes/Sweet-Ambar-Blue
+  cp -r ${src}/gtk-4.0 $out/share/themes/Sweet-Ambar-Blue
+  cp -r ${src}/assets $out/share/themes/Sweet-Ambar-Blue
 
   # Konsole Color Scheme
   mkdir -p $out/share/konsole

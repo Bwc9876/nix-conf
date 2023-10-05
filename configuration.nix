@@ -149,6 +149,7 @@
     libsForQt5.kmousetool
     libsForQt5.kolourpaint
     libsForQt5.soundkonverter
+    libsForQt5.kde-gtk-config
 
     ## Games
     libsForQt5.kmines
