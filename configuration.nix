@@ -125,6 +125,8 @@
     nix-output-monitor
 
     # Apps
+    # latest.firefox-nightly-bin
+    firefox-devedition
     obsidian
     keepassxc
     discord
@@ -149,7 +151,7 @@
     libsForQt5.kmousetool
     libsForQt5.kolourpaint
     libsForQt5.soundkonverter
-    libsForQt5.kde-gtk-config
+    libsForQt5.kcalc
 
     ## Games
     libsForQt5.kmines

@@ -44,10 +44,6 @@ with lib;
     viAlias = true;
     vimAlias = true;
   };
-  
-  programs.firefox = {
-    enable = true;
-  };
 
   programs.chromium.enable = true;
 
@@ -169,5 +165,23 @@ with lib;
     gtk-primary-button-warps-slider=false
     gtk-xft-dpi=98304
   '';
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+        "text/html" = ["firefox.desktop" "chromium.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop" "chromium.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop" "chromium.desktop"];
+        "x-scheme-handler/chrome" = ["firefox.desktop" "chromium.desktop"];
+        "application/x-extension-htm" = ["firefox.desktop" "chromium.desktop"];
+        "application/x-extension-html" = ["firefox.desktop" "chromium.desktop"];
+        "application/x-extension-shtml" = ["firefox.desktop" "chromium.desktop"];
+        "application/x-extension-xht" = ["firefox.desktop" "chromium.desktop"];
+        "application/x-extension-xhtml" = ["firefox.desktop" "chromium.desktop"];
+        "application/xhtml+xml" = ["firefox.desktop" "chromium.desktop"];
+        "application/pdf" = ["firefox.desktop" "chromium.desktop"];
+        "text/plain" = "org.kde.kate.desktop";
+    };
+  };
 
 }
