@@ -180,6 +180,7 @@ with lib;
         "application/x-extension-xhtml" = ["firefox.desktop" "chromium.desktop"];
         "application/xhtml+xml" = ["firefox.desktop" "chromium.desktop"];
         "application/pdf" = ["firefox.desktop" "chromium.desktop"];
+        "inode/directory" = ["org.kde.dolphin.desktop"];
         "text/plain" = "org.kde.kate.desktop";
     };
   };

@@ -11,16 +11,7 @@
     ];
 
   boot = {
-    loader.grub = {
-      enable = true;
-      device = "/dev/sda";
-      useOSProber = true;
-    };
-    loader.grub2-theme = {
-      enable = true;
-      theme = "whitesur";
-      icon = "color";
-    };
+    loader.systemd-boot.enable = true;
     plymouth = { 
       enable = true; 
       themePackages = with pkgs; [ (adi1090x-plymouth-themes.override {selected_themes = [ "angular" ]; }) ];
@@ -72,13 +63,14 @@
   services.tlp.enable = true;
 
   services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
+  #services.fprintd.tod.enable = true;
+  #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
 
 
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.bluetooth.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
