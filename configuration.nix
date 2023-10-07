@@ -112,6 +112,17 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # TODO: Remove this when the thingy is no longer gorpium
+  systemd.services.wpa_supplicant.environment.OPENSSL_CONF = pkgs.writeText "openssl.cnf" ''
+    openssl_conf = openssl_init
+    [openssl_init]
+    ssl_conf = ssl_sect
+    [ssl_sect]
+    system_default = system_default_sect
+    [system_default_sect]
+    Options = UnsafeLegacyRenegotiation
+  '';
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
