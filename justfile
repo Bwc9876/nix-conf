@@ -8,13 +8,13 @@ update:
     nix flake update
 
 _rebuild COMMAND:
-    sudo nixos-rebuild {{ COMMAND }} --flake .
+    sudo nixos-rebuild {{ COMMAND }} --flake .#b-pc-laptop
 
 [private]
 alias b := build
 # b:    build the configuration
 build:
-    nom build .#nixosConfigurations.nixos.config.system.build.toplevel
+    nom build .#nixosConfigurations.b-pc-laptop.config.system.build.toplevel
 
 [private]
 alias s := switch

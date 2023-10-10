@@ -9,8 +9,7 @@ let
   };
   bg-src = ../background.jpg;
   pfp-src = ../cow.png;
-in
-runCommand "sweet-ambar-blue" {} ''
+in runCommand "sweet-ambar-blue" { } ''
 
   # SDDM Theme
   mkdir -p $out/share/sddm/themes/Sweet-Ambar-Blue

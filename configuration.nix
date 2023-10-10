@@ -1,45 +1,45 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
+  # Enable firmware updating
+  services.fwupd.enable = true;
+
+  # Use the systemd-boot EFI boot loader with Plymouth for a fancy boot screen.
   boot = {
     loader.systemd-boot.enable = true;
-    plymouth = { 
-      enable = true; 
-      themePackages = with pkgs; [ (adi1090x-plymouth-themes.override {selected_themes = [ "angular" ]; }) ];
+    plymouth = {
+      enable = true;
+      themePackages = with pkgs;
+        [
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "angular" ];
+          })
+        ];
       theme = "angular";
     };
   };
 
+  # Bc I like pretty colors
   systemd.services.plymouth-quit = {
     preStart = "${pkgs.coreutils}/bin/sleep 3";
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "b-pc-laptop"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Set the time zone.
   time.timeZone = "America/New_York";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable the KDE Plasma Desktop Environment with SDDM as the login manager.
   services.xserver.displayManager.sddm = {
     enable = true;
     theme = "Sweet-Ambar-Blue";
@@ -55,17 +55,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.fwupd.enable = true;
-
+  # Setup some power saving features
   powerManagement.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
   services.tlp.enable = true;
 
+  # Enable fingerprint reader
   services.fprintd.enable = true;
-  #services.fprintd.tod.enable = true;
-  #services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix;
-
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -77,21 +74,15 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
+  # Use Nushell
   environment.shells = with pkgs; [ nushell ];
   users.defaultUserShell = pkgs.nushell;
 
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraMono" ]; }) ];
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Use FiraMono Nerd Font
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "FiraMono" ]; }) ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bean = {
@@ -104,19 +95,20 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # TODO: Remove this when the thingy is no longer gorpium
-  systemd.services.wpa_supplicant.environment.OPENSSL_CONF = pkgs.writeText "openssl.cnf" ''
-    openssl_conf = openssl_init
-    [openssl_init]
-    ssl_conf = ssl_sect
-    [ssl_sect]
-    system_default = system_default_sect
-    [system_default_sect]
-    Options = UnsafeLegacyRenegotiation
-  '';
+  # TODO: Remove this eventually
+  # Use legacy renegotiation for wpa_supplicant because some things are silly geese
+  systemd.services.wpa_supplicant.environment.OPENSSL_CONF =
+    pkgs.writeText "openssl.cnf" ''
+      openssl_conf = openssl_init
+      [openssl_init]
+      ssl_conf = ssl_sect
+      [ssl_sect]
+      system_default = system_default_sect
+      [system_default_sect]
+      Options = UnsafeLegacyRenegotiation
+    '';
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     # Shell Stuff
     nushell
@@ -126,6 +118,7 @@
     wget
     just
     nix-output-monitor
+    xorg.xkill
 
     # Apps
     # latest.firefox-nightly-bin
@@ -141,6 +134,7 @@
     libreoffice-qt
     peek
     github-desktop
+    prismlauncher
 
     ## LibsForQt5
     libsForQt5.kdenlive
@@ -192,28 +186,25 @@
     jetbrains.pycharm-professional
 
     # Custom
-    (callPackage ./pkgs/kde-theming.nix {})
+    (callPackage ./pkgs/kde-theming.nix { })
   ];
 
-
-
-  system.stateVersion = "23.05"; # Did you read the comment?
-
+  system.stateVersion = "23.05";
 
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" "repl-flake" "no-url-literals" "ca-derivations" "auto-allocate-uids" "cgroups" ];
-      # TODO: Move url-literals, ca-derivations, & duplicate repl-flake in per-project flakes?
-
-      # These need to be enable both in experimantal-options, and here
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "repl-flake"
+        "no-url-literals"
+        "ca-derivations"
+        "auto-allocate-uids"
+        "cgroups"
+      ];
       auto-allocate-uids = true;
       use-cgroups = true;
-
-      # Optimise the store when writing
       auto-optimise-store = true;
-
-      # Disable global registry
-      #flake-registry = ""; # TODO: pin? no impurity as long as I don't reference it in projects (probably)
     };
     gc = {
       automatic = true;
