@@ -10,7 +10,13 @@
     plasma-manager.inputs.home-manager.follows = "home-manager";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    plasma-manager,
+  }: {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -20,8 +26,7 @@
         home-manager.nixosModules.home-manager
         # Configure home manager
         {
-          home-manager.sharedModules =
-            [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+          home-manager.sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.bean = import ./home.nix;

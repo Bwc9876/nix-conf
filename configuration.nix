@@ -1,7 +1,10 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports = [ # Include the results of the hardware scan.
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -13,12 +16,11 @@
     loader.systemd-boot.enable = true;
     plymouth = {
       enable = true;
-      themePackages = with pkgs;
-        [
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "angular" ];
-          })
-        ];
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = ["angular"];
+        })
+      ];
       theme = "angular";
     };
   };
@@ -26,6 +28,8 @@
   # Bc I like pretty colors
   systemd.services.plymouth-quit = {
     preStart = "${pkgs.coreutils}/bin/sleep 3";
+    # preStart = "${builtins.trace "evaluated!" pkgs.coreutils}/bin/sleep 3";
+    # preStart = "${builtins.throw "aghhhhhhh"}/bin/sleep 3";
   };
 
   networking.hostName = "b-pc-laptop"; # Define your hostname.
@@ -77,18 +81,17 @@
   };
 
   # Use Nushell
-  environment.shells = with pkgs; [ nushell ];
+  environment.shells = with pkgs; [nushell];
   users.defaultUserShell = pkgs.nushell;
 
   # Use FiraMono Nerd Font
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "FiraMono" ]; }) ];
+  fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];})];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bean = {
     isNormalUser = true;
     description = "Benjamin Crocker";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.nushell;
   };
 
@@ -97,16 +100,15 @@
 
   # TODO: Remove this eventually
   # Use legacy renegotiation for wpa_supplicant because some things are silly geese
-  systemd.services.wpa_supplicant.environment.OPENSSL_CONF =
-    pkgs.writeText "openssl.cnf" ''
-      openssl_conf = openssl_init
-      [openssl_init]
-      ssl_conf = ssl_sect
-      [ssl_sect]
-      system_default = system_default_sect
-      [system_default_sect]
-      Options = UnsafeLegacyRenegotiation
-    '';
+  systemd.services.wpa_supplicant.environment.OPENSSL_CONF = pkgs.writeText "openssl.cnf" ''
+    openssl_conf = openssl_init
+    [openssl_init]
+    ssl_conf = ssl_sect
+    [ssl_sect]
+    system_default = system_default_sect
+    [system_default_sect]
+    Options = UnsafeLegacyRenegotiation
+  '';
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
@@ -121,7 +123,6 @@
     xorg.xkill
 
     # Apps
-    # latest.firefox-nightly-bin
     firefox-devedition
     obsidian
     keepassxc
@@ -186,7 +187,7 @@
     jetbrains.pycharm-professional
 
     # Custom
-    (callPackage ./pkgs/kde-theming.nix { })
+    (callPackage ./pkgs/kde-theming.nix {})
   ];
 
   system.stateVersion = "23.05";
@@ -211,6 +212,4 @@
       dates = "weekly";
     };
   };
-
 }
-

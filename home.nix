@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; {
   # Setup the user account.
   home.username = "bean";
   home.homeDirectory = "/home/bean";
@@ -12,7 +14,7 @@ with lib;
   # Enable management of known folders
   xdg = {
     enable = true;
-    userDirs = { enable = true; };
+    userDirs = {enable = true;};
   };
 
   # Enable NuShell and setup some aliases
@@ -52,7 +54,7 @@ with lib;
       enable = true;
 
       configFile = {
-        kdeglobals = { KDE.LookAndFeelPackage = "Sweet-Ambar-Blue"; };
+        kdeglobals = {KDE.LookAndFeelPackage = "Sweet-Ambar-Blue";};
         kwinrc = {
           Plugins = {
             kwin4_effect_dimscreenEnabled = true;
@@ -72,9 +74,9 @@ with lib;
             NightTemperature = 3500;
           };
         };
-        plasmarc = { Wallpapers.usersWallpapers = "${./background.jpg}"; };
-        kcminputrc = { Keyboard.NumLock = 1; };
-        konsolerc = { "Desktop Entry".DefaultProfile = "Main.profile"; };
+        plasmarc = {Wallpapers.usersWallpapers = "${./background.jpg}";};
+        kcminputrc = {Keyboard.NumLock = 1;};
+        konsolerc = {"Desktop Entry".DefaultProfile = "Main.profile";};
       };
     };
 
@@ -84,7 +86,6 @@ with lib;
       enable = true;
       profiles.bean.isDefault = true;
     };
-
   };
 
   # Enable KDE Connect
@@ -148,25 +149,22 @@ with lib;
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/html" = [ "firefox.desktop" "chromium.desktop" ];
-      "x-scheme-handler/http" = [ "firefox.desktop" "chromium.desktop" ];
-      "x-scheme-handler/https" = [ "firefox.desktop" "chromium.desktop" ];
-      "x-scheme-handler/chrome" = [ "firefox.desktop" "chromium.desktop" ];
-      "application/x-extension-htm" = [ "firefox.desktop" "chromium.desktop" ];
-      "application/x-extension-html" = [ "firefox.desktop" "chromium.desktop" ];
-      "application/x-extension-shtml" =
-        [ "firefox.desktop" "chromium.desktop" ];
-      "application/x-extension-xht" = [ "firefox.desktop" "chromium.desktop" ];
-      "application/x-extension-xhtml" =
-        [ "firefox.desktop" "chromium.desktop" ];
-      "application/xhtml+xml" = [ "firefox.desktop" "chromium.desktop" ];
-      "application/pdf" = [ "firefox.desktop" "chromium.desktop" ];
-      "inode/directory" = [ "org.kde.dolphin.desktop" ];
-      "x-scheme-handler/mailto" = [ "userapp-Thunderbird-WKLTC2.desktop" ];
-      "message/rfc822" = [ "userapp-Thunderbird-WKLTC2.desktop" ];
-      "x-scheme-handler/mid" = [ "userapp-Thunderbird-WKLTC2.desktop" ];
+      "text/html" = ["firefox.desktop" "chromium.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop" "chromium.desktop"];
+      "x-scheme-handler/https" = ["firefox.desktop" "chromium.desktop"];
+      "x-scheme-handler/chrome" = ["firefox.desktop" "chromium.desktop"];
+      "application/x-extension-htm" = ["firefox.desktop" "chromium.desktop"];
+      "application/x-extension-html" = ["firefox.desktop" "chromium.desktop"];
+      "application/x-extension-shtml" = ["firefox.desktop" "chromium.desktop"];
+      "application/x-extension-xht" = ["firefox.desktop" "chromium.desktop"];
+      "application/x-extension-xhtml" = ["firefox.desktop" "chromium.desktop"];
+      "application/xhtml+xml" = ["firefox.desktop" "chromium.desktop"];
+      "application/pdf" = ["firefox.desktop" "chromium.desktop"];
+      "inode/directory" = ["org.kde.dolphin.desktop"];
+      "x-scheme-handler/mailto" = ["userapp-Thunderbird-WKLTC2.desktop"];
+      "message/rfc822" = ["userapp-Thunderbird-WKLTC2.desktop"];
+      "x-scheme-handler/mid" = ["userapp-Thunderbird-WKLTC2.desktop"];
       "text/plain" = "org.kde.kate.desktop";
     };
   };
-
 }
