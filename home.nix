@@ -145,6 +145,11 @@ with lib; {
     gtk-xft-dpi=98304
   '';
 
+  xdg.configFile."kdeconnect/config".text = ''
+  [General]
+  name=b-pc-laptop
+  '';
+
   # Set the default applications
   xdg.mimeApps = {
     enable = true;
@@ -153,6 +158,7 @@ with lib; {
       "x-scheme-handler/http" = ["firefox.desktop" "chromium.desktop"];
       "x-scheme-handler/https" = ["firefox.desktop" "chromium.desktop"];
       "x-scheme-handler/chrome" = ["firefox.desktop" "chromium.desktop"];
+      "x-scheme-handler/vscode" = ["code-url-handler.desktop"];
       "application/x-extension-htm" = ["firefox.desktop" "chromium.desktop"];
       "application/x-extension-html" = ["firefox.desktop" "chromium.desktop"];
       "application/x-extension-shtml" = ["firefox.desktop" "chromium.desktop"];
@@ -164,7 +170,9 @@ with lib; {
       "x-scheme-handler/mailto" = ["userapp-Thunderbird-WKLTC2.desktop"];
       "message/rfc822" = ["userapp-Thunderbird-WKLTC2.desktop"];
       "x-scheme-handler/mid" = ["userapp-Thunderbird-WKLTC2.desktop"];
-      "text/plain" = "org.kde.kate.desktop";
+      "text/plain" = ["org.kde.kate.desktop"];
+      "x-scheme-handler/x-github-client" = ["github-desktop.desktop"];
+      "x-scheme-handler/x-github-desktop-auth" = ["github-desktop.desktop"];
     };
   };
 }

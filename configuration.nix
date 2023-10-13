@@ -14,28 +14,47 @@
   # Use the systemd-boot EFI boot loader with Plymouth for a fancy boot screen.
   boot = {
     loader.systemd-boot.enable = true;
-    plymouth = {
-      enable = true;
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = ["angular"];
-        })
-      ];
-      theme = "angular";
-    };
-  };
-
-  # Bc I like pretty colors
-  systemd.services.plymouth-quit = {
-    preStart = "${pkgs.coreutils}/bin/sleep 3";
-    # preStart = "${builtins.trace "evaluated!" pkgs.coreutils}/bin/sleep 3";
-    # preStart = "${builtins.throw "aghhhhhhh"}/bin/sleep 3";
+    # loader = {
+    #   efi.canTouchEfiVariables = true;
+    #   efi.efiSysMountPoint = "/boot/efi";
+    #   timeout = 1;
+    #   grub = {
+    #     enable = true;
+    #     devices = ["nodev"];
+    #     efiSupport = true;
+    #     useOSProber = true;
+    #     default = "saved";
+    #     splashMode = "normal";
+    #   };
+    #   grub2-theme = {
+    #     enable = true;
+    #     theme = "whitesur";
+    #     icon = "color";
+    #   };
+    # };
   };
 
   networking.hostName = "b-pc-laptop"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Open ports for KDE Connect
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
+    ];
+  };
 
   # Set the time zone.
   time.timeZone = "America/New_York";
@@ -110,6 +129,15 @@
     Options = UnsafeLegacyRenegotiation
   '';
 
+  # Set some environment variables
+  environment.variables.EDITOR = "nvim";
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     # Shell Stuff
@@ -118,9 +146,17 @@
     # Useful CLI Tools
     neofetch
     wget
-    just
-    nix-output-monitor
     xorg.xkill
+    cowsay
+    xcowsay
+    toilet
+
+    # Networking
+    nmap
+    dig
+    whois
+    inetutils
+    speedtest-cli
 
     # Apps
     firefox-devedition
@@ -136,6 +172,9 @@
     peek
     github-desktop
     prismlauncher
+    virtualbox
+    lorien
+    veusz
 
     ## LibsForQt5
     libsForQt5.kdenlive
@@ -180,11 +219,20 @@
     nodePackages.pnpm
     yarn
 
+    ## C/C++
+    gcc
+
     ## JetBrains
     jetbrains.rider
     jetbrains.webstorm
     jetbrains.rust-rover
     jetbrains.pycharm-professional
+
+    ## Build Tools
+    pkg-config
+    just
+    nix-output-monitor
+    gnumake
 
     # Custom
     (callPackage ./pkgs/kde-theming.nix {})

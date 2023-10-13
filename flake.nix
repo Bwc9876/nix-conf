@@ -8,6 +8,7 @@
     plasma-manager.url = "github:pjones/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = inputs @ {
@@ -15,11 +16,14 @@
     nixpkgs,
     home-manager,
     plasma-manager,
+    nixos-hardware,
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        # Load framework laptop configuration
+        nixos-hardware.nixosModules.framework-13th-gen-intel
         # Load the main configuration
         ./configuration.nix
         # Load home manager
