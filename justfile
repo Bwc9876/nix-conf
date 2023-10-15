@@ -1,25 +1,31 @@
 _default:
     @just --list --unsorted --justfile {{justfile()}}
 
+host := if path_exists(".host") == "true" { `cat .host` } else { "INVALID" }
+
+# setup: Set the hostname to build the configuration for
+setup HOST:
+    @echo "Setting host to {{ HOST }}"
+    @echo {{ HOST }} > .host
+
 [private]
 alias u := update
 # u:    update all inputs
 update:
     nix flake update
 
-_rebuild COMMAND:
-    sudo nixos-rebuild {{ COMMAND }} --flake .#b-pc-laptop
-
 [private]
 alias b := build
 # b:    build the configuration
 build:
-    nom build .#nixosConfigurations.b-pc-laptop.config.system.build.toplevel
+    {{ if host == "INVALID" { error("Invalid host set, please run `just setup HOST`") } else { "" } }}
+    nom build .#nixosConfigurations.{{ host }}.config.system.build.toplevel
 
 [private]
 alias s := switch
 # s:    activate configuration & add to boot menu
-switch: (_rebuild "switch")
+switch: 
+    sudo nixos-rebuild switch --flake .#{{ host }}
 
 [private]
 alias c := check
@@ -38,4 +44,6 @@ alias gc := garbage-collect
 # gc: Run nix collect-garbage -d
 garbage-collect:
     sudo nix-collect-garbage -d
+
+
 

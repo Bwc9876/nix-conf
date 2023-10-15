@@ -2,11 +2,12 @@
   lib,
   config,
   pkgs,
+  hostName,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./computers/${hostName}/hardware-configuration.nix
   ];
 
   # Enable firmware updating
@@ -32,7 +33,7 @@
     kernelParams = ["lockdown=confidentiality"];
   };
 
-  networking.hostName = "b-pc-laptop"; # Define your hostname.
+  networking.hostName = hostName;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -75,15 +76,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Power Settings
-  powerManagement.enable = true;
-  services.thermald.enable = true;
-  services.power-profiles-daemon.enable = false;
-  services.tlp.enable = true;
-
-  # Enable fingerprint reader
-  services.fprintd.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;

@@ -8,8 +8,8 @@
     rev = "Ambar-Blue";
     hash = "sha256-kvLc6UC42CoFtnywbLASdZW4EVMnJRTf/OXNNnzvaLo=";
   };
-  bg-src = ../background.jpg;
-  pfp-src = ../cow.png;
+  bg-src = ../res/pictures/background.jpg;
+  pfp-src = ../res/pictures/cow.png;
 in
   runCommand "sweet-ambar-blue" {} ''
 

@@ -19,27 +19,41 @@
     plasma-manager,
     nixos-hardware,
     lanzaboote,
-  }: {
+  }: rec {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
+    globalModules = [
+      # Load lanzaboote for Secure Boot
+      lanzaboote.nixosModules.lanzaboote
+      # Load the main configuration
+      ./configuration.nix
+      # Load home manager
+      home-manager.nixosModules.home-manager
+      # Configure home manager
+      {
+        home-manager.sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.bean = import ./home.nix;
+      }
+    ];
+    nixosConfigurations.b-pc-tower = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        hostName = "b-pc-tower";
+      };
       system = "x86_64-linux";
-      modules = [
-        # Load framework laptop configuration
-        nixos-hardware.nixosModules.framework-13th-gen-intel
-        # Load lanzaboote for Secure Boot
-        lanzaboote.nixosModules.lanzaboote
-        # Load the main configuration
-        ./configuration.nix
-        # Load home manager
-        home-manager.nixosModules.home-manager
-        # Configure home manager
-        {
-          home-manager.sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.bean = import ./home.nix;
-        }
-      ];
+      modules = globalModules ++ [];
+    };
+    nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        hostName = "b-pc-laptop";
+      };
+      system = "x86_64-linux";
+      modules =
+        globalModules
+        ++ [
+          # Load framework laptop configuration
+          nixos-hardware.nixosModules.framework-13th-gen-intel
+        ];
     };
   };
 }

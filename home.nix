@@ -32,7 +32,7 @@ with lib; {
   # Enable starship for prompts
   programs.starship = {
     enable = true;
-    settings = fromTOML (fileContents ./starship.toml);
+    settings = fromTOML (fileContents ./res/starship.toml);
   };
 
   programs = {
@@ -74,7 +74,7 @@ with lib; {
             NightTemperature = 3500;
           };
         };
-        plasmarc = {Wallpapers.usersWallpapers = "${./background.jpg}";};
+        plasmarc = {Wallpapers.usersWallpapers = "${./res/pictures/background.jpg}";};
         kcminputrc = {Keyboard.NumLock = 1;};
         konsolerc = {"Desktop Entry".DefaultProfile = "Main.profile";};
       };
@@ -92,7 +92,7 @@ with lib; {
   services.kdeconnect.enable = true;
 
   # Set the user profile picture to my cow
-  home.file.".face.icon".source = ./cow.png;
+  home.file.".face.icon".source = ./res/pictures/cow.png;
 
   # Set Konsole profile
   xdg.dataFile."konsole/Main.profile".text = ''
