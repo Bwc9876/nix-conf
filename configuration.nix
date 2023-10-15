@@ -128,6 +128,16 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  programs.git = {
+    enable = true;
+    config = {
+        init.defaultBranch = "main";
+        advice = {
+            addIgnoredFile = false;
+        };
+    };
+  };
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     # Shell Stuff
