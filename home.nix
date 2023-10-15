@@ -146,8 +146,8 @@ with lib; {
   '';
 
   xdg.configFile."kdeconnect/config".text = ''
-  [General]
-  name=b-pc-laptop
+    [General]
+    name=b-pc-laptop
   '';
 
   # Set the default applications

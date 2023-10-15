@@ -9,6 +9,7 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
   outputs = inputs @ {
@@ -17,6 +18,7 @@
     home-manager,
     plasma-manager,
     nixos-hardware,
+    lanzaboote,
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
@@ -24,6 +26,8 @@
       modules = [
         # Load framework laptop configuration
         nixos-hardware.nixosModules.framework-13th-gen-intel
+        # Load lanzaboote for Secure Boot
+        lanzaboote.nixosModules.lanzaboote
         # Load the main configuration
         ./configuration.nix
         # Load home manager

@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   ...
@@ -11,27 +12,24 @@
   # Enable firmware updating
   services.fwupd.enable = true;
 
-  # Use the systemd-boot EFI boot loader with Plymouth for a fancy boot screen.
   boot = {
-    loader.systemd-boot.enable = true;
-    # loader = {
-    #   efi.canTouchEfiVariables = true;
-    #   efi.efiSysMountPoint = "/boot/efi";
-    #   timeout = 1;
-    #   grub = {
-    #     enable = true;
-    #     devices = ["nodev"];
-    #     efiSupport = true;
-    #     useOSProber = true;
-    #     default = "saved";
-    #     splashMode = "normal";
-    #   };
-    #   grub2-theme = {
-    #     enable = true;
-    #     theme = "whitesur";
-    #     icon = "color";
-    #   };
-    # };
+    loader.systemd-boot.enable = lib.mkForce false;
+    bootspec.enable = true;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    kernelPatches = [
+      {
+        name = "kernel-lockdown";
+        patch = null;
+        extraConfig = ''
+          SECURITY_LOCKDOWN_LSM y
+          MODULE_SIG y
+        '';
+      }
+    ];
+    kernelParams = ["lockdown=confidentiality"];
   };
 
   networking.hostName = "b-pc-laptop"; # Define your hostname.
@@ -78,7 +76,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Setup some power saving features
+  # Power Settings
   powerManagement.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = false;
@@ -154,7 +152,6 @@
     # Networking
     nmap
     dig
-    whois
     inetutils
     speedtest-cli
 
@@ -174,6 +171,7 @@
     prismlauncher
     virtualbox
     lorien
+    tuxpaint
     veusz
 
     ## LibsForQt5
@@ -201,6 +199,10 @@
 
     # Programming
     git
+
+    ## Android
+    android-tools
+    android-studio
 
     ## Python
     python3

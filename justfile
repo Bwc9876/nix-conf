@@ -27,3 +27,15 @@ alias c := check
 check:
     nix flake check .# --show-trace
 
+[private]
+alias f := format
+# f: run nix fmt on the flake
+format:
+    nix fmt
+
+[private]
+alias gc := garbage-collect
+# gc: Run nix collect-garbage -d
+garbage-collect:
+    sudo nix-collect-garbage -d
+
