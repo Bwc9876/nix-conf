@@ -34,6 +34,7 @@
   };
 
   networking.hostName = hostName;
+  home-manager.extraSpecialArgs.hostName = hostName;
 
   # Enable networking
   networking.networkmanager.enable = true;

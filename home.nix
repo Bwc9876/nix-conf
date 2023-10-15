@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  hostName,
   ...
 }:
 with lib; {
@@ -157,7 +158,7 @@ with lib; {
 
   xdg.configFile."kdeconnect/config".text = ''
     [General]
-    name=b-pc-laptop
+    name=${hostName}
   '';
 
   # Set the default applications
