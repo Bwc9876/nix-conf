@@ -54,7 +54,12 @@ with lib; {
       enable = true;
 
       configFile = {
-        kdeglobals = {KDE.LookAndFeelPackage = "Sweet-Ambar-Blue";};
+        kdeglobals = {
+            KDE = {
+                LookAndFeelPackage = "Sweet-Ambar-Blue";
+                Single-Click = false;
+            };
+        };
         kwinrc = {
           Plugins = {
             kwin4_effect_dimscreenEnabled = true;
@@ -77,6 +82,7 @@ with lib; {
         plasmarc = {Wallpapers.usersWallpapers = "${./res/pictures/background.jpg}";};
         kcminputrc = {Keyboard.NumLock = 1;};
         konsolerc = {"Desktop Entry".DefaultProfile = "Main.profile";};
+        spectaclerc = {General.clipboardGroup="PostScreenshotCopyImage";};
       };
     };
 
@@ -93,6 +99,10 @@ with lib; {
 
   # Set the user profile picture to my cow
   home.file.".face.icon".source = ./res/pictures/cow.png;
+
+  # Set my applet layouts and pictures
+  xdg.configFile."plasma-org.kde.plasma.desktop-appletsrc".text = replaceStrings ["~~BACKGROUND~~"] ["${./res/pictures/background.jpg}"] (fileContents ./res/plasma-org.kde.plasma.desktop-appletsrc);
+  xdg.configFile."kscreenlockerrc".text = replaceStrings ["~~BACKGROUND~~"] ["${./res/pictures/background.jpg}"] (fileContents ./res/kscreenlockerrc);
 
   # Set Konsole profile
   xdg.dataFile."konsole/Main.profile".text = ''
