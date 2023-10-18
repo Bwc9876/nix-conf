@@ -60,22 +60,6 @@
   # Set the time zone.
   time.timeZone = "America/New_York";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment with SDDM as the login manager.
-  services.xserver.displayManager.sddm = {
-    enable = true;
-    theme = "Sweet-Ambar-Blue";
-  };
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -202,11 +186,11 @@
     veusz
 
     ## LibsForQt5
+    libsForQt5.dolphin
     libsForQt5.kdenlive
     libsForQt5.gwenview
     libsForQt5.kruler
     libsForQt5.kate
-    libsForQt5.yakuake
     libsForQt5.filelight
     libsForQt5.ark
     libsForQt5.booth
@@ -268,7 +252,12 @@
     gnumake
 
     # Custom
-    (callPackage ./pkgs/kde-theming.nix {})
+    (callPackage ./pkgs/theming.nix {})
+  ];
+
+  environment.pathsToLink = [
+    "/share/Kvantum"
+    "/share/icons"
   ];
 
   system.stateVersion = "23.05";

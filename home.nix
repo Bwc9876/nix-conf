@@ -38,6 +38,10 @@ with lib; {
     modules=/run/current-system/sw/lib/gtklock/userinfo-module.so
   '';
 
+  xdg.configFile."qt5ct/qt5ct.conf".source = ./res/qt5ct.conf;
+
+  xdg.configFile.waybar.source = ./res/waybar;
+
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -125,8 +129,6 @@ with lib; {
     };
   };
 
-  xdg.configFile.waybar.source = ./res/waybar;
-
   programs = {
     # Shell
     starship = {
@@ -158,43 +160,6 @@ with lib; {
       vimAlias = true;
     };
 
-    # Plasma
-    plasma = {
-      enable = true;
-
-      configFile = {
-        kdeglobals = {
-          KDE = {
-            LookAndFeelPackage = "Sweet-Ambar-Blue";
-            Single-Click = false;
-          };
-        };
-        kwinrc = {
-          Plugins = {
-            kwin4_effect_dimscreenEnabled = true;
-            kwin4_effect_squashEnabled = false;
-            magiclampEnabled = true;
-            mouseclickEnabled = true;
-            sheetEnabled = true;
-            wobblywindowsEnabled = true;
-          };
-          Effect-wobblywindows = {
-            Drag = 85;
-            Stiffness = 10;
-            WobblynessLevel = 1;
-          };
-          NightColor = {
-            Active = true;
-            NightTemperature = 3500;
-          };
-        };
-        plasmarc = {Wallpapers.usersWallpapers = "${./res/pictures/background.jpg}";};
-        kcminputrc = {Keyboard.NumLock = 1;};
-        konsolerc = {"Desktop Entry".DefaultProfile = "Main.profile";};
-        spectaclerc = {General.clipboardGroup = "PostScreenshotCopyImage";};
-      };
-    };
-
     # GUI Apps
     chromium.enable = true;
     thunderbird = {
@@ -209,78 +174,11 @@ with lib; {
   # Set the user profile picture to my cow
   home.file.".face.icon".source = ./res/pictures/cow.png;
 
-  # Set my applet layouts and pictures
-  xdg.configFile."plasma-org.kde.plasma.desktop-appletsrc".text = replaceStrings ["~~BACKGROUND~~"] ["${./res/pictures/background.jpg}"] (fileContents ./res/plasma-org.kde.plasma.desktop-appletsrc);
-  xdg.configFile."kscreenlockerrc".text = replaceStrings ["~~BACKGROUND~~"] ["${./res/pictures/background.jpg}"] (fileContents ./res/kscreenlockerrc);
+  home.file.".gtkrc-2.0".source = ./res/gtk/.gtkrc-2.0;
 
-  # Set Konsole profile
-  xdg.dataFile."konsole/Main.profile".text = ''
-    [Appearance]
-    AntiAliasFonts=true
-    BoldIntense=true
-    ColorScheme=Sweet-Ambar-Blue
-    Font=FiraMono Nerd Font Mono,12,-1,5,50,0,0,0,0,0
-    LineSpacing=0
-    UseFontLineChararacters=false
+  xdg.configFile."gtk-3.0/settings.ini".source = ./res/gtk/settings.ini;
 
-    [General]
-    Command=nu
-    DimWhenInactive=false
-    Environment=TERM=konsole-256color,COLORTERM=truecolor
-    InvertSelectionColors=false
-    Name=Main
-    Parent=FALLBACK/
-  '';
-
-  home.file.".gtkrc-2.0".text = ''
-    gtk-application-prefer-dark-theme=1
-    gtk-theme-name="Sweet-Ambar-Blue"
-    gtk-enable-animations=1
-    gtk-primary-button-warps-slider=0
-    gtk-toolbar-style=3
-    gtk-menu-images=1
-    gtk-button-images=1
-    gtk-cursor-theme-size=24
-    gtk-cursor-theme-name="Sweet-cursors"
-    gtk-icon-theme-name="candy-icons"
-    gtk-font-name="FiraMono Nerd Font Mono,  10"
-
-    gtk-modules=appmenu-gtk-module
-  '';
-
-  xdg.configFile."gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-application-prefer-dark-theme=1
-    color-scheme=prefer-dark
-    gtk-button-images=true
-    gtk-cursor-theme-name=Sweet-cursors
-    gtk-cursor-theme-size=24
-    gtk-decoration-layout=icon:minimize,maximize,close
-    gtk-enable-animations=true
-    gtk-font-name=FiraMono Nerd Font Mono,  10
-    gtk-icon-theme-name=candy-icons
-    gtk-menu-images=true
-    gtk-modules=colorreload-gtk-module:window-decorations-gtk-module:appmenu-gtk-module
-    gtk-primary-button-warps-slider=false
-    gtk-shell-shows-menubar=1
-    gtk-theme-name=Sweet-Ambar-Blue
-    gtk-toolbar-style=3
-    gtk-xft-dpi=98304
-  '';
-
-  xdg.configFile."gtk-4.0/settings.ini".text = ''
-    [Settings]
-    gtk-application-prefer-dark-theme=1
-    color-scheme=prefer-dark
-    gtk-cursor-theme-name=Sweet-cursors
-    gtk-cursor-theme-size=24
-    gtk-decoration-layout=icon:minimize,maximize,close
-    gtk-enable-animations=true
-    gtk-font-name=FiraMono Nerd Font Mono,  10
-    gtk-icon-theme-name=candy-icons
-    gtk-primary-button-warps-slider=false
-    gtk-xft-dpi=98304
-  '';
+  xdg.configFile."gtk-4.0/settings.ini".source = ./res/gtk/settings.ini;
 
   xdg.configFile."kdeconnect/config".text = ''
     [General]
