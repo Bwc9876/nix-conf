@@ -30,7 +30,7 @@
       home-manager.nixosModules.home-manager
       # Configure home manager
       {
-        home-manager.sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+        home-manager.sharedModules = [plasma-manager.homeManagerModules.plasma-manager];
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.bean = import ./home.nix;
@@ -39,6 +39,7 @@
     nixosConfigurations.b-pc-tower = nixpkgs.lib.nixosSystem {
       specialArgs = {
         hostName = "b-pc-tower";
+        inputs = inputs;
       };
       system = "x86_64-linux";
       modules = globalModules ++ [];
@@ -46,6 +47,7 @@
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
       specialArgs = {
         hostName = "b-pc-laptop";
+        inputs = inputs;
       };
       system = "x86_64-linux";
       modules =

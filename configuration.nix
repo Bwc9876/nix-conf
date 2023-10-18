@@ -3,6 +3,7 @@
   config,
   pkgs,
   hostName,
+  ags,
   ...
 }: {
   imports = [
@@ -90,6 +91,12 @@
     pulse.enable = true;
   };
 
+  security.pam.services.gtklock.text = ''
+    auth            sufficient      pam_unix.so try_first_pass likeauth nullok
+    auth            sufficient      pam_fprintd.so
+    auth            include         login
+  '';
+
   # Use Nushell
   environment.shells = with pkgs; [nushell];
   users.defaultUserShell = pkgs.nushell;
@@ -132,10 +139,10 @@
   programs.git = {
     enable = true;
     config = {
-        init.defaultBranch = "main";
-        advice = {
-            addIgnoredFile = false;
-        };
+      init.defaultBranch = "main";
+      advice = {
+        addIgnoredFile = false;
+      };
     };
   };
 
@@ -143,6 +150,22 @@
   environment.systemPackages = with pkgs; [
     # Shell Stuff
     nushell
+
+    # Hyprland Stuff
+    hyprland
+    waybar
+    rofi
+    gtklock
+    gtklock-userinfo-module
+    swaynotificationcenter
+    swayosd
+    wl-screenrec
+    slurp
+    watershot
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.polkit-kde-agent
+    networkmanagerapplet
 
     # Useful CLI Tools
     neofetch
@@ -159,6 +182,7 @@
     speedtest-cli
 
     # Apps
+    kitty
     firefox-devedition
     obsidian
     keepassxc
@@ -202,6 +226,7 @@
 
     # Programming
     git
+    vscode.fhs
 
     ## Android
     android-tools
@@ -214,10 +239,13 @@
     black
 
     ## Rust
+    rustc
     cargo
     cargo-tauri
+    rustfmt
+    clippy
     mprocs
-    vscode.fhs
+    rust-analyzer
 
     ## JavaScript
     nodejs
