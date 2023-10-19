@@ -86,13 +86,24 @@
   users.defaultUserShell = pkgs.nushell;
 
   # Use FiraMono Nerd Font
-  fonts.packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];})];
+  fonts = {
+    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts-emoji];
+    fontconfig = {
+      enable = true;
+      defaultFonts = rec {
+        serif = ["FiraMono Nerd Font Mono" "Noto Color Emoji"];
+        sansSerif = serif;
+        monospace = serif;
+        emoji = ["Noto Color Emoji"];
+      };
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bean = {
     isNormalUser = true;
     description = "Benjamin Crocker";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "video"];
     shell = pkgs.nushell;
   };
 
@@ -130,6 +141,10 @@
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+  };
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     # Shell Stuff
@@ -137,22 +152,34 @@
 
     # Hyprland Stuff
     hyprland
+    xdg-desktop-portal-hyprland
+    wev
     waybar
-    rofi
     gtklock
+    rofi
+    rofi-emoji
+    rofi-power-menu
+    rofi-bluetooth
+    rofi-calc
     gtklock-userinfo-module
+    hyprpicker
+    hyprpaper
     swaynotificationcenter
     swayosd
     wl-screenrec
     slurp
-    watershot
+    grimblast
+    drawing
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.polkit-kde-agent
     networkmanagerapplet
+    playerctl
 
     # Useful CLI Tools
     neofetch
+    hyfetch
+    lolcat
     wget
     xorg.xkill
     cowsay
@@ -168,6 +195,7 @@
     # Apps
     kitty
     firefox-devedition
+    font-manager
     obsidian
     keepassxc
     discord

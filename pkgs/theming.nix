@@ -14,6 +14,7 @@
     rev = "master";
     hash = "sha256-zlW2Y+aPoHgIet8M+XRo56fFYMB+rdw5PqP4Mof4eQU=";
   };
+  cursor-src = ../res/Sweet-cursors.tar.xz;
   bg-src = ../res/pictures/background.jpg;
   pfp-src = ../res/pictures/cow.png;
 in
@@ -22,6 +23,9 @@ in
     # Candy Icons
     mkdir -p $out/share/icons/candy-icons
     cp -r ${icons-src}/* $out/share/icons/candy-icons
+
+    # Cursor Theme
+    tar -xf ${cursor-src} -C $out/share/icons
 
     # Kvantum
     mkdir -p $out/share/Kvantum

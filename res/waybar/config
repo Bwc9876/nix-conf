@@ -53,7 +53,8 @@
     },
 
     "user": {
-      "avatar": "~/.face.icon"
+      "format": "{user}",
+      "icon": true
     },
 
     "hyprland/workspaces": {
