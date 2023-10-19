@@ -74,17 +74,21 @@
       "format": "{:%B %d}",
       "tooltip": false
     },
-    "mrpis": {
-      "interval": 25,
+    "mpris": {
       "status-icons": {
-        "playing": "󰐍",
-        "paused": "󰏥",
+        "paused": "󰏤",
         "stopped": "󰓛"
       },
       "player-icons": {
+        "default": "󰎆",
         "spotify": "󰓇",
         "firefox": "󰈹"
-      }
+      },
+      "dynamic-order": ["title", "artist", "album", "position", "length"],
+      "dynamic-importance-order": ["title", "artist", "position", "length", "album"],
+      "dynamic-len": 50,
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{status_icon} {dynamic}"
     },
     "pulseaudio": {
       "format": "{icon} {volume:2}%",

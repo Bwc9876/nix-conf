@@ -28,7 +28,7 @@ window#waybar {
 #battery,
 #disk,
 #user,
-#mrpis,
+#mpris,
 #tray {
   background: #1a1a1a;
 }
@@ -37,7 +37,7 @@ window#waybar {
   padding: 0 2px;
   color: #fdf6e3;
 }
-#workspaces button.focused {
+#workspaces button.active {
   color: #268bd2;
 }
 #workspaces button:hover {
@@ -65,6 +65,9 @@ window#waybar {
 #disk {
   color: #b58900;
 }
+#mpris {
+  color: greenyellow;
+}
 
 #clock,
 #pulseaudio,
@@ -72,6 +75,7 @@ window#waybar {
 #cpu,
 #battery,
 #user,
+#mpris,
 #disk {
   padding: 0 10px;
 }

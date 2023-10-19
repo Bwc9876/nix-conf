@@ -25,8 +25,6 @@ with lib; rec {
     };
   };
 
-  # fonts.fontconfig.enable = true;
-
   # Enable management of known folders
   xdg = {
     enable = true;
@@ -135,14 +133,16 @@ with lib; rec {
         "IMAGE_EDITOR,/run/current-system/sw/bin/drawing"
       ];
       exec-once = [
+        "eval $(ssh-agent)"
         "hyprpaper"
         "hyprctl setcursor Sweet-cursors 24"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "keepassxc /home/bean/Documents/Database.kdbx"
-        "eval $(ssh-agent)"
+        "[workspace 2] keepassxc /home/bean/Documents/Database.kdbx"
         "waybar"
+        "wl-paste -p --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
         "swaync"
-        "swayosd"
+        "swayosd-server"
         "nm-applet"
         "playerctld"
         "[workspace 1 silent] discord"
@@ -154,6 +154,9 @@ with lib; rec {
         "SUPER,S,exec,rofi -show drun -font \"FiraMono Nerd Font Mono 12\" -icon-theme \"candy-icons\" -show-icons"
         "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
         "SUPER,Delete,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
+        ",XF86PowerOff,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
+        "SUPER ALT,C,exec,rofi -modi calc -show calc"
+        "SUPER,B,exec,rofi-bluetooth"
         "SUPER,Q,exec,firefox"
         "SUPER,E,exec,dolphin"
         "SUPER,T,exec,kitty"
@@ -161,7 +164,7 @@ with lib; rec {
         "SUPER,L,exec,gtklock"
         "SUPER,C,killactive,"
         "SUPER,M,exit,"
-        "SUPER,V,togglefloating,"
+        "SUPER,V,exec,cliphist list | rofi -dmenu | cliphist decode | wl-copy,"
         "SUPER,P,pseudo,"
         "SUPER,J,togglesplit,"
         "SUPER,left,movefocus,l"
@@ -192,11 +195,16 @@ with lib; rec {
         "SUPER SHIFT,R,exec,wl-screenrec -g \"$(slurp)\""
         "SUPER SHIFT,C,exec,hyprpicker"
         "SUPER SHIFT ALT,R,exec,wl-screenrec"
-        ",XF86AudioRaiseVolume,exec,swayosd --output-volume raise"
-        ",XF86AudioLowerVolume,exec,swayosd --output-volume lower"
-        ",XF86AudioMute,exec,swayosd --output-volume mute-toggle"
-        ",XF86MonBrightnessUp,exec,swayosd --brightness raise"
-        ",XF86MonBrightnessDown,exec,swayosd --brightness lower"
+        ",XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise"
+        ",XF86AudioLowerVolume,exec,swayosd-client --output-volume lower"
+        ",XF86AudioMute,exec,swayosd-client --output-volume mute-toggle"
+        ",XF86MonBrightnessUp,exec,swayosd-client --brightness raise"
+        ",XF86MonBrightnessDown,exec,swayosd-client --brightness lower"
+      ];
+      bindl = [
+        ",switch:Lid Switch,exec,gtklock"
+      ];
+      bindr = [
         ",Caps_Lock,exec,swayosd-client --caps-lock"
       ];
       bindm = [

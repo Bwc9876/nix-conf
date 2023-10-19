@@ -75,6 +75,18 @@
     pulse.enable = true;
   };
 
+  services.logind.powerKey = "ignore";
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${hostName}\" --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+        user = "bean";
+      };
+    };
+  };
+
   security.pam.services.gtklock.text = ''
     auth            sufficient      pam_unix.so try_first_pass likeauth nullok
     auth            sufficient      pam_fprintd.so
@@ -161,11 +173,12 @@
     rofi-power-menu
     rofi-bluetooth
     rofi-calc
+    wl-clipboard
+    cliphist
     gtklock-userinfo-module
     hyprpicker
     hyprpaper
     swaynotificationcenter
-    swayosd
     wl-screenrec
     slurp
     grimblast
@@ -185,6 +198,7 @@
     cowsay
     xcowsay
     toilet
+    brightnessctl
 
     # Networking
     nmap
@@ -281,6 +295,7 @@
 
     # Custom
     (callPackage ./pkgs/theming.nix {})
+    (callPackage ./pkgs/swayosd.nix {})
   ];
 
   environment.pathsToLink = [
