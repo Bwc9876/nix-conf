@@ -48,6 +48,7 @@ with lib; rec {
       '';
       "gtklock/config.ini".text = ''
         [main]
+        time-format=%I:%M %p\n%A %B %d
         gtk-theme=Sweet-Ambar-Blue
         background=${./res/pictures/background.jpg}
         idle-hide=true
@@ -156,6 +157,8 @@ with lib; rec {
         "SUPER,Delete,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
         ",XF86PowerOff,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
         "SUPER ALT,C,exec,rofi -modi calc -show calc"
+        "SUPER,I,exec,rofi-pulse-select source"
+        "SUPER,O,exec,rofi-pulse-select sink"
         "SUPER,B,exec,rofi-bluetooth"
         "SUPER,Q,exec,firefox"
         "SUPER,E,exec,dolphin"
@@ -163,6 +166,7 @@ with lib; rec {
         "SUPER,N,exec,swaync-client -t -sw"
         "SUPER,L,exec,gtklock"
         "SUPER,C,killactive,"
+        "SUPER,D,exec,code"
         "SUPER,M,exit,"
         "SUPER,V,exec,cliphist list | rofi -dmenu | cliphist decode | wl-copy,"
         "SUPER,P,pseudo,"
@@ -235,6 +239,7 @@ with lib; rec {
 
     rofi = {
       enable = true;
+      package = pkgs.rofi-wayland;
       location = "center";
       theme = ./res/rofi-style.rasi;
       plugins = with pkgs; [
@@ -242,6 +247,7 @@ with lib; rec {
         rofi-power-menu
         rofi-bluetooth
         rofi-calc
+        rofi-pulse-select
       ];
     };
 
@@ -256,6 +262,15 @@ with lib; rec {
       enable = true;
       viAlias = true;
       vimAlias = true;
+    };
+
+    kitty = {
+        enable = true;
+        font = {
+            name = "FiraMono Nerd Font Mono";
+            size = 18;
+        };
+        theme = "Adwaita darker";
     };
 
     # GUI Apps

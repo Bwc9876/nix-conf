@@ -11,9 +11,6 @@
     ./computers/${hostName}/hardware-configuration.nix
   ];
 
-  # Enable firmware updating
-  services.fwupd.enable = true;
-
   boot = {
     loader.systemd-boot.enable = lib.mkForce false;
     bootspec.enable = true;
@@ -34,72 +31,61 @@
     kernelParams = ["lockdown=confidentiality"];
   };
 
-  networking.hostName = hostName;
-  home-manager.extraSpecialArgs.hostName = hostName;
+  networking = {
+    hostName = hostName;
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
+      ];
+    };
+  };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Open ports for KDE Connect
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
   };
 
   # Set the time zone.
   time.timeZone = "America/New_York";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  hardware.bluetooth.enable = true;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
-  services.logind.powerKey = "ignore";
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${hostName}\" --time --cmd ${pkgs.hyprland}/bin/Hyprland";
-        user = "bean";
+  services = {
+    logind.powerKey = "ignore";
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${hostName}\" --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+          user = "bean";
+        };
       };
     };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    printing.enable = true;
+    fwupd.enable = true;
   };
-
-  security.pam.services.gtklock.text = ''
-    auth            sufficient      pam_unix.so try_first_pass likeauth nullok
-    auth            sufficient      pam_fprintd.so
-    auth            include         login
-  '';
-
-  # Use Nushell
-  environment.shells = with pkgs; [nushell];
-  users.defaultUserShell = pkgs.nushell;
 
   # Use FiraMono Nerd Font
   fonts = {
-    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts-emoji];
+    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts-color-emoji];
     fontconfig = {
       enable = true;
       defaultFonts = rec {
@@ -112,15 +98,194 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.bean = {
-    isNormalUser = true;
-    description = "Benjamin Crocker";
-    extraGroups = ["networkmanager" "wheel" "video"];
-    shell = pkgs.nushell;
+  users = {
+    users.bean = {
+      isNormalUser = true;
+      description = "Benjamin Crocker";
+      extraGroups = ["networkmanager" "wheel" "video"];
+      shell = pkgs.nushell;
+    };
+    defaultUserShell = pkgs.nushell;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    git = {
+      enable = true;
+      config = {
+        init.defaultBranch = "main";
+        advice = {
+          addIgnoredFile = false;
+        };
+      };
+    };
+    hyprland = {
+      enable = true;
+    };
+  };
+
+  environment = {
+    pathsToLink = [
+      "/share/Kvantum"
+      "/share/icons"
+    ];
+    variables = {
+      EDITOR = "nvim";
+    };
+    shells = with pkgs; [nushell];
+    systemPackages = with pkgs; [
+      # Shell Stuff
+      nushell
+
+      # Hyprland Stuff
+      hyprland
+      xdg-desktop-portal-hyprland
+      wev
+      waybar
+      hyprpicker
+      hyprpaper
+      swaynotificationcenter
+      libsForQt5.polkit-kde-agent
+      (callPackage ./pkgs/swayosd.nix {})
+
+      ## Theming
+      libsForQt5.qt5ct
+      libsForQt5.qtstyleplugin-kvantum
+      (callPackage ./pkgs/theming.nix {})
+
+      ## Screenshot/Record
+      wl-screenrec
+      slurp
+      grimblast
+
+      ## GTK Lock
+      gtklock
+      gtklock-userinfo-module
+
+      ## Clipboard
+      wl-clipboard
+      cliphist
+
+      ## Rofi
+      rofi
+      rofi-emoji
+      rofi-power-menu
+      rofi-bluetooth
+      rofi-calc
+      rofi-pulse-select
+
+      # Useful CLI Tools
+      neofetch
+      hyfetch
+      lolcat
+      wget
+      xorg.xkill
+      cowsay
+      xcowsay
+      toilet
+      brightnessctl
+      playerctl
+
+      # Networking
+      nmap
+      dig
+      inetutils
+      speedtest-cli
+
+      # Apps
+      kitty
+      drawing
+      firefox-devedition
+      font-manager
+      obsidian
+      keepassxc
+      discord
+      spotify
+      partition-manager
+      qmplay2
+      gimp
+      inkscape
+      libreoffice-qt
+      peek
+      github-desktop
+      prismlauncher
+      virtualbox
+      lorien
+      tuxpaint
+      veusz
+      networkmanagerapplet
+
+      ## LibsForQt5
+      libsForQt5.dolphin
+      libsForQt5.kdenlive
+      libsForQt5.gwenview
+      libsForQt5.kruler
+      libsForQt5.kate
+      libsForQt5.filelight
+      libsForQt5.ark
+      libsForQt5.booth
+      libsForQt5.kmousetool
+      libsForQt5.kolourpaint
+      libsForQt5.soundkonverter
+      libsForQt5.kcalc
+
+      ## Games
+      libsForQt5.kmines
+      libsForQt5.kolf
+      libsForQt5.klines
+      libsForQt5.ksudoku
+      libsForQt5.kbreakout
+      libsForQt5.kmahjongg
+      ace-of-penguins
+
+      # Programming
+      git
+      vscode.fhs
+
+      ## Android
+      android-tools
+      android-studio
+
+      ## Python
+      python3
+      poetry
+      pipenv
+      black
+
+      ## Rust
+      rustc
+      cargo
+      cargo-tauri
+      rustfmt
+      clippy
+      mprocs
+      rust-analyzer
+
+      ## JavaScript
+      nodejs
+      nodePackages.pnpm
+      yarn
+
+      ## C/C++
+      gcc
+
+      ## JetBrains
+      jetbrains.rider
+      jetbrains.webstorm
+      jetbrains.rust-rover
+      jetbrains.pycharm-professional
+
+      ## Build Tools
+      pkg-config
+      just
+      nix-output-monitor
+      gnumake
+    ];
+  };
 
   # TODO: Remove this eventually
   # Use legacy renegotiation for wpa_supplicant because some things are silly geese
@@ -134,174 +299,18 @@
     Options = UnsafeLegacyRenegotiation
   '';
 
-  # Set some environment variables
-  environment.variables.EDITOR = "nvim";
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  security = {
+    pam.services.gtklock.text = ''
+      auth            sufficient      pam_unix.so try_first_pass likeauth nullok
+      auth            sufficient      pam_fprintd.so
+      auth            include         login
+    '';
+    rtkit.enable = true;
   };
 
-  programs.git = {
-    enable = true;
-    config = {
-      init.defaultBranch = "main";
-      advice = {
-        addIgnoredFile = false;
-      };
-    };
-  };
+  home-manager.extraSpecialArgs.hostName = hostName;
 
-  programs.hyprland = {
-    enable = true;
-  };
-
-  # List packages installed in system profile
-  environment.systemPackages = with pkgs; [
-    # Shell Stuff
-    nushell
-
-    # Hyprland Stuff
-    hyprland
-    xdg-desktop-portal-hyprland
-    wev
-    waybar
-    gtklock
-    rofi
-    rofi-emoji
-    rofi-power-menu
-    rofi-bluetooth
-    rofi-calc
-    wl-clipboard
-    cliphist
-    gtklock-userinfo-module
-    hyprpicker
-    hyprpaper
-    swaynotificationcenter
-    wl-screenrec
-    slurp
-    grimblast
-    drawing
-    libsForQt5.qt5ct
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.polkit-kde-agent
-    networkmanagerapplet
-    playerctl
-
-    # Useful CLI Tools
-    neofetch
-    hyfetch
-    lolcat
-    wget
-    xorg.xkill
-    cowsay
-    xcowsay
-    toilet
-    brightnessctl
-
-    # Networking
-    nmap
-    dig
-    inetutils
-    speedtest-cli
-
-    # Apps
-    kitty
-    firefox-devedition
-    font-manager
-    obsidian
-    keepassxc
-    discord
-    spotify
-    partition-manager
-    qmplay2
-    gimp
-    inkscape
-    libreoffice-qt
-    peek
-    github-desktop
-    prismlauncher
-    virtualbox
-    lorien
-    tuxpaint
-    veusz
-
-    ## LibsForQt5
-    libsForQt5.dolphin
-    libsForQt5.kdenlive
-    libsForQt5.gwenview
-    libsForQt5.kruler
-    libsForQt5.kate
-    libsForQt5.filelight
-    libsForQt5.ark
-    libsForQt5.booth
-    libsForQt5.kmousetool
-    libsForQt5.kolourpaint
-    libsForQt5.soundkonverter
-    libsForQt5.kcalc
-
-    ## Games
-    libsForQt5.kmines
-    libsForQt5.kolf
-    libsForQt5.klines
-    libsForQt5.ksudoku
-    libsForQt5.kbreakout
-    libsForQt5.kmahjongg
-    ace-of-penguins
-
-    # Programming
-    git
-    vscode.fhs
-
-    ## Android
-    android-tools
-    android-studio
-
-    ## Python
-    python3
-    poetry
-    pipenv
-    black
-
-    ## Rust
-    rustc
-    cargo
-    cargo-tauri
-    rustfmt
-    clippy
-    mprocs
-    rust-analyzer
-
-    ## JavaScript
-    nodejs
-    nodePackages.pnpm
-    yarn
-
-    ## C/C++
-    gcc
-
-    ## JetBrains
-    jetbrains.rider
-    jetbrains.webstorm
-    jetbrains.rust-rover
-    jetbrains.pycharm-professional
-
-    ## Build Tools
-    pkg-config
-    just
-    nix-output-monitor
-    gnumake
-
-    # Custom
-    (callPackage ./pkgs/theming.nix {})
-    (callPackage ./pkgs/swayosd.nix {})
-  ];
-
-  environment.pathsToLink = [
-    "/share/Kvantum"
-    "/share/icons"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "23.05";
 
