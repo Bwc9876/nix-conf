@@ -8,6 +8,9 @@
       "custom/right-arrow-dark",
       "custom/right-arrow-light",
       "user",
+      "custom/right-arrow-dark",
+      "custom/right-arrow-light",
+      "mpris",
       "custom/right-arrow-dark"
     ],
     "modules-center": [
@@ -23,13 +26,13 @@
     ],
     "modules-right": [
       "custom/left-arrow-dark",
-      "mpris",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
       "pulseaudio",
       "custom/left-arrow-light",
       "custom/left-arrow-dark",
       "battery",
+      "custom/left-arrow-light",
+      "custom/left-arrow-dark",
+      "custom/notification",
       "custom/left-arrow-light",
       "custom/left-arrow-dark",
       "tray"
@@ -92,12 +95,12 @@
       "format-paused": "{status_icon} {dynamic}"
     },
     "pulseaudio": {
-      "format": "{icon} {volume:2}%",
-      "format-bluetooth": "{icon}  {volume}% ",
-      "format-muted": "MUTE",
+      "format": "{icon} {volume:2}% 󱎔",
+      "format-bluetooth": "{icon}  {volume}% 󰂯",
+      "format-muted": "󰝟",
       "format-icons": {
-        "headphones": "",
-        "default": ["", ""]
+        "headphones": "󰋋",
+        "default": ["󰕿", "󰖀", "󰕾"]
       },
       "scroll-step": 5,
       "on-click": "pamixer -t",
@@ -110,11 +113,34 @@
         "critical": 15
       },
       "format": "{icon}  {capacity}%",
-      "format-icons": ["", "", "", "", ""]
+      "format-charging": "󱐋{icon} {capacity}%",
+      "format-critical": "{icon}󰈅 {capacity}%",
+      "format-critical-charging": "󱐋{icon} {capacity}%",
+      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "tray": {
       "icon-size": 20,
       "show-passive-items": true
-    }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='red'>󱅫</span>",
+          "none": "󰂚",
+          "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
+          "dnd-none": "󰂛",
+          "inhibited-notification": "󰵙<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "󰵙",
+          "dnd-inhibited-notification": "󰂛!<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": "󰂛!<span foreground='red'><sup></sup></span>"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+      }
   }
 ]

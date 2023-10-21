@@ -42,6 +42,7 @@ with lib; rec {
       "hyfetch.json".source = ./res/hyfetch.json;
       "gtk-3.0/settings.ini".source = ./res/gtk/settings.ini;
       "gtk-4.0/settings.ini".source = ./res/gtk/settings.ini;
+      swaync.source = ./res/swaync;
       "Kvantum/kvantum.kvconfig".text = ''
         [General]
         theme=Sweet-Ambar-Blue
@@ -125,7 +126,7 @@ with lib; rec {
       };
       misc = {
         enable_swallow = true;
-        swallow_regex = "^(kitty)$";
+        swallow_regex = "^(footclient)$";
         disable_hyprland_logo = true;
       };
       env = [
@@ -138,7 +139,7 @@ with lib; rec {
         "hyprpaper"
         "hyprctl setcursor Sweet-cursors 24"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "[workspace 2] keepassxc /home/bean/Documents/Database.kdbx"
+        "foot -s"
         "waybar"
         "wl-paste -p --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
@@ -146,10 +147,11 @@ with lib; rec {
         "swayosd-server"
         "nm-applet"
         "playerctld"
+        "[workspace 2] keepassxc /home/bean/Documents/Database.kdbx"
         "[workspace 1 silent] discord"
-        "[workspace 2] firefox"
-        "[workspace 3 silent] code ${home.homeDirectory}/nix-conf"
-        "[workspace 3 silent] kitty"
+      ];
+      windowrulev2 = [
+        "workspace 1 silent,class:(.*)discord(.*),title:(.*)Discord(.*)"
       ];
       bind = [
         "SUPER,S,exec,rofi -show drun -font \"FiraMono Nerd Font Mono 12\" -icon-theme \"candy-icons\" -show-icons"
@@ -162,7 +164,7 @@ with lib; rec {
         "SUPER,B,exec,rofi-bluetooth"
         "SUPER,Q,exec,firefox"
         "SUPER,E,exec,dolphin"
-        "SUPER,T,exec,kitty"
+        "SUPER,T,exec,footclient"
         "SUPER,N,exec,swaync-client -t -sw"
         "SUPER,L,exec,gtklock"
         "SUPER,C,killactive,"
@@ -234,6 +236,7 @@ with lib; rec {
         alias py = python
         alias cat = bat
         alias neofetch = hyfetch
+        alias screensaver = pipes-rs -k curved -p 10 --fps 30
       '';
     };
 
@@ -264,13 +267,49 @@ with lib; rec {
       vimAlias = true;
     };
 
-    kitty = {
-        enable = true;
-        font = {
-            name = "FiraMono Nerd Font Mono";
-            size = 18;
+    foot = {
+      enable = true;
+      settings = {
+        main = {
+          title = "Terminal (Foot)";
+          font = "monospace:size=16";
         };
-        theme = "Adwaita darker";
+        bell = {
+          visual = true;
+        };
+        cursor = {
+          style = "beam";
+          blink = true;
+        };
+        colors = {
+          background = "101013";
+          foreground = "fcfcfc";
+          regular0 = "444a4c";
+          bright0 = "444a4c";
+          dim0 = "444a4c";
+          regular1 = "ed254e";
+          bright1 = "ed254e";
+          dim1 = "ed254e";
+          regular2 = "71f79f";
+          bright2 = "71f79f";
+          dim2 = "71f79f";
+          regular3 = "fadd00";
+          bright3 = "fadd00";
+          dim3 = "fadd00";
+          regular4 = "0072ff";
+          bright4 = "0072ff";
+          dim4 = "0072ff";
+          regular5 = "d400dc";
+          bright5 = "d400dc";
+          dim5 = "d400dc";
+          regular6 = "00c1e4";
+          bright6 = "00c1e4";
+          dim6 = "00c1e4";
+          regular7 = "fcfcfc";
+          bright7 = "fcfcfc";
+          dim7 = "fcfcfc";
+        };
+      };
     };
 
     # GUI Apps

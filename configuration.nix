@@ -187,8 +187,10 @@
       cowsay
       xcowsay
       toilet
+      pipes-rs
       brightnessctl
       playerctl
+      libnotify
 
       # Networking
       nmap
@@ -197,7 +199,6 @@
       speedtest-cli
 
       # Apps
-      kitty
       drawing
       firefox-devedition
       font-manager

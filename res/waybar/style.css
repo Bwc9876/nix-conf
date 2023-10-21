@@ -28,6 +28,7 @@ window#waybar {
 #battery,
 #disk,
 #user,
+#custom-notification,
 #mpris,
 #tray {
   background: #1a1a1a;
@@ -68,14 +69,19 @@ window#waybar {
 #mpris {
   color: greenyellow;
 }
+#custom-notification {
+  color: rgb(149, 87, 149);
+}
 
+#tray,
+#custom-notification,
+#user,
 #clock,
 #pulseaudio,
 #memory,
 #cpu,
 #battery,
-#user,
 #mpris,
 #disk {
-  padding: 0 10px;
+  padding: 0px 12px;
 }
