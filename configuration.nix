@@ -4,6 +4,7 @@
   pkgs,
   hostName,
   ags,
+  inputs,
   ...
 }: {
   imports = [
@@ -253,6 +254,7 @@
 
       ## Python
       python3
+      python311Packages.django
       poetry
       pipenv
       black
@@ -317,6 +319,7 @@
 
   nix = {
     settings = {
+      nix-path = "nixpkgs=${inputs.nixpkgs}";
       experimental-features = [
         "nix-command"
         "flakes"

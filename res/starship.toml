@@ -15,7 +15,8 @@ $git_state)\
 ([](bg:grey #999999)\
 $nodejs\
 $python\
-$rust)](bg:grey)\
+$rust\
+$nix_shell)](bg:grey)\
 [ ](grey)"""
 
 right_format = """
@@ -99,6 +100,13 @@ format = '[ $symbol ($version) ]($style)'
 symbol = ""
 style = "bg:grey footer"
 format = '[ $symbol ($version) ]($style)'
+
+[nix_shell]
+impure_msg = '[ impure](bold red bg:grey)'
+pure_msg = '[](bold green)'
+unknown_msg = '[ unknown](bold yellow bg:grey)'
+style = "bg:grey footer"
+format = '[ $state ](bold blue bg:grey) '
 
 [character]
 disabled = false
