@@ -7,6 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
+    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
   };
 
   outputs = inputs @ {
@@ -15,8 +19,9 @@
     home-manager,
     nixos-hardware,
     lanzaboote,
-  }: rec {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    hyprland,
+    hyprland-plugins,
+  }: let
     globalModules = [
       # Load lanzaboote for Secure Boot
       lanzaboote.nixosModules.lanzaboote
@@ -31,20 +36,25 @@
         home-manager.users.bean = import ./home.nix;
       }
     ];
+    system = "x86_64-linux";
+  in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations.b-pc-tower = nixpkgs.lib.nixosSystem {
       specialArgs = {
         hostName = "b-pc-tower";
         inputs = inputs;
+        system = system;
       };
-      system = "x86_64-linux";
+      system = system;
       modules = globalModules ++ [];
     };
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
       specialArgs = {
         hostName = "b-pc-laptop";
         inputs = inputs;
+        system = system;
       };
-      system = "x86_64-linux";
+      system = system;
       modules =
         globalModules
         ++ [

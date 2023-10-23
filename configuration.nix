@@ -5,6 +5,7 @@
   hostName,
   ags,
   inputs,
+  system,
   ...
 }: {
   imports = [
@@ -70,8 +71,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${hostName}\" --time --cmd ${pkgs.hyprland}/bin/Hyprland";
-          user = "bean";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${hostName}\" --time --cmd Hyprland";
         };
       };
     };
@@ -125,9 +125,6 @@
         };
       };
     };
-    hyprland = {
-      enable = true;
-    };
   };
 
   environment = {
@@ -144,8 +141,7 @@
       nushell
 
       # Hyprland Stuff
-      hyprland
-      xdg-desktop-portal-hyprland
+      # xdg-desktop-portal-hyprland
       wev
       waybar
       hyprpicker
@@ -168,7 +164,6 @@
       gtklock
       gtklock-userinfo-module
       swayidle # For locking when idle
-      
 
       ## Clipboard
       wl-clipboard
@@ -314,14 +309,25 @@
     rtkit.enable = true;
   };
 
-  home-manager.extraSpecialArgs.hostName = hostName;
+  home-manager.extraSpecialArgs = {
+    hostName = hostName;
+    inputs = inputs;
+    system = system;
+  };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    overlays = [
+      inputs.hyprland.overlays.default
+    ];
+  };
 
   system.stateVersion = "23.05";
 
   nix = {
     settings = {
+      substituters = ["https://hyprland.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
       nix-path = "nixpkgs=${inputs.nixpkgs}";
       experimental-features = [
         "nix-command"
