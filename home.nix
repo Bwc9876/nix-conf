@@ -43,19 +43,24 @@ with lib; rec {
       "gtk-3.0/settings.ini".source = ./res/gtk/settings.ini;
       "gtk-4.0/settings.ini".source = ./res/gtk/settings.ini;
       swaync.source = ./res/swaync;
+      "swayidle/config".source = ./res/swayidle;
       "Kvantum/kvantum.kvconfig".text = ''
         [General]
         theme=Sweet-Ambar-Blue
       '';
       "gtklock/config.ini".text = ''
         [main]
-        time-format=%I:%M %p\n%A %B %d
+        time-format=%I:%M %p
         gtk-theme=Sweet-Ambar-Blue
         background=${./res/pictures/background.jpg}
         idle-hide=true
         style=${./res/gtklock-style.css}
         start-hidden=true
         modules=/run/current-system/sw/lib/gtklock/userinfo-module.so
+
+        [userinfo]
+        vertical-layout=false
+        under-clock=true
       '';
       "kdeconnect/config".text = ''
         [General]
@@ -145,6 +150,7 @@ with lib; rec {
         "wl-paste --type image --watch cliphist store"
         "swaync"
         "swayosd-server"
+        "swayidle -w"
         "nm-applet"
         "playerctld"
         "[workspace 2] keepassxc /home/bean/Documents/Database.kdbx"
@@ -154,7 +160,7 @@ with lib; rec {
         "workspace 1 silent,class:(.*)discord(.*),title:(.*)Discord(.*)"
       ];
       bind = [
-        "SUPER,S,exec,rofi -show drun -font \"FiraMono Nerd Font Mono 12\" -icon-theme \"candy-icons\" -show-icons"
+        "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"
         "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
         "SUPER,Delete,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
         ",XF86PowerOff,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
@@ -169,9 +175,11 @@ with lib; rec {
         "SUPER,L,exec,gtklock"
         "SUPER,C,killactive,"
         "SUPER,D,exec,code"
-        "SUPER,M,exit,"
         "SUPER,V,exec,cliphist list | rofi -dmenu | cliphist decode | wl-copy,"
         "SUPER,P,pseudo,"
+        "SUPER,R,togglefloating,"
+        "SUPER,F,fullscreen,1"
+        "SUPER SHIFT,F,fullscreen,0"
         "SUPER,J,togglesplit,"
         "SUPER,left,movefocus,l"
         "SUPER,right,movefocus,r"

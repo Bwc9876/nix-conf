@@ -64,6 +64,7 @@
   sound.enable = true;
 
   services = {
+    accounts-daemon.enable = true;
     logind.powerKey = "ignore";
     greetd = {
       enable = true;
@@ -166,6 +167,8 @@
       ## GTK Lock
       gtklock
       gtklock-userinfo-module
+      swayidle # For locking when idle
+      
 
       ## Clipboard
       wl-clipboard
@@ -192,6 +195,7 @@
       brightnessctl
       playerctl
       libnotify
+      perl536Packages.TextLorem
 
       # Networking
       nmap
@@ -207,7 +211,6 @@
       keepassxc
       discord
       spotify
-      partition-manager
       qmplay2
       gimp
       inkscape

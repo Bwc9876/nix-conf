@@ -103,7 +103,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [nix_shell]
 impure_msg = '[ impure](bold red bg:grey)'
-pure_msg = '[](bold green)'
+pure_msg = '[](bold green bg:grey)'
 unknown_msg = '[ unknown](bold yellow bg:grey)'
 style = "bg:grey footer"
 format = '[ $state ](bold blue bg:grey) '
