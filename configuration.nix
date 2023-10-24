@@ -141,7 +141,6 @@
       nushell
 
       # Hyprland Stuff
-      # xdg-desktop-portal-hyprland
       wev
       waybar
       hyprpicker

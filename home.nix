@@ -309,7 +309,7 @@ with lib; rec {
       settings = {
         main = {
           title = "Terminal (Foot)";
-          font = "monospace:size=16";
+          font = "FiraMono Nerd Font Mono:size=16";
         };
         bell = {
           visual = true;
