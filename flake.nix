@@ -11,6 +11,8 @@
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    ow-mod-man.url = "github:ow-mods/ow-mod-man-flake";
+    ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -21,6 +23,7 @@
     lanzaboote,
     hyprland,
     hyprland-plugins,
+    ow-mod-man,
   }: let
     globalModules = [
       # Load lanzaboote for Secure Boot

@@ -87,13 +87,13 @@
 
   # Use FiraMono Nerd Font
   fonts = {
-    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts-color-emoji];
+    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts noto-fonts-color-emoji];
     fontconfig = {
       enable = true;
       defaultFonts = rec {
-        serif = ["FiraMono Nerd Font Mono" "Noto Color Emoji"];
+        serif = ["Noto Sans" "FiraMono Nerd Font Mono" "Noto Color Emoji"];
         sansSerif = serif;
-        monospace = serif;
+        monospace = ["Noto Sans Mono" "FiraCode Nerd Font Mono" "Noto Color Emoji"];
         emoji = ["Noto Color Emoji"];
       };
     };
@@ -158,6 +158,7 @@
       wl-screenrec
       slurp
       grimblast
+      swappy
 
       ## GTK Lock
       gtklock
@@ -218,6 +219,10 @@
       veusz
       networkmanagerapplet
 
+      ## Mod Manager
+    #   inputs.ow-mod-man.packages.${system}.owmods-cli
+    #   inputs.ow-mod-man.packages.${system}.owmods-gui
+
       ## LibsForQt5
       libsForQt5.dolphin
       libsForQt5.kdenlive
@@ -272,6 +277,9 @@
 
       ## C/C++
       gcc
+
+      ## .NET
+      mono
 
       ## JetBrains
       jetbrains.rider
