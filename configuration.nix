@@ -176,12 +176,15 @@
       rofi-bluetooth
       rofi-calc
       rofi-pulse-select
+      (callPackage ./pkgs/rofi-code.nix {})
+      (callPackage ./pkgs/rofi-systemd.nix {})
 
       # Useful CLI Tools
       neofetch
       hyfetch
       lolcat
       wget
+      jq
       xorg.xkill
       cowsay
       xcowsay
