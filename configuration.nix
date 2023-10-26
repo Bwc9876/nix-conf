@@ -20,6 +20,7 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelPatches = [
       {
         name = "kernel-lockdown";
@@ -219,7 +220,6 @@
       virtualbox
       lorien
       tuxpaint
-      veusz
       networkmanagerapplet
 
       ## Mod Manager
