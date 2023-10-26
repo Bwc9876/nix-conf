@@ -223,8 +223,8 @@
       networkmanagerapplet
 
       ## Mod Manager
-    #   inputs.ow-mod-man.packages.${system}.owmods-cli
-    #   inputs.ow-mod-man.packages.${system}.owmods-gui
+      #   inputs.ow-mod-man.packages.${system}.owmods-cli
+      #   inputs.ow-mod-man.packages.${system}.owmods-gui
 
       ## LibsForQt5
       libsForQt5.dolphin
@@ -335,6 +335,7 @@
   system.stateVersion = "23.05";
 
   nix = {
+    registry.p.flake = inputs.self;
     settings = {
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
