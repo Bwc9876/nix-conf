@@ -78,8 +78,10 @@
     };
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
       pulse.enable = true;
     };
     printing.enable = true;
@@ -121,10 +123,16 @@
       enable = true;
       config = {
         init.defaultBranch = "main";
+        commit.gpgSign = true;
+        user.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKsVzdJra+x5aEuwTjL1FBOiMh9bftvs8QwsM1xyEbdd bean@b-pc-laptop";
         advice = {
           addIgnoredFile = false;
         };
+        gpg.format = "ssh";
       };
+    };
+    ssh = {
+        startAgent = true;
     };
   };
 

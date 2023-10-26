@@ -364,12 +364,6 @@ with lib; rec {
 
   # Enable KDE Connect
   services = {
-    ssh-agent.enable = true;
     kdeconnect.enable = true;
-    gpg-agent = {
-      enable = true;
-      defaultCacheTtl = 1800;
-      enableSshSupport = true;
-    };
   };
 }
