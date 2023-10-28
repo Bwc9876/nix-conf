@@ -39,6 +39,36 @@ with lib; rec {
       music = "${home.homeDirectory}/Music";
     };
     configFile = {
+      kdeglobals.text = ''
+        [KDE]
+        ShowDeleteCommand=false
+
+        [General]
+        TerminalApplication=footclient
+
+        [KFileDialog Settings]
+        Allow Expansion=false
+        Automatically select filename extension=true
+        Breadcrumb Navigation=true
+        Decoration position=2
+        LocationCombo Completionmode=5
+        PathCombo Completionmode=5
+        Show Bookmarks=false
+        Show Full Path=false
+        Show Inline Previews=true
+        Show Preview=false
+        Show Speedbar=true
+        Show hidden files=false
+        Sort by=Name
+        Sort directories first=true
+        Sort hidden files last=false
+        Sort reversed=false
+        Speedbar Width=196
+        View Style=DetailTree
+
+        [PreviewSettings]
+        MaximumRemoteSize=0
+      '';
       "qt5ct/qt5ct.conf".source = ./res/qt5ct.conf;
       waybar.source = ./res/waybar;
       "hyfetch.json".source = ./res/hyfetch.json;
@@ -76,26 +106,47 @@ with lib; rec {
     };
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        "text/html" = ["firefox.desktop" "chromium.desktop"];
-        "x-scheme-handler/http" = ["firefox.desktop" "chromium.desktop"];
-        "x-scheme-handler/https" = ["firefox.desktop" "chromium.desktop"];
-        "x-scheme-handler/chrome" = ["firefox.desktop" "chromium.desktop"];
-        "x-scheme-handler/vscode" = ["code-url-handler.desktop"];
-        "application/x-extension-htm" = ["firefox.desktop" "chromium.desktop"];
-        "application/x-extension-html" = ["firefox.desktop" "chromium.desktop"];
-        "application/x-extension-shtml" = ["firefox.desktop" "chromium.desktop"];
-        "application/x-extension-xht" = ["firefox.desktop" "chromium.desktop"];
-        "application/x-extension-xhtml" = ["firefox.desktop" "chromium.desktop"];
-        "application/xhtml+xml" = ["firefox.desktop" "chromium.desktop"];
-        "application/pdf" = ["firefox.desktop" "chromium.desktop"];
+      defaultApplications = let
+        textEditors = ["code.desktop"];
+        browsers = ["firefox.desktop" "chromium.desktop"];
+        mailClients = ["userapp-Thunderbird-WKLTC2.desktop"];
+        imageViewers = ["com.github.weclaw1.ImageRoll.desktop" "gimp.desktop"];
+      in {
         "inode/directory" = ["org.kde.dolphin.desktop"];
-        "x-scheme-handler/mailto" = ["userapp-Thunderbird-WKLTC2.desktop"];
-        "message/rfc822" = ["userapp-Thunderbird-WKLTC2.desktop"];
-        "x-scheme-handler/mid" = ["userapp-Thunderbird-WKLTC2.desktop"];
-        "text/plain" = ["org.kde.kate.desktop"];
+        "text/plain" = textEditors;
+        "text/markdown" = textEditors;
+        "text/x-markdown" = textEditors;
+        "text/x-readme" = textEditors;
+        "text/x-changelog" = textEditors;
+        "text/x-copying" = textEditors;
+        "text/x-install" = textEditors;
+        "text/html" = browsers;
+        "image/png" = imageViewers;
+        "image/jpeg" = imageViewers;
+        "image/gif" = imageViewers;
+        "image/bmp" = imageViewers;
+        "image/x-portable-pixmap" = imageViewers;
+        "image/x-portable-bitmap" = imageViewers;
+        "image/x-portable-graymap" = imageViewers;
+        "image/x-portable-anymap" = imageViewers;
+        "image/svg+xml" = imageViewers;
+        "x-terminal-emulator" = ["foot"];
+        "x-scheme-handler/http" = browsers;
+        "x-scheme-handler/https" = browsers;
+        "x-scheme-handler/chrome" = browsers;
+        "x-scheme-handler/vscode" = ["code-url-handler.desktop"];
+        "x-scheme-handler/mailto" = mailClients;
         "x-scheme-handler/x-github-client" = ["github-desktop.desktop"];
+        "x-scheme-handler/mid" = mailClients;
         "x-scheme-handler/x-github-desktop-auth" = ["github-desktop.desktop"];
+        "application/x-extension-htm" = browsers;
+        "application/x-extension-html" = browsers;
+        "application/x-extension-shtml" = browsers;
+        "application/x-extension-xht" = browsers;
+        "application/x-extension-xhtml" = browsers;
+        "application/xhtml+xml" = browsers;
+        "application/pdf" = browsers;
+        "message/rfc822" = mailClients;
       };
     };
   };
@@ -138,6 +189,7 @@ with lib; rec {
         enable_swallow = true;
         swallow_regex = "^(footclient)$";
         disable_hyprland_logo = true;
+        focus_on_activate = true;
       };
       env = [
         "GTK_THEME,Sweet-Ambar-Blue:dark"

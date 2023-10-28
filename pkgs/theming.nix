@@ -1,4 +1,5 @@
 {
+  gtk3,
   runCommand,
   fetchFromGitHub,
 }: let
@@ -24,6 +25,7 @@ in
     mkdir -p $out/share/icons/candy-icons
     cp -r ${icons-src}/* $out/share/icons/candy-icons
 
+
     # Cursor Theme
     tar -xf ${cursor-src} -C $out/share/icons
 
@@ -38,4 +40,7 @@ in
     cp -r ${src}/gtk-4.0 $out/share/themes/Sweet-Ambar-Blue
     cp -r ${src}/assets $out/share/themes/Sweet-Ambar-Blue
     cp -r ${src}/index.theme $out/share/themes/Sweet-Ambar-Blue
+
+    ${gtk3}/bin/gtk-update-icon-cache -f -t $out/share/icons/candy-icons
+    ${gtk3}/bin/gtk-update-icon-cache -f -t $out/share/icons/Sweet-cursors
   ''

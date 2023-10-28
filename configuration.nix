@@ -132,7 +132,7 @@
       };
     };
     ssh = {
-        startAgent = true;
+      startAgent = true;
     };
   };
 
@@ -162,6 +162,7 @@
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
       (callPackage ./pkgs/theming.nix {})
+      gnome.adwaita-icon-theme # For fallback
 
       ## Screenshot/Record
       wl-screenrec
@@ -202,6 +203,7 @@
       brightnessctl
       playerctl
       libnotify
+      file
       perl536Packages.TextLorem
 
       # Networking
@@ -229,6 +231,7 @@
       lorien
       tuxpaint
       networkmanagerapplet
+      image-roll
 
       ## Mod Manager
       #   inputs.ow-mod-man.packages.${system}.owmods-cli
@@ -237,24 +240,11 @@
       ## LibsForQt5
       libsForQt5.dolphin
       libsForQt5.kdenlive
-      libsForQt5.gwenview
-      libsForQt5.kruler
-      libsForQt5.kate
       libsForQt5.filelight
       libsForQt5.ark
-      libsForQt5.booth
       libsForQt5.kmousetool
-      libsForQt5.kolourpaint
-      libsForQt5.soundkonverter
-      libsForQt5.kcalc
 
       ## Games
-      libsForQt5.kmines
-      libsForQt5.kolf
-      libsForQt5.klines
-      libsForQt5.ksudoku
-      libsForQt5.kbreakout
-      libsForQt5.kmahjongg
       ace-of-penguins
 
       # Programming
