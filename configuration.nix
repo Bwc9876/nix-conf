@@ -96,8 +96,8 @@
       defaultFonts = rec {
         serif = ["Noto Sans" "FiraMono Nerd Font Mono" "Noto Color Emoji"];
         sansSerif = serif;
-        monospace = ["Noto Sans Mono" "FiraCode Nerd Font Mono" "Noto Color Emoji"];
-        emoji = ["Noto Color Emoji"];
+        monospace = ["FiraCode Nerd Font Mono" "Noto Sans Mono" "Noto Color Emoji"];
+        emoji = ["FiraCode Nerd Font Mono" "Noto Color Emoji"];
       };
     };
   };
@@ -151,12 +151,15 @@
 
       # Hyprland Stuff
       wev
-      waybar
       hyprpicker
       hyprpaper
       swaynotificationcenter
       libsForQt5.polkit-kde-agent
       (callPackage ./pkgs/swayosd.nix {})
+
+      ## Waybar
+      inputs.waybar.packages.${system}.waybar
+      qt6.qttools
 
       ## Theming
       libsForQt5.qt5ct
@@ -224,7 +227,6 @@
       gimp
       inkscape
       libreoffice-qt
-      peek
       github-desktop
       prismlauncher
       virtualbox
@@ -234,7 +236,7 @@
       image-roll
 
       ## Mod Manager
-      #   inputs.ow-mod-man.packages.${system}.owmods-cli
+      inputs.ow-mod-man.packages.${system}.owmods-cli
       #   inputs.ow-mod-man.packages.${system}.owmods-gui
 
       ## LibsForQt5
@@ -327,6 +329,7 @@
     allowUnfree = true;
     overlays = [
       inputs.hyprland.overlays.default
+      inputs.waybar.overalys.default
     ];
   };
 

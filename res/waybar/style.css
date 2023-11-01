@@ -29,6 +29,9 @@ window#waybar {
 #disk,
 #user,
 #custom-notification,
+#custom-weather,
+#custom-cpu-governor,
+#custom-kde-connect,
 #mpris,
 #tray {
   background: #1a1a1a;
@@ -72,6 +75,14 @@ window#waybar {
 #custom-notification {
   color: rgb(149, 87, 149);
 }
+#custom-kde-connect {
+    color: rgb(255, 132, 234);
+}
+
+#custom-cpu-governor {
+    color: rgb(255, 196, 88);
+    padding: 0 5px;
+}
 
 #tray,
 #custom-notification,
@@ -81,6 +92,8 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
+#custom-weather,
+#custom-kde-connect,
 #mpris,
 #disk {
   padding: 0px 12px;
