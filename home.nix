@@ -39,47 +39,15 @@ with lib; rec {
       music = "${home.homeDirectory}/Music";
     };
     configFile = {
-      kdeglobals.text = ''
-        [KDE]
-        ShowDeleteCommand=false
-
-        [General]
-        TerminalApplication=footclient
-
-        [KFileDialog Settings]
-        Allow Expansion=false
-        Automatically select filename extension=true
-        Breadcrumb Navigation=true
-        Decoration position=2
-        LocationCombo Completionmode=5
-        PathCombo Completionmode=5
-        Show Bookmarks=false
-        Show Full Path=false
-        Show Inline Previews=true
-        Show Preview=false
-        Show Speedbar=true
-        Show hidden files=false
-        Sort by=Name
-        Sort directories first=true
-        Sort hidden files last=false
-        Sort reversed=false
-        Speedbar Width=196
-        View Style=DetailTree
-
-        [PreviewSettings]
-        MaximumRemoteSize=0
-      '';
-      "qt5ct/qt5ct.conf".source = ./res/qt5ct.conf;
+      kdeglobals.source = ./res/kdeglobals;
       waybar.source = ./res/waybar;
+      swaync.source = ./res/swaync;
+      "qt5ct/qt5ct.conf".source = ./res/qt5ct.conf;
       "hyfetch.json".source = ./res/hyfetch.json;
       "gtk-3.0/settings.ini".source = ./res/gtk/settings.ini;
       "gtk-4.0/settings.ini".source = ./res/gtk/settings.ini;
-      swaync.source = ./res/swaync;
       "swayidle/config".source = ./res/swayidle;
-      "Kvantum/kvantum.kvconfig".text = ''
-        [General]
-        theme=Sweet-Ambar-Blue
-      '';
+      "keepassxc/keepassxc.ini".source = ./res/keepassxc.ini;
       "gtklock/config.ini".text = ''
         [main]
         time-format=%I:%M %p
@@ -94,9 +62,13 @@ with lib; rec {
         vertical-layout=false
         under-clock=true
       '';
+      "Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=Sweet-Ambar-Blue
+      '';
       "kdeconnect/config".text = ''
         [General]
-        name=${hostName}
+        name=${lib.toUpper hostName}
       '';
       "hypr/hyprpaper.conf".text = ''
         ipc = off

@@ -71,7 +71,23 @@
 
     "hyprland/workspaces": {
       "disable-scroll": true,
-      "format": "{name}"
+      "format": "{windows}{icon}  ",
+      "format-icons": {
+        "default": "",
+        "empty": "",
+      },
+      "window-rewrite-default": "󰘔",
+      "window-rewrite": {
+        "firefox": "󰈹",
+        "code": "󰨞",
+        "foot": "",
+        "footclient": "",
+        "dolphin": "󰉋",
+        "[dD]iscord": "󰙯",
+        "obsidian": "󰠮",
+        "keepassxc": "󱕴",
+        "[sS]team": ""
+      }
     },
 
     "clock#1": {
@@ -100,8 +116,8 @@
       "dynamic-order": ["title", "artist", "album", "position", "length"],
       "dynamic-importance-order": [
         "title",
-        "artist",
         "position",
+        "artist",
         "length",
         "album"
       ],
@@ -115,7 +131,7 @@
       "format-muted": "󰝟",
       "format-icons": {
         "headphones": "󰋋",
-        "default": ["󰕿", "󰖀", "󰕾"]
+        "default": ["󰖀", "󰕾"]
       },
       "scroll-step": 5,
       "on-click": "pamixer -t",
@@ -145,10 +161,10 @@
         "none": "󰂚",
         "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
         "dnd-none": "󰂛",
-        "inhibited-notification": "󰵙<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "󰵙",
-        "dnd-inhibited-notification": "󰂛!<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": "󰂛!"
+        "inhibited-notification": "󰂠<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "󰂠",
+        "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": "󰂛"
       },
       "max-length": 3,
       "return-type": "json",
@@ -179,7 +195,7 @@
       "signal": 8,
       "format-icons": {
         "perf": "󰡴",
-        "powersave": "󱈑"
+        "powersave": "󰡳"
       },
       "on-click": "sh ~/.config/waybar/custom_modules/cpu-governor.sh switch"
     }

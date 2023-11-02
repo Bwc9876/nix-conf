@@ -35,7 +35,7 @@
   };
 
   networking = {
-    hostName = hostName;
+    hostName = lib.toUpper hostName;
     networkmanager.enable = true;
     firewall = {
       enable = true;
@@ -65,6 +65,22 @@
   # Enable sound with pipewire.
   sound.enable = true;
 
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
   services = {
     accounts-daemon.enable = true;
     logind.powerKey = "ignore";
@@ -72,7 +88,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${hostName}\" --time --cmd Hyprland";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${lib.toUpper hostName}\" --time --cmd Hyprland";
         };
       };
     };
@@ -154,7 +170,6 @@
       hyprpicker
       hyprpaper
       swaynotificationcenter
-      libsForQt5.polkit-kde-agent
       (callPackage ./pkgs/swayosd.nix {})
 
       ## Waybar
