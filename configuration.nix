@@ -173,7 +173,7 @@
       (callPackage ./pkgs/swayosd.nix {})
 
       ## Waybar
-      inputs.waybar.packages.${system}.waybar
+      waybar # inputs.waybar.packages.${system}.waybar
       qt6.qttools
 
       ## Theming
@@ -344,7 +344,7 @@
     allowUnfree = true;
     overlays = [
       inputs.hyprland.overlays.default
-      inputs.waybar.overalys.default
+      # inputs.waybar.overalys.default
     ];
   };
 
