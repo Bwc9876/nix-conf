@@ -48,6 +48,7 @@ with lib; rec {
       "gtk-4.0/settings.ini".source = ./res/gtk/settings.ini;
       "swayidle/config".source = ./res/swayidle;
       "keepassxc/keepassxc.ini".source = ./res/keepassxc.ini;
+      "discord/settings.json".text = "{ \"SKIP_HOST_UPDATE\": true }";
       "gtklock/config.ini".text = ''
         [main]
         time-format=%I:%M %p
