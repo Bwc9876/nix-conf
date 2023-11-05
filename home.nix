@@ -206,6 +206,7 @@ with lib; rec {
         "SUPER,D,exec,rofi-code"
         "SUPER,Q,exec,firefox"
         "SUPER,E,exec,dolphin"
+        ",XF86AudioMedia,exec,footclient"
         "SUPER,T,exec,footclient"
         "SUPER,N,exec,swaync-client -t -sw"
         "SUPER,L,exec,gtklock"
@@ -241,6 +242,7 @@ with lib; rec {
         "SUPER SHIFT,8,movetoworkspace,8"
         "SUPER SHIFT,9,movetoworkspace,9"
         "SUPER SHIFT,0,movetoworkspace,10"
+        ",Print,exec,grimblast --freeze save area - | swappy -f -"
         "SUPER SHIFT,S,exec,grimblast --freeze save area - | swappy -f -"
         "SUPER SHIFT,R,exec,wl-screenrec -g \"$(slurp)\""
         "SUPER SHIFT,C,exec,hyprpicker"
@@ -248,6 +250,11 @@ with lib; rec {
       ];
       bindl = [
         ",switch:Lid Switch,exec,gtklock"
+        ",XF86AudioPlay,exec,playerctl play-pause"
+        ",XF86AudioPause,exec,playerctl pause"
+        ",XF86AudioStop,exec,playerctl stop"
+        ",XF86AudioNext,exec,playerctl next"
+        ",XF86AudioPrev,exec,playerctl previous"
       ];
       binde = [
         ",XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise"
@@ -266,9 +273,13 @@ with lib; rec {
       "plugin:hyprbars" = {
         bar_height = 30;
         bar_text_size = 10;
-        buttons = {
-          button_size = 14;
-        };
+        hyprbars-button = [
+            "rgb(ff4040), 14, 󰅖, hyprctl dispatch killactive"
+            "rgb(eeee11), 14, 󰖯, hyprctl dispatch fullscreen 1"
+            "rgb(05bf9d), 14, 󰨦, hyprctl dispatch togglefloating"
+            "rgb(3374d6), 14, 󰁔, hyprctl dispatch swapnext"
+            "rgb(3374d6), 14, , hyprctl dispatch swapnext prev"
+        ];
       };
       "plugin:borders-plus-plus" = lib.mkIf superAwesomeUltraMegaGayMode {
         add_borders = 9;
