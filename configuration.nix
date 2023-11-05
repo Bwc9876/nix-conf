@@ -20,7 +20,7 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_5; # <-- Temp until 6.6 is fixed
     kernelPatches = [
       {
         name = "kernel-lockdown";
@@ -331,6 +331,7 @@
       auth            sufficient      pam_fprintd.so
       auth            include         login
     '';
+    polkit.enable = true;
     rtkit.enable = true;
   };
 
