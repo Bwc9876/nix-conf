@@ -20,7 +20,7 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-    kernelPackages = pkgs.linuxPackages_6_5; # <-- Temp until 6.6 is fixed
+    kernelPackages = pkgs.linuxPackages_latest; # <-- Temp until 6.6 is fixed
     kernelPatches = [
       {
         name = "kernel-lockdown";
