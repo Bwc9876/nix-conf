@@ -37,6 +37,20 @@
         "type": "github"
       }
     },
+    "flake-compat_2": {
+      "locked": {
+        "lastModified": 1696426674,
+        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
+        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
+        "revCount": 57,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -145,11 +159,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1699136709,
-        "narHash": "sha256-7G7Z/q3nyZLa0Nb7Kle6PFpWzdvfEQBv1h7W5JCSfyM=",
+        "lastModified": 1699144342,
+        "narHash": "sha256-QqWHFZCIyEKrMt0M/ErboC4uL3ASDNDDJjBw5O7MXhw=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "56dec1c6a28c59b11c00e1b727517484ec4fb5ac",
+        "rev": "3b786419d817a76b834d5e010afbed4d0cf98804",
         "type": "github"
       },
       "original": {
@@ -309,22 +323,24 @@
     },
     "ow-mod-man": {
       "inputs": {
+        "flake-compat": "flake-compat_2",
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1695839772,
-        "narHash": "sha256-uE4kptqH5iYDZSw3CvKQRpuiqbfQ4XQl07+EPaqDOXQ=",
+        "lastModified": 1699059422,
+        "narHash": "sha256-/1hB34BMl+yk4/784P+M7eNSpfExErz1xs65q5aMwK0=",
         "owner": "ow-mods",
-        "repo": "ow-mod-man-flake",
-        "rev": "68baac7c19bad17126e28d05f3ef92040fa6ddfe",
+        "repo": "ow-mod-man",
+        "rev": "ce53e97f15c3c9219978546059478be724b15f5b",
         "type": "github"
       },
       "original": {
         "owner": "ow-mods",
-        "repo": "ow-mod-man-flake",
+        "ref": "dev",
+        "repo": "ow-mod-man",
         "type": "github"
       }
     },

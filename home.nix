@@ -191,6 +191,7 @@ with lib; rec {
       ];
       windowrulev2 = [
         "workspace 1 silent,class:(.*)discord(.*),title:(.*)Discord(.*)"
+        "idleinhibit fullscreen,class:(.*),title:(.*)"
       ];
       bind = [
         "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"

@@ -249,10 +249,11 @@
       tuxpaint
       networkmanagerapplet
       image-roll
+      pavucontrol
 
       ## Mod Manager
       inputs.ow-mod-man.packages.${system}.owmods-cli
-      #   inputs.ow-mod-man.packages.${system}.owmods-gui
+      # inputs.ow-mod-man.packages.${system}.owmods-gui
 
       ## LibsForQt5
       libsForQt5.dolphin

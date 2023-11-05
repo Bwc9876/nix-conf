@@ -28,6 +28,7 @@ window#waybar {
 #battery,
 #disk,
 #user,
+#idle_inhibitor,
 #custom-notification,
 #custom-weather,
 #custom-cpu-governor,
@@ -72,6 +73,9 @@ window#waybar {
 #mpris {
   color: greenyellow;
 }
+#idle_inhibitor {
+  color: #7943dc;
+}
 #custom-notification {
   color: rgb(149, 87, 149);
 }
@@ -93,6 +97,7 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
+#idle_inhibitor,
 #custom-weather,
 #custom-kde-connect,
 #mpris,
