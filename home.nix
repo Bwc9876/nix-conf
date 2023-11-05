@@ -274,15 +274,15 @@ with lib; rec {
         bar_height = 30;
         bar_text_size = 10;
         hyprbars-button = [
-            "rgb(ff4040), 14, 󰅖, hyprctl dispatch killactive"
-            "rgb(eeee11), 14, 󰖯, hyprctl dispatch fullscreen 1"
-            "rgb(05bf9d), 14, 󰨦, hyprctl dispatch togglefloating"
-            "rgba(00000000), 14, |,"
-            "rgb(3374d6), 14, 󰁔, hyprctl dispatch swapnext"
-            "rgb(3374d6), 14, , hyprctl dispatch swapnext prev"
-            "rgba(00000000), 14, |,"
-            "rgb(775e93), 14, 󱞤, hyprctl dispatch movetoworkspace e+1"
-            "rgb(775e93), 14, 󱞢, hyprctl dispatch movetoworkspace e-1"
+          "rgb(ff4040), 14, 󰅖, hyprctl dispatch killactive"
+          "rgb(eeee11), 14, 󰖯, hyprctl dispatch fullscreen 1"
+          "rgb(05bf9d), 14, 󰨦, hyprctl dispatch togglefloating"
+          "rgba(00000000), 14, |,"
+          "rgb(3374d6), 14, 󰁔, hyprctl dispatch swapnext"
+          "rgb(3374d6), 14, , hyprctl dispatch swapnext prev"
+          "rgba(00000000), 14, |,"
+          "rgb(775e93), 14, 󱞤, hyprctl dispatch movetoworkspace e+1"
+          "rgb(775e93), 14, 󱞢, hyprctl dispatch movetoworkspace e-1"
         ];
       };
       "plugin:borders-plus-plus" = lib.mkIf superAwesomeUltraMegaGayMode {

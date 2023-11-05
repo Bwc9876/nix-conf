@@ -74,7 +74,7 @@
 
     "hyprland/workspaces": {
       "disable-scroll": true,
-      "format": "{windows}{icon}  ",
+      "format": "{windows}{icon} ",
       "format-icons": {
         "default": "",
         "empty": "",

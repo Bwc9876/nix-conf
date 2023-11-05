@@ -11,7 +11,8 @@
     # hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
-    # waybar.url = "github:Alexays/Waybar";
+    waybar.url = "github:Alexays/Waybar";
+    waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -24,7 +25,7 @@
     lanzaboote,
     hyprland,
     hyprland-plugins,
-    # waybar,
+    waybar,
     ow-mod-man,
   }: let
     globalModules = [
