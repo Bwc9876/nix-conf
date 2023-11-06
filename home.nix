@@ -40,6 +40,7 @@ with lib; rec {
     };
     configFile = {
       kdeglobals.source = ./res/kdeglobals;
+      dolphinrc.source = ./res/dolphinrc;
       waybar.source = ./res/waybar;
       swaync.source = ./res/swaync;
       "qt5ct/qt5ct.conf".source = ./res/qt5ct.conf;
@@ -170,6 +171,8 @@ with lib; rec {
       env = [
         "GTK_THEME,Sweet-Ambar-Blue:dark"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "IMAGE_EDITOR,/run/current-system/sw/bin/drawing"
       ];
       exec-once = [

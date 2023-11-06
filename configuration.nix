@@ -62,13 +62,13 @@
         {
           name = "RamPrint";
           description = "RamPrint";
-          deviceUri = "smb://wcuprintp01.wcupa.net/RamPrint";
+          deviceUri = "https://bc1016579@wcuprintp01.wcupa.net:9164/printers/RamPrint";
           model = "drv:///sample.drv/generic.ppd";
         }
         {
           name = "FHG_IMC_Color";
           description = "FHG IMC Color";
-          deviceUri = "smb://wcuprintp01.wcupa.net/FHG_IMC_Color";
+          deviceUri = "https://bc1016579@wcuprintp01.wcupa.net:9164/printers/FHG_IMC_Color";
           model = "drv:///sample.drv/generic.ppd";
         }
       ];
@@ -118,8 +118,10 @@
     };
     printing = {
       enable = true;
+      browsing = true;
       stateless = true;
     };
+    avahi.enable = true;
     fwupd.enable = true;
   };
 
@@ -142,7 +144,7 @@
     users.bean = {
       isNormalUser = true;
       description = "Benjamin Crocker";
-      extraGroups = ["networkmanager" "wheel" "video"];
+      extraGroups = ["networkmanager" "wheel" "video" "lpadmin"];
       shell = pkgs.nushell;
     };
     defaultUserShell = pkgs.nushell;
@@ -276,6 +278,8 @@
 
       ## LibsForQt5
       libsForQt5.dolphin
+      libsForQt5.kio-extras
+      libsForQt5.kdegraphics-thumbnailers
       libsForQt5.kdenlive
       libsForQt5.filelight
       libsForQt5.ark
