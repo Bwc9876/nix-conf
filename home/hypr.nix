@@ -61,8 +61,8 @@
       "nm-applet"
       "playerctld"
       "kdeconnect-indicator"
-      "[workspace 2] keepassxc /home/bean/Documents/Database.kdbx"
-      "[workspace 1 silent] discord"
+      "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
+      "[workspace 1 silent] sleep 5; discord"
     ];
     windowrulev2 = [
       "workspace 1 silent,class:(.*)discord(.*),title:(.*)Discord(.*)"

@@ -1,230 +1,257 @@
 // -*- mode: json -*-
 [
-  {
-    "layer": "top",
-    "position": "top",
-    "modules-left": [
-      "hyprland/workspaces",
-      "custom/right-arrow-dark",
-      "custom/right-arrow-light",
-      "user",
-      "custom/right-arrow-dark",
-      "custom/right-arrow-light",
-      "mpris",
-      "custom/right-arrow-dark"
-    ],
-    "modules-center": [
-      "custom/left-arrow-dark",
-      "clock#1",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "clock#2",
-      "custom/right-arrow-dark",
-      "custom/right-arrow-light",
-      "clock#3",
-      "custom/right-arrow-dark"
-    ],
-    "modules-right": [
-      "custom/left-arrow-dark",
-      "custom/weather",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "network",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "pulseaudio",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "custom/kde-connect",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "battery",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "custom/cpu-governor",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "idle_inhibitor",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "custom/notification",
-      "custom/left-arrow-light",
-      "custom/left-arrow-dark",
-      "tray"
-    ],
-
-    "custom/left-arrow-dark": {
-      "format": "",
-      "tooltip": false
-    },
-    "custom/left-arrow-light": {
-      "format": "",
-      "tooltip": false
-    },
-    "custom/right-arrow-dark": {
-      "format": "",
-      "tooltip": false
-    },
-    "custom/right-arrow-light": {
-      "format": "",
-      "tooltip": false
-    },
-
-    "user": {
-      "format": "{user}",
-      "icon": true
-    },
-
-    "hyprland/workspaces": {
-      "disable-scroll": true,
-      "format": "{windows}{icon} ",
-      "format-icons": {
-        "default": "",
-        "empty": ""
-      },
-      "window-rewrite-default": "󰘔",
-      "window-rewrite": {
-        "firefox": "󰈹",
-        "code": "󰨞",
-        "foot": "",
-        "footclient": "",
-        "dolphin": "󰉋",
-        "[dD]iscord": "󰙯",
-        "obsidian": "󰠮",
-        "keepassxc": "󱕴",
-        "[sS]team": ""
-      }
-    },
-
-    "clock#1": {
-      "format": "{:%A}",
-      "tooltip": false
-    },
-    "clock#2": {
-      "format": "{:%I:%M %p}",
-      "tooltip": false
-    },
-    "clock#3": {
-      "format": "{:%B %d}",
-      "tooltip": false
-    },
-    "mpris": {
-      "status-icons": {
-        "paused": "󰏤",
-        "stopped": "󰓛"
-      },
-      "player-icons": {
-        "default": "󰎆",
-        "kdeconnect*": "",
-        "spotify": "󰓇",
-        "firefox": "󰈹"
-      },
-      "dynamic-order": ["title", "artist", "album", "position", "length"],
-      "dynamic-importance-order": [
-        "title",
-        "position",
-        "artist",
-        "length",
-        "album"
-      ],
-      "dynamic-len": 50,
-      "format": "{player_icon} {dynamic}",
-      "format-paused": "{status_icon} {dynamic}"
-    },
-    "network": {
-        "format": "{ifname}",
-        "format-wifi": "{icon} {essid}",
-        "format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ],
-        "format-ethernet": "󱎔 {ifname}",
-        "format-linked": "󰌷 {ifname}",
-        "format-disconnected": "<span foreground='red'>󰪎</span>",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "tooltip-format-wifi": "Connected to {essid} ({signalStrength}% Strength) over {ifname} via {gwaddr}",
-        "tooltip-format-ethernet": "󱎔 {ifname}",
-        "tooltip-disconnected": "Disconnected"
-    },
-    "pulseaudio": {
-      "format": "{icon} {volume:2}% 󱎔",
-      "format-bluetooth": "{icon}  {volume}% 󰂯",
-      "format-muted": "󰝟",
-      "format-icons": {
-        "headphones": "󰋋",
-        "default": ["󰖀", "󰕾"]
-      },
-      "scroll-step": 5,
-      "on-click": "pamixer -t",
-      "on-click-right": "pavucontrol"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󰈈",
-            "deactivated": "󰈉"
+    {
+        "layer": "top",
+        "position": "top",
+        "modules-left": [
+            "hyprland/workspaces",
+            "custom/right-arrow-dark",
+            "custom/right-arrow-light",
+            "custom/blank",
+            "user",
+            "custom/right-arrow-dark",
+            "custom/right-arrow-light",
+            "mpris",
+            "custom/right-arrow-dark"
+        ],
+        "modules-center": [
+            "custom/left-arrow-dark",
+            "clock#1",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "clock#2",
+            "custom/right-arrow-dark",
+            "custom/right-arrow-light",
+            "clock#3",
+            "custom/right-arrow-dark"
+        ],
+        "modules-right": [
+            "custom/left-arrow-dark",
+            "custom/weather",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "network",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "pulseaudio",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "custom/kde-connect",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "battery",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "custom/cpu-governor",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "idle_inhibitor",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "custom/notification",
+            "custom/left-arrow-light",
+            "custom/left-arrow-dark",
+            "tray"
+        ],
+        "custom/blank": {
+            "format": " ",
+            "tooltip": false
+        },
+        "custom/left-arrow-dark": {
+            "format": "",
+            "tooltip": false
+        },
+        "custom/left-arrow-light": {
+            "format": "",
+            "tooltip": false
+        },
+        "custom/right-arrow-dark": {
+            "format": "",
+            "tooltip": false
+        },
+        "custom/right-arrow-light": {
+            "format": "",
+            "tooltip": false
+        },
+        "user": {
+            "format": "{user}",
+            "icon": true
+        },
+        "hyprland/workspaces": {
+            "disable-scroll": true,
+            "format": "{windows}{icon} ",
+            "format-icons": {
+                "default": "",
+                "empty": ""
+            },
+            "window-rewrite-default": "󰘔",
+            "window-rewrite": {
+                "firefox": "󰈹",
+                "thunderbird": "󰛮",
+                "code": "󰨞",
+                "foot": "",
+                "footclient": "",
+                "dolphin": "󰉋",
+                "[dD]iscord": "󰙯",
+                "obsidian": "󰠮",
+                "keepassxc": "󱕴",
+                "[sS]team": ""
+            }
+        },
+        "clock#1": {
+            "format": "{:%A}",
+            "tooltip": false
+        },
+        "clock#2": {
+            "format": "{:%I:%M %p}",
+            "tooltip": false
+        },
+        "clock#3": {
+            "format": "{:%B %d}",
+            "tooltip": false
+        },
+        "mpris": {
+            "status-icons": {
+                "paused": "󰏤",
+                "stopped": "󰓛"
+            },
+            "player-icons": {
+                "default": "󰎆",
+                "kdeconnect*": "",
+                "spotify": "󰓇",
+                "firefox": "󰈹"
+            },
+            "dynamic-order": [
+                "title",
+                "artist",
+                "album",
+                "position",
+                "length"
+            ],
+            "dynamic-importance-order": [
+                "title",
+                "position",
+                "artist",
+                "length",
+                "album"
+            ],
+            "dynamic-len": 50,
+            "format": "{player_icon} {dynamic}",
+            "format-paused": "{status_icon} {dynamic}"
+        },
+        "network": {
+            "format": "{ifname}",
+            "format-wifi": "{icon} {essid}",
+            "format-icons": [
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ],
+            "format-ethernet": "󱎔 {ifname}",
+            "format-linked": "󰌷 {ifname}",
+            "format-disconnected": "<span foreground='red'>󰪎</span>",
+            "tooltip-format": "{ifname} via {gwaddr}",
+            "tooltip-format-wifi": "Connected to {essid} ({signalStrength}% Strength) over {ifname} via {gwaddr}",
+            "tooltip-format-ethernet": "󱎔 {ifname}",
+            "tooltip-disconnected": "Disconnected"
+        },
+        "pulseaudio": {
+            "format": "{icon} {volume:2}% 󱎔",
+            "format-bluetooth": "{icon}  {volume}% 󰂯",
+            "format-muted": "󰝟",
+            "format-icons": {
+                "headphones": "󰋋",
+                "default": [
+                    "󰖀",
+                    "󰕾"
+                ]
+            },
+            "scroll-step": 5,
+            "on-click": "pamixer -t",
+            "on-click-right": "pavucontrol"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "󰈈",
+                "deactivated": "󰈉"
+            }
+        },
+        "battery": {
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": "󱐋 {icon} {capacity}%",
+            "format-critical": "{icon}󰈅 {capacity}%",
+            "format-critical-charging": "󱐋 {icon} {capacity}%",
+            "format-icons": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "tray": {
+            "icon-size": 20,
+            "spacing": 10,
+            "show-passive-items": true
+        },
+        "custom/notification": {
+            "tooltip": false,
+            "format": "{icon}",
+            "format-icons": {
+                "notification": "<span foreground='red'>󱅫</span>",
+                "none": "󰂚",
+                "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
+                "dnd-none": "󰂛",
+                "inhibited-notification": "󰂠<span foreground='red'><sup></sup></span>",
+                "inhibited-none": "󰂠",
+                "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
+                "dnd-inhibited-none": "󰂛"
+            },
+            "max-length": 3,
+            "return-type": "json",
+            "exec-if": "which swaync-client",
+            "exec": "swaync-client -swb",
+            "on-click": "sleep 0.2 && swaync-client -t -sw",
+            "on-click-right": "sleep 0.2 && swaync-client -d -sw",
+            "escape": true
+        },
+        "custom/kde-connect": {
+            "exec": "sh ~/.config/waybar/custom_modules/custom-kdeconnect.sh battery",
+            "format": "{}",
+            "on-click": "kdeconnect-settings",
+            "interval": 30
+        },
+        "custom/weather": {
+            "exec": "sh ~/.config/waybar/custom_modules/weather.sh",
+            "on-click": "xdg-open https://duckduckgo.com/?q=weather",
+            "format": "{}",
+            "interval": 60
+        },
+        "custom/cpu-governor": {
+            "format": "{icon}",
+            "interval": 120,
+            "return-type": "json",
+            "exec": "sh ~/.config/waybar/custom_modules/cpu-governor.sh",
+            "min-length": 2,
+            "max-length": 3,
+            "signal": 8,
+            "format-icons": {
+                "perf": "󰡴",
+                "powersave": "󰡳"
+            },
+            "on-click": "sh ~/.config/waybar/custom_modules/cpu-governor.sh switch"
         }
-    },
-    "battery": {
-      "states": {
-        "good": 95,
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{icon} {capacity}%",
-      "format-charging": "󱐋 {icon} {capacity}%",
-      "format-critical": "{icon}󰈅 {capacity}%",
-      "format-critical-charging": "󱐋 {icon} {capacity}%",
-      "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },
-    "tray": {
-      "icon-size": 20,
-      "spacing": 10,
-      "show-passive-items": true
-    },
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "<span foreground='red'>󱅫</span>",
-        "none": "󰂚",
-        "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
-        "dnd-none": "󰂛",
-        "inhibited-notification": "󰂠<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "󰂠",
-        "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": "󰂛"
-      },
-      "max-length": 3,
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "sleep 0.2 && swaync-client -t -sw",
-      "on-click-right": "sleep 0.2 && swaync-client -d -sw",
-      "escape": true
-    },
-    "custom/kde-connect": {
-      "exec": "sh ~/.config/waybar/custom_modules/custom-kdeconnect.sh battery",
-      "format": "{}",
-      "on-click": "kdeconnect-settings",
-      "interval": 30
-    },
-    "custom/weather": {
-      "exec": "sh ~/.config/waybar/custom_modules/weather.sh",
-      "on-click": "xdg-open https://duckduckgo.com/?q=weather",
-      "format": "{}",
-      "interval": 60
-    },
-    "custom/cpu-governor": {
-      "format": "{icon}",
-      "interval": 120,
-      "return-type": "json",
-      "exec": "sh ~/.config/waybar/custom_modules/cpu-governor.sh",
-      "min-length": 2,
-      "max-length": 3,
-      "signal": 8,
-      "format-icons": {
-        "perf": "󰡴",
-        "powersave": "󰡳"
-      },
-      "on-click": "sh ~/.config/waybar/custom_modules/cpu-governor.sh switch"
     }
-  }
 ]
