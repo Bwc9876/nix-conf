@@ -20,7 +20,7 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-    kernelPackages = pkgs.linuxPackages_latest; # <-- Temp until 6.6 is fixed
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelPatches = [
       {
         name = "kernel-lockdown";
@@ -118,10 +118,8 @@
     };
     printing = {
       enable = true;
-      browsing = true;
       stateless = true;
     };
-    avahi.enable = true;
     fwupd.enable = true;
   };
 
