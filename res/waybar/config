@@ -77,7 +77,7 @@
       "format": "{windows}{icon} ",
       "format-icons": {
         "default": "",
-        "empty": "",
+        "empty": ""
       },
       "window-rewrite-default": "󰘔",
       "window-rewrite": {
@@ -153,7 +153,7 @@
         "warning": 30,
         "critical": 15
       },
-      "format": "{icon}  {capacity}%",
+      "format": "{icon} {capacity}%",
       "format-charging": "󱐋 {icon} {capacity}%",
       "format-critical": "{icon}󰈅 {capacity}%",
       "format-critical-charging": "󱐋 {icon} {capacity}%",
@@ -161,6 +161,7 @@
     },
     "tray": {
       "icon-size": 20,
+      "spacing": 10,
       "show-passive-items": true
     },
     "custom/notification": {
@@ -192,7 +193,8 @@
     },
     "custom/weather": {
       "exec": "sh ~/.config/waybar/custom_modules/weather.sh",
-      "format": "<span font_family=\"monospace\">{}</span>",
+      "on-click": "xdg-open https://duckduckgo.com/?q=weather",
+      "format": "{}",
       "interval": 60
     },
     "custom/cpu-governor": {

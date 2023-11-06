@@ -57,6 +57,22 @@
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
+    printers = {
+      ensurePrinters = [
+        {
+          name = "RamPrint";
+          description = "RamPrint";
+          deviceUri = "smb://wcuprintp01.wcupa.net/RamPrint";
+          model = "drv:///sample.drv/generic.ppd";
+        }
+        {
+          name = "FHG_IMC_Color";
+          description = "FHG IMC Color";
+          deviceUri = "smb://wcuprintp01.wcupa.net/FHG_IMC_Color";
+          model = "drv:///sample.drv/generic.ppd";
+        }
+      ];
+    };
   };
 
   # Set the time zone.
@@ -100,7 +116,10 @@
       };
       pulse.enable = true;
     };
-    printing.enable = true;
+    printing = {
+      enable = true;
+      stateless = true;
+    };
     fwupd.enable = true;
   };
 

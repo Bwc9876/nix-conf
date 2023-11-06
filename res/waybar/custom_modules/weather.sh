@@ -3,4 +3,4 @@
 
 # echo $LOC
 
-curl -s "https://wttr.in/?format=%25c%25t"
+curl -s "https://wttr.in/?format=%25x%20%25t&lang=us" | sed s/+//g | python $HOME/.config/waybar/custom_modules/weather_icons_replace.py
