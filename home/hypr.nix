@@ -60,7 +60,6 @@
       "swayidle -w"
       "nm-applet"
       "playerctld"
-      "kdeconnect-indicator"
       "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
       "[workspace 1 silent] sleep 5; discord"
     ];
@@ -121,7 +120,7 @@
       ",Print,exec,grimblast --freeze save area - | swappy -f -"
       "SUPER SHIFT,S,exec,grimblast --freeze save area - | swappy -f -"
       "SUPER SHIFT,R,exec,wl-screenrec -g \"$(slurp)\""
-      "SUPER SHIFT,C,exec,hyprpicker"
+      "SUPER SHIFT,C,exec,hyprpicker -a"
       "SUPER SHIFT ALT,R,exec,wl-screenrec"
     ];
     bindl = [

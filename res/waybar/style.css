@@ -1,115 +1,102 @@
 * {
-  font-size: 20px;
-  font-family: monospace;
+  font-family: serif;
 }
 
 window#waybar {
-  background: #292b2e;
+  background: rgba(252, 116, 150, 0.1);
   color: #fdf6e3;
 }
 
-#custom-right-arrow-dark,
-#custom-left-arrow-dark {
-  color: #1a1a1a;
-}
-#custom-right-arrow-light,
-#custom-left-arrow-light {
-  color: #292b2e;
-  background: #1a1a1a;
+window > * > *:not(.modules-center) > * > * {
+  font-size: 1.5rem;
+  background: rgb(45, 45, 45);
+  background: linear-gradient(
+    180deg,
+    rgba(34, 34, 34, 0.8) 0%,
+    rgba(5, 5, 5, 0.7) 100%
+  );
+  border-radius: 5rem;
+  padding: 5px 15px;
+  margin: 5px 2px;
 }
 
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#network,
-#disk,
-#user,
-#idle_inhibitor,
-#custom-notification,
-#custom-weather,
-#custom-blank,
-#custom-cpu-governor,
-#custom-kde-connect,
-#mpris,
-#tray {
-  background: #1a1a1a;
+#idle_inhibitor, #custom-notification, #pulseaudio, #custom-kde-connect {
+    font-size: 30px;
+}
+
+.modules-left > *:first-child > * {
+  margin-left: 25px;
+}
+
+.modules-right > *:last-child > * {
+  margin-right: 25px;
+}
+
+#battery.warning {
+  background: linear-gradient(
+    180deg,
+    rgb(181, 148, 0) 0%,
+    rgb(121, 127, 0) 100%
+  );
+}
+#battery.critical {
+  background: linear-gradient(180deg, rgb(220, 66, 0) 0%, rgb(179, 0, 0) 100%);
+}
+* > #battery.charging {
+  background: linear-gradient(
+    180deg,
+    rgb(0, 209, 31) 0%,
+    rgb(0, 134, 22) 100%
+  );
+}
+
+#workspaces {
+  padding: 10px 5px;
+  border-radius: 5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(85, 85, 85, 0.8) 0%,
+    rgba(60, 60, 60, 0.7) 100%
+  );
 }
 
 #workspaces button {
-  padding: 0 2px;
+  font-size: 2.5rem;
   color: #fdf6e3;
+  border-radius: 5rem;
+  padding: 5px 15px;
+  margin: 0 5px;
+  background: linear-gradient(
+    180deg,
+    rgba(34, 34, 34, 0.8) 0%,
+    rgba(5, 5, 5, 0.7) 100%
+  );
 }
+
 #workspaces button.active {
-  color: #268bd2;
-}
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-}
-#workspaces button:hover {
-  background: #1a1a1a;
-  border: #1a1a1a;
-  padding: 0 3px;
+  background: linear-gradient(
+    180deg,
+    rgb(0, 209, 209) 0%,
+    rgb(0, 60, 164) 100%
+  );
 }
 
-#network {
-  color: #268bd2;
-}
-#pulseaudio {
-  color: #2aa198;
-}
-#cpu {
-  color: #6c71c4;
-}
-#battery {
-  color: #859900;
-}
-#battery.warning {
-  color: #b58900;
-}
-#battery.critical {
-  color: #dc322f;
-}
-#battery.charging.critical {
-  color: #b58900;
-}
-#mpris {
-  color: greenyellow;
-}
-#idle_inhibitor {
-  color: #7943dc;
-}
-#custom-notification {
-  color: rgb(149, 87, 149);
-}
-#custom-kde-connect {
-    color: rgb(255, 132, 234);
+#idle_inhibitor.activated {
+  background: linear-gradient(
+    180deg,
+    rgb(202, 0, 209) 0%,
+    rgb(131, 0, 164) 100%
+  );
 }
 
-#custom-cpu-governor {
-    color: rgb(255, 196, 88);
-    padding: 0 5px;
+#custom-notification.notification {
+  background: linear-gradient(
+    180deg,
+    rgb(0, 209, 209) 0%,
+    rgb(0, 60, 164) 100%
+  );
 }
 
-#tray,
-#custom-notification,
-#user,
-#clock,
-#network,
-#pulseaudio,
-#workspaces,
-#memory,
-#cpu,
-#battery,
-#idle_inhibitor,
-#custom-weather,
-#custom-kde-connect,
-#mpris,
-#disk {
-  padding: 0px 12px;
+#network.disconnected {
+    background: linear-gradient(180deg, rgb(220, 66, 0) 0%, rgb(179, 0, 0) 100%);
 }

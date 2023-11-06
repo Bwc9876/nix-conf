@@ -4,77 +4,24 @@
         "layer": "top",
         "position": "top",
         "modules-left": [
-            "hyprland/workspaces",
-            "custom/right-arrow-dark",
-            "custom/right-arrow-light",
-            "custom/blank",
             "user",
-            "custom/right-arrow-dark",
-            "custom/right-arrow-light",
-            "mpris",
-            "custom/right-arrow-dark"
-        ],
-        "modules-center": [
-            "custom/left-arrow-dark",
             "clock#1",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
             "clock#2",
-            "custom/right-arrow-dark",
-            "custom/right-arrow-light",
-            "clock#3",
-            "custom/right-arrow-dark"
-        ],
-        "modules-right": [
-            "custom/left-arrow-dark",
             "custom/weather",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
+            "mpris"
+        ],
+        "modules-center": [],
+        "modules-right": [
             "network",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
-            "pulseaudio",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
-            "custom/kde-connect",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
             "battery",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
-            "custom/cpu-governor",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
+            "pulseaudio",
+            "custom/kde-connect",
             "idle_inhibitor",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
             "custom/notification",
-            "custom/left-arrow-light",
-            "custom/left-arrow-dark",
             "tray"
         ],
-        "custom/blank": {
-            "format": " ",
-            "tooltip": false
-        },
-        "custom/left-arrow-dark": {
-            "format": "",
-            "tooltip": false
-        },
-        "custom/left-arrow-light": {
-            "format": "",
-            "tooltip": false
-        },
-        "custom/right-arrow-dark": {
-            "format": "",
-            "tooltip": false
-        },
-        "custom/right-arrow-light": {
-            "format": "",
-            "tooltip": false
-        },
         "user": {
-            "format": "{user}",
+            "format": " {user}",
             "icon": true
         },
         "hyprland/workspaces": {
@@ -99,15 +46,12 @@
             }
         },
         "clock#1": {
-            "format": "{:%A}",
-            "tooltip": false
+            "format": "{:%A, %B %d}",
+            "tooltip": false,
+            "on-clicl": "thunderbird -calendar"
         },
         "clock#2": {
             "format": "{:%I:%M %p}",
-            "tooltip": false
-        },
-        "clock#3": {
-            "format": "{:%B %d}",
             "tooltip": false
         },
         "mpris": {
@@ -124,7 +68,6 @@
             "dynamic-order": [
                 "title",
                 "artist",
-                "album",
                 "position",
                 "length"
             ],
@@ -135,7 +78,6 @@
                 "length",
                 "album"
             ],
-            "dynamic-len": 50,
             "format": "{player_icon} {dynamic}",
             "format-paused": "{status_icon} {dynamic}"
         },
@@ -150,7 +92,7 @@
             ],
             "format-ethernet": "󱎔 {ifname}",
             "format-linked": "󰌷 {ifname}",
-            "format-disconnected": "<span foreground='red'>󰪎</span>",
+            "format-disconnected": "󰪎",
             "tooltip-format": "{ifname} via {gwaddr}",
             "tooltip-format-wifi": "Connected to {essid} ({signalStrength}% Strength) over {ifname} via {gwaddr}",
             "tooltip-format-ethernet": "󱎔 {ifname}",
@@ -180,14 +122,10 @@
         },
         "battery": {
             "states": {
-                "good": 95,
                 "warning": 30,
                 "critical": 15
             },
-            "format": "{icon} {capacity}%",
-            "format-charging": "󱐋 {icon} {capacity}%",
-            "format-critical": "{icon}󰈅 {capacity}%",
-            "format-critical-charging": "󱐋 {icon} {capacity}%",
+            "format": "{icon}  {capacity}%",
             "format-icons": [
                 "󰁺",
                 "󰁻",
@@ -202,21 +140,21 @@
             ]
         },
         "tray": {
-            "icon-size": 20,
-            "spacing": 10,
+            "icon-size": 25,
+            "spacing": 5,
             "show-passive-items": true
         },
         "custom/notification": {
             "tooltip": false,
             "format": "{icon}",
             "format-icons": {
-                "notification": "<span foreground='red'>󱅫</span>",
+                "notification": "󱅫",
                 "none": "󰂚",
-                "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
+                "dnd-notification": "󰂛<sup></sup>",
                 "dnd-none": "󰂛",
-                "inhibited-notification": "󰂠<span foreground='red'><sup></sup></span>",
+                "inhibited-notification": "󰂠<sup></sup>",
                 "inhibited-none": "󰂠",
-                "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
+                "dnd-inhibited-notification": "󰂛<sup></sup>",
                 "dnd-inhibited-none": "󰂛"
             },
             "max-length": 3,
@@ -252,6 +190,32 @@
                 "powersave": "󰡳"
             },
             "on-click": "sh ~/.config/waybar/custom_modules/cpu-governor.sh switch"
+        }
+    },
+    {
+        "layer": "top",
+        "position": "bottom",
+        "modules-center": ["hyprland/workspaces"],
+        "hyprland/workspaces": {
+            "disable-scroll": true,
+            "format": "{windows}{icon}",
+            "format-icons": {
+                "default": "",
+                "empty": ""
+            },
+            "window-rewrite-default": "󰘔",
+            "window-rewrite": {
+                "firefox": "󰈹",
+                "thunderbird": "󰛮",
+                "code": "󰨞",
+                "foot": "",
+                "footclient": "",
+                "dolphin": "󰉋",
+                "[dD]iscord": "󰙯",
+                "obsidian": "󰠮",
+                "keepassxc": "󱕴",
+                "[sS]team": ""
+            }
         }
     }
 ]
