@@ -79,6 +79,7 @@
       "SUPER,B,exec,rofi-bluetooth"
       "SUPER,grave,exec,rofi-systemd"
       "SUPER,D,exec,rofi-code"
+      "SUPER,Tab,exec,rofi -show window -show-icons"
       "SUPER,Q,exec,firefox"
       "SUPER,E,exec,dolphin"
       ",XF86AudioMedia,exec,footclient"

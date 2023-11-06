@@ -38,7 +38,7 @@ with lib; rec {
       videos = "${home.homeDirectory}/Videos";
       music = "${home.homeDirectory}/Music";
     };
-    configFile = import ./configFile.nix { inherit lib hostName; };
+    configFile = import ./configFile.nix {inherit lib hostName;};
     mimeApps = import ./mime.nix;
   };
 
