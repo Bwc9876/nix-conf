@@ -29,6 +29,9 @@
       "custom/weather",
       "custom/left-arrow-light",
       "custom/left-arrow-dark",
+      "network",
+      "custom/left-arrow-light",
+      "custom/left-arrow-dark",
       "pulseaudio",
       "custom/left-arrow-light",
       "custom/left-arrow-dark",
@@ -127,6 +130,18 @@
       "dynamic-len": 50,
       "format": "{player_icon} {dynamic}",
       "format-paused": "{status_icon} {dynamic}"
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{icon} {essid}",
+        "format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ],
+        "format-ethernet": "󱎔 {ifname}",
+        "format-linked": "󰌷 {ifname}",
+        "format-disconnected": "<span foreground='red'>󰪎</span>",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "Connected to {essid} ({signalStrength}% Strength) over {ifname} via {gwaddr}",
+        "tooltip-format-ethernet": "󱎔 {ifname}",
+        "tooltip-disconnected": "Disconnected"
     },
     "pulseaudio": {
       "format": "{icon} {volume:2}% 󱎔",

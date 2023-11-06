@@ -26,6 +26,7 @@ window#waybar {
 #memory,
 #cpu,
 #battery,
+#network,
 #disk,
 #user,
 #idle_inhibitor,
@@ -55,10 +56,10 @@ window#waybar {
   padding: 0 3px;
 }
 
-#pulseaudio {
+#network {
   color: #268bd2;
 }
-#memory {
+#pulseaudio {
   color: #2aa198;
 }
 #cpu {
@@ -98,6 +99,7 @@ window#waybar {
 #custom-notification,
 #user,
 #clock,
+#network,
 #pulseaudio,
 #workspaces,
 #memory,
