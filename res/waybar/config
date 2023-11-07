@@ -69,16 +69,19 @@
             "dynamic-order": [
                 "title",
                 "artist",
+                "album",
                 "position",
                 "length"
             ],
             "dynamic-importance-order": [
                 "title",
                 "position",
-                "artist",
                 "length",
+                "artist",
                 "album"
             ],
+            "title-len": 35,
+            "dynamic-len": 65,
             "format": "{player_icon} {dynamic}",
             "format-paused": "{status_icon} {dynamic}"
         },
@@ -148,7 +151,19 @@
         "privacy": {
             "icon-spacing": 4,
             "icon-size": 20,
-            "transition-duration": 200
+            "transition-duration": 200,
+            "modules": [
+                {
+                    "type": "screenshare",
+                    "tooltip": true,
+                    "tooltip-icon-size": 24
+                },
+                {
+                    "type": "audio-in",
+                    "tooltip": true,
+                    "tooltip-icon-size": 24
+                }
+            ]
         },
         "custom/notification": {
             "tooltip": false,
@@ -223,7 +238,8 @@
                 "[dD]iscord": "󰙯",
                 "obsidian": "󰠮",
                 "keepassxc": "󱕴",
-                "[sS]team": ""
+                "[sS]team": "",
+                "[sS]potify": "󰓇"
             }
         }
     }

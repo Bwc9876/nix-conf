@@ -22,8 +22,8 @@ window > * > *:not(.modules-center) > * > * {
 
 #idle_inhibitor,
 #custom-notification,
-#pulseaudio,
-#custom-kde-connect {
+#pulseaudio.muted,
+#custom-kde-connect.disconnected {
   font-size: 30px;
 }
 
@@ -126,6 +126,16 @@ window > * > *:not(.modules-center) > * > * {
 }
 
 #privacy {
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+
+#privacy-item {
+  font-size: 1.5rem;
+  border-radius: 5rem;
+  padding: 5px 15px;
+  margin: 5px 2px;
   background: linear-gradient(180deg, rgb(220, 66, 0) 0%, rgb(110, 0, 0) 100%);
 }
 
@@ -178,5 +188,13 @@ window > * > *:not(.modules-center) > * > * {
     180deg,
     rgb(130, 128, 92) 0%,
     rgb(77, 75, 53) 100%
+  );
+}
+
+#mpris.playing {
+  background: linear-gradient(
+    180deg,
+    rgb(0, 209, 209) 0%,
+    rgb(0, 60, 164) 100%
   );
 }

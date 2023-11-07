@@ -14,12 +14,14 @@ get_status() {
         then
             battery="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid/battery" org.kde.kdeconnect.device.battery.charge)%"
             icon="󰄜"
-            devices+="$battery $icon"
+            devices+="$icon $battery"
+            conn+=connected
     else
         devices+="󰥍"
+        conn+=disconnected
         fi
     done
-    echo $devices
+    echo -e "$devices\nKDE Connect\n$conn"
 }
 
 option="${1}"
