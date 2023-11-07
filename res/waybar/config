@@ -145,6 +145,11 @@
             "spacing": 5,
             "show-passive-items": true
         },
+        "privacy": {
+            "icon-spacing": 4,
+            "icon-size": 20,
+            "transition-duration": 200
+        },
         "custom/notification": {
             "tooltip": false,
             "format": "{icon}",
@@ -166,11 +171,6 @@
             "on-click-right": "sleep 0.2 && swaync-client -d -sw",
             "escape": true
         },
-        "privacy": {
-            "icon-spacing": 4,
-            "icon-size": 20,
-            "transition-duration": 200
-        },
         "custom/kde-connect": {
             "exec": "sh ~/.config/waybar/custom_modules/custom-kdeconnect.sh battery",
             "format": "{}",
@@ -180,6 +180,7 @@
         "custom/weather": {
             "exec": "sh ~/.config/waybar/custom_modules/weather.sh",
             "on-click": "xdg-open https://duckduckgo.com/?q=weather",
+            "return-type": "json",
             "format": "{}",
             "interval": 60
         },
