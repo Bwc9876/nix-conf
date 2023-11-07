@@ -52,6 +52,7 @@
       "hyprctl setcursor Sweet-cursors 24"
       "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "foot -s"
+      "dolphin --daemon"
       "waybar"
       "wl-paste -p --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
