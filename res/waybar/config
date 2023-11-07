@@ -17,6 +17,7 @@
             "pulseaudio",
             "custom/kde-connect",
             "idle_inhibitor",
+            "privacy",
             "custom/notification",
             "tray"
         ],
@@ -165,6 +166,11 @@
             "on-click-right": "sleep 0.2 && swaync-client -d -sw",
             "escape": true
         },
+        "privacy": {
+            "icon-spacing": 4,
+            "icon-size": 20,
+            "transition-duration": 200
+        },
         "custom/kde-connect": {
             "exec": "sh ~/.config/waybar/custom_modules/custom-kdeconnect.sh battery",
             "format": "{}",
@@ -195,7 +201,9 @@
     {
         "layer": "top",
         "position": "bottom",
-        "modules-center": ["hyprland/workspaces"],
+        "modules-center": [
+            "hyprland/workspaces"
+        ],
         "hyprland/workspaces": {
             "disable-scroll": true,
             "format": "{windows}{icon}",

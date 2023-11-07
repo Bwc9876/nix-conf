@@ -81,6 +81,7 @@
       "SUPER,Tab,exec,rofi -show window -show-icons"
       "SUPER,Q,exec,firefox"
       "SUPER,E,exec,dolphin"
+      "SUPER,Z,exec,gtklock && systemctl suspend"
       ",XF86AudioMedia,exec,footclient"
       "SUPER,T,exec,footclient"
       "SUPER,N,exec,swaync-client -t -sw"
@@ -122,6 +123,7 @@
       "SUPER SHIFT,R,exec,wl-screenrec -g \"$(slurp)\""
       "SUPER SHIFT,C,exec,hyprpicker -a"
       "SUPER SHIFT ALT,R,exec,wl-screenrec"
+      ",XF86RFKill,exec,rfkill toggle wifi"
     ];
     bindl = [
       ",switch:Lid Switch,exec,gtklock"

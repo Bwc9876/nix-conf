@@ -3,7 +3,7 @@
 }
 
 window#waybar {
-  background: rgba(252, 116, 150, 0.1);
+  background: rgba(252, 116, 150, 0);
   color: #fdf6e3;
 }
 
@@ -32,6 +32,14 @@ window > * > *:not(.modules-center) > * > * {
   margin-right: 25px;
 }
 
+.modules-left, .modules-right {
+    margin-top: 10px;
+}
+
+.modules-center {
+    margin-bottom: 10px;
+}
+
 #battery.warning {
   background: linear-gradient(
     180deg,
@@ -51,7 +59,7 @@ window > * > *:not(.modules-center) > * > * {
 }
 
 #workspaces {
-  padding: 10px 5px;
+  padding: 10px;
   border-radius: 5rem;
   background: linear-gradient(
     180deg,
@@ -98,5 +106,9 @@ window > * > *:not(.modules-center) > * > * {
 }
 
 #network.disconnected {
+    background: linear-gradient(180deg, rgb(220, 66, 0) 0%, rgb(179, 0, 0) 100%);
+}
+
+#privacy {
     background: linear-gradient(180deg, rgb(220, 66, 0) 0%, rgb(179, 0, 0) 100%);
 }
