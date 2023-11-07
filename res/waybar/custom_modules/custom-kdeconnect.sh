@@ -12,7 +12,7 @@ get_status() {
         isreach="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid" org.kde.kdeconnect.device.isReachable)"
     if [ "$isreach" = "true" ]
         then
-            battery="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid/battery" org.kde.kdeconnect.device.battery.charge)%"
+            battery="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid/battery" org.kde.kdeconnect.device.battery.charge)󰏰"
             icon="󰄜"
             devices+="$icon $battery"
             conn+=connected

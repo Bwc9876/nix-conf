@@ -23,6 +23,7 @@ window > * > *:not(.modules-center) > * > * {
 #idle_inhibitor,
 #custom-notification,
 #pulseaudio.muted,
+#custom-power-menu,
 #custom-kde-connect.disconnected,
 #bluetooth.disconnected,
 #bluetooth.off,

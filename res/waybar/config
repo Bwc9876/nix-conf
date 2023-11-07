@@ -4,6 +4,7 @@
         "layer": "top",
         "position": "top",
         "modules-left": [
+            "custom/power-menu",
             "user",
             "clock#1",
             "clock#2",
@@ -99,16 +100,21 @@
             "format-linked": "󰌷 {ifname}",
             "format-disconnected": "󰪎",
             "tooltip-format": "{ifname} via {gwaddr}",
-            "tooltip-format-wifi": "Connected to {essid} ({signalStrength}% Strength) over {ifname} via {gwaddr}",
+            "tooltip-format-wifi": "Connected to {essid} ({signalStrength}󰏰 Strength) over {ifname} via {gwaddr}",
             "tooltip-format-ethernet": "󱎔 {ifname}",
             "tooltip-disconnected": "Disconnected"
         },
         "pulseaudio": {
-            "format": "{icon} {volume:2}%",
-            "format-bluetooth": "{icon}  {volume}%",
+            "format": "{icon} {volume:2}󰏰",
+            "format-bluetooth": "{icon}  {volume}󰏰",
             "format-muted": "󰝟",
             "format-icons": {
-                "headphones": "󰋋",
+                "headphone": "󰋋",
+                "hands-free": "󰋋",
+                "headset": "󰋋",
+                "phone": "",
+                "portable": "",
+                "car": "",
                 "default": [
                     "󰖀",
                     "󰕾"
@@ -123,7 +129,7 @@
             "format-disabled": "󰂲",
             "format-off": "󰂲",
             "format-connected": "󰂱",
-            "format-connected-battery": "󰂱 {device_battery_percentage}%",
+            "format-connected-battery": "󰂱 {device_battery_percentage}󰏰",
             "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
             "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
             "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
@@ -142,19 +148,34 @@
                 "warning": 30,
                 "critical": 15
             },
-            "format": "{icon}  {capacity}%",
-            "format-icons": [
-                "󰁺",
-                "󰁻",
-                "󰁼",
-                "󰁽",
-                "󰁾",
-                "󰁿",
-                "󰂀",
-                "󰂁",
-                "󰂂",
-                "󰁹"
-            ]
+            "format": "{icon}  {capacity}󰏰",
+            "format-charging": "{icon} {capacity}󰏰",
+            "format-icons": {
+                "charging": [
+                    "󰢜",
+                    "󰂆",
+                    "󰂇",
+                    "󰂈",
+                    "󰢝",
+                    "󰂉",
+                    "󰢞",
+                    "󰂊",
+                    "󰂋",
+                    "󰂅"
+                ],
+                "default": [
+                    "󰁺",
+                    "󰁻",
+                    "󰁼",
+                    "󰁽",
+                    "󰁾",
+                    "󰁿",
+                    "󰂀",
+                    "󰂁",
+                    "󰂂",
+                    "󰁹"
+                ]
+            }
         },
         "tray": {
             "icon-size": 25,
@@ -225,6 +246,10 @@
                 "powersave": "󰡳"
             },
             "on-click": "sh ~/.config/waybar/custom_modules/cpu-governor.sh switch"
+        },
+        "custom/power-menu": {
+            "format": "󰐥",
+            "on-click": "rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
         }
     },
     {
