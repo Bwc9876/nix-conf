@@ -81,7 +81,7 @@
             },
             "player-icons": {
                 "default": "󰎆",
-                "kdeconnect*": "",
+                "kdeconnect": "",
                 "spotify": "󰓇",
                 "firefox": "󰈹"
             },

@@ -55,9 +55,11 @@ window > * > *:not(.modules-center) > * > * {
     rgb(255, 200, 0) 100%
   );
 }
+
 #battery.critical {
   background: linear-gradient(180deg, rgb(220, 66, 0) 0%, rgb(110, 0, 0) 100%);
 }
+
 * > #battery.charging {
   background: linear-gradient(180deg, rgb(0, 209, 31) 0%, rgb(0, 90, 15) 100%);
 }
