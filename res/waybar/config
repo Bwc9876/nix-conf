@@ -49,7 +49,7 @@
             }
         },
         "clock#1": {
-            "format": "{:%A, %B %d}",
+            "format": "󰃭 {:%A, %B %d}",
             "tooltip-format": "<tt><small>{calendar}</small></tt>",
             "calendar": {
                 "mode": "month",
@@ -71,8 +71,8 @@
             }
         },
         "clock#2": {
-            "format": "{:%I:%M %p}",
-            "tooltip": false
+            "format": "󰥔 {:%I:%M %p}",
+            "tooltip-format": "{:%F at %T in %Z (UTC%Ez)}"
         },
         "mpris": {
             "status-icons": {
