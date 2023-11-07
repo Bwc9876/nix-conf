@@ -2,6 +2,7 @@
 
 import sys
 import json
+import datetime
 
 WWO_CODE = {
     "113": "Sunny",
@@ -76,6 +77,25 @@ weather_icons = {
     "VeryCloudy": "󰖐󰖐",
 }
 
+night_map = {"󰖙": "󰖔", "󰖕": "󰼱"}
+
+
+def past_sunset(astronomy):
+    sunset = astronomy["sunset"]
+    sunset_hour = int(sunset.split(":")[0])
+    sunset_minute = int(sunset.split(":")[1][:2])
+    sunset_ampm = sunset.split(":")[1][2:]
+    sunset_time = (
+        sunset_hour * 60 + sunset_minute + (12 * 60 if sunset_ampm == "PM" else 0)
+    )
+
+    now = datetime.datetime.utcnow()
+    now_hour = now.hour
+    now_minute = now.minute
+    now_time = now_hour * 60 + now_minute
+
+    return now_time > sunset_time
+
 
 def main():
     weather_raw = sys.stdin.read().strip()
@@ -87,7 +107,14 @@ def main():
 
     condition = WWO_CODE[weather["weatherCode"]]
 
-    text = f"{weather_icons[condition]} {weather['temp_F']} °F"
+    icon = weather_icons[condition]
+
+    night = past_sunset(astronomy)
+
+    if night and icon in night_map:
+        icon = night_map[icon]
+
+    text = f"{icon} {weather['temp_F']} °F"
     tooltip = "\n".join(
         [
             f"Feels like {weather['FeelsLikeF']} °F",
@@ -109,7 +136,7 @@ def main():
     out = {
         "text": text,
         "tooltip": tooltip,
-        "class": condition,
+        "class": [condition, "night" if night else "day"],
     }
 
     print(json.dumps(out, indent=None), end="")

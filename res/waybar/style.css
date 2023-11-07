@@ -51,8 +51,8 @@ window > * > *:not(.modules-center) > * > * {
 #battery.warning {
   background: linear-gradient(
     180deg,
-    rgb(255, 255, 0) 0%,
-    rgb(255, 200, 0) 100%
+    rgb(137, 137, 0) 0%,
+    rgb(131, 102, 0) 100%
   );
 }
 
@@ -184,8 +184,17 @@ window > * > *:not(.modules-center) > * > * {
 #custom-weather.Sunny {
   background: linear-gradient(
     180deg,
-    rgb(255, 255, 0) 0%,
-    rgb(255, 200, 0) 100%
+    rgb(137, 137, 0) 0%,
+    rgb(131, 102, 0) 100%
+  );
+}
+
+#custom-weather.Clear.night,
+#custom-weather.Sunny.night {
+  background: linear-gradient(
+    180deg,
+    rgb(103, 52, 131) 0%,
+    rgb(58, 29, 74) 100%
   );
 }
 
@@ -194,6 +203,14 @@ window > * > *:not(.modules-center) > * > * {
     180deg,
     rgb(130, 128, 92) 0%,
     rgb(77, 75, 53) 100%
+  );
+}
+
+#custom-weather.PartlyCloudy.night {
+  background: linear-gradient(
+    180deg,
+    rgb(117, 95, 129) 0%,
+    rgb(72, 58, 79) 100%
   );
 }
 
