@@ -140,8 +140,8 @@
         "idle_inhibitor": {
             "format": "{icon}",
             "format-icons": {
-                "activated": "󰈈",
-                "deactivated": "󰈉"
+                "activated": "󰒳",
+                "deactivated": "󰒲"
             }
         },
         "battery": {
@@ -278,7 +278,8 @@
                 "obsidian": "󰠮",
                 "keepassxc": "󱕴",
                 "[sS]team": "",
-                "[sS]potify": "󰓇"
+                "[sS]potify": "󰓇",
+                "obs": ""
             }
         }
     }

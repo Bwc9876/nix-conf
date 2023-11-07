@@ -179,6 +179,11 @@
     dconf.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [inputs.xdg-desktop-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland];
+  };
+
   environment = {
     pathsToLink = [
       "/share/Kvantum"
@@ -264,6 +269,7 @@
       obsidian
       keepassxc
       discord
+      obs-studio
       spotify
       qmplay2
       gimp
