@@ -14,6 +14,7 @@
         "modules-right": [
             "network",
             "battery",
+            "bluetooth",
             "pulseaudio",
             "custom/kde-connect",
             "idle_inhibitor",
@@ -103,8 +104,8 @@
             "tooltip-disconnected": "Disconnected"
         },
         "pulseaudio": {
-            "format": "{icon} {volume:2}% 󱎔",
-            "format-bluetooth": "{icon}  {volume}% 󰂯",
+            "format": "{icon} {volume:2}%",
+            "format-bluetooth": "{icon}  {volume}%",
             "format-muted": "󰝟",
             "format-icons": {
                 "headphones": "󰋋",
@@ -116,6 +117,18 @@
             "scroll-step": 5,
             "on-click": "pamixer -t",
             "on-click-right": "pavucontrol"
+        },
+        "bluetooth": {
+            "format": "󰂯",
+            "format-disabled": "󰂲",
+            "format-off": "󰂲",
+            "format-connected": "󰂱",
+            "format-connected-battery": "󰂱 {device_battery_percentage}%",
+            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+            "on-click": "rofi-bluetooth"
         },
         "idle_inhibitor": {
             "format": "{icon}",

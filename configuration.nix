@@ -56,7 +56,14 @@
 
   hardware = {
     pulseaudio.enable = false;
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+        };
+      };
+    };
     printers = {
       ensurePrinters = [
         {

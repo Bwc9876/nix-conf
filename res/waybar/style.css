@@ -23,7 +23,10 @@ window > * > *:not(.modules-center) > * > * {
 #idle_inhibitor,
 #custom-notification,
 #pulseaudio.muted,
-#custom-kde-connect.disconnected {
+#custom-kde-connect.disconnected,
+#bluetooth.disconnected,
+#bluetooth.off,
+#bluetooth.disabled {
   font-size: 30px;
 }
 
@@ -126,9 +129,9 @@ window > * > *:not(.modules-center) > * > * {
 }
 
 #privacy {
-    background: none;
-    margin: 0;
-    padding: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
 }
 
 #privacy-item {
