@@ -65,53 +65,53 @@ Windows = ""
 Ubuntu = ""
 Manjaro = ""
 Android = ""
-NixOS = ""
+NixOS = "󱄅"
 
 [directory]
 truncation_length = 10
 truncate_to_repo = true
-home_symbol = ""
-read_only = ""
+home_symbol = "󰋜"
+read_only = "󰌾"
 style = "bold footer bg:grey"
 format = "[ ($read_only )$path ]($style)"
 
 [git_branch]
-symbol = ""
+symbol = "󰘬"
 style = "bg:grey footer"
 format = '[ $symbol ($branch )]($style)'
 
 [git_status]
-conflicted = ""
-modified = ""
+conflicted = "󰀦"
+modified = "󰏫"
 style = "bg:grey footer"
 format = '[$all_status $ahead_behind ]($style)'
 
 [nodejs]
-symbol = ""
+symbol = "󰎙"
 style = "bg:grey footer"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
-symbol = ""
+symbol = "󰌠"
 style = "bg:grey footer"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
-symbol = ""
+symbol = "󱘗"
 style = "bg:grey footer"
 format = '[ $symbol ($version) ]($style)'
 
 [nix_shell]
-impure_msg = '[ impure](bold red bg:grey)'
-pure_msg = '[](bold green bg:grey)'
-unknown_msg = '[ unknown](bold yellow bg:grey)'
+impure_msg = '[󱄅 impure](bold red bg:grey)'
+pure_msg = '[󱄅](bold green bg:grey)'
+unknown_msg = '[󱄅 unknown](bold yellow bg:grey)'
 style = "bg:grey footer"
 format = '[ $state ](bold blue bg:grey) '
 
 [character]
 disabled = false
-success_symbol = "[](bold footer bg:grey)"
-error_symbol = "[](bold red bg:grey)"
+success_symbol = "[󰗠](bold footer bg:grey)"
+error_symbol = "[󰀨](bold red bg:grey)"
 format = "[ $symbol ](bg:grey)"
 
 [status]
@@ -123,11 +123,11 @@ format = "[$status ]($style)"
 disabled = false
 min_time = 2000
 style = "bg:grey header"
-format = "[ $duration  ]($style)"
+format = "[ 󱎫 $duration ]($style)"
 
 [time]
 disabled = false
 use_12hr = true
-time_format = "%a %b %e %I:%M %p "
+time_format = "%a %b %d %I:%M %p 󰥔"
 style = "bg:grey bold header"
 format = "[ $time ]($style)"
