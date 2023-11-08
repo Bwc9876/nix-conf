@@ -184,8 +184,8 @@ window > * > *:not(.modules-center) > * > * {
 #custom-weather.Sunny {
   background: linear-gradient(
     180deg,
-    rgb(137, 137, 0) 0%,
-    rgb(131, 102, 0) 100%
+    rgb(187, 187, 0) 0%,
+    rgb(158, 124, 0) 100%
   );
 }
 

@@ -84,16 +84,16 @@ def past_sunset(astronomy):
     sunset = astronomy["sunset"]
     sunset_hour = int(sunset.split(":")[0])
     sunset_minute = int(sunset.split(":")[1][:2])
-    sunset_ampm = sunset.split(":")[1][2:]
+    sunset_ampm = sunset.split(":")[1][2:].strip()
     sunset_time = (
         sunset_hour * 60 + sunset_minute + (12 * 60 if sunset_ampm == "PM" else 0)
     )
 
-    now = datetime.datetime.utcnow()
+    now = datetime.datetime.now()
     now_hour = now.hour
     now_minute = now.minute
     now_time = now_hour * 60 + now_minute
-
+    
     return now_time > sunset_time
 
 
