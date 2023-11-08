@@ -48,7 +48,7 @@
     system = "x86_64-linux";
   in {
     legacyPackages.${system} = self.nixosConfigurations.b-pc-laptop._module.args.pkgs;
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations.b-pc-tower = nixpkgs.lib.nixosSystem {
       specialArgs = {
         hostName = "b-pc-tower";
