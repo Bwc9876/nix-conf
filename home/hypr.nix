@@ -81,7 +81,7 @@
       "SUPER,Tab,exec,rofi -show window -show-icons"
       "SUPER,Q,exec,firefox"
       "SUPER,E,exec,dolphin"
-      "SUPER,Z,exec,gtklock && systemctl suspend"
+      "SUPER,Z,exec,gtklock -d && systemctl suspend"
       ",XF86AudioMedia,exec,footclient"
       "SUPER,T,exec,footclient"
       "SUPER,N,exec,swaync-client -t -sw"

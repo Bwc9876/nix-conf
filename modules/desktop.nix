@@ -57,6 +57,9 @@
     auth            include         login
   ''; # Allow fingerprint auth
 
+  # KDE Connect
+  programs.kdeconnect.enable = true;
+
   # Applications
   environment.systemPackages = with pkgs; [
     # Hyprland: Configured in HM

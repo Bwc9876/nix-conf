@@ -109,9 +109,4 @@ with lib; rec {
       profiles.bean.isDefault = true;
     };
   };
-
-  # Enable KDE Connect
-  services = {
-    kdeconnect.enable = true;
-  };
 }
