@@ -60,7 +60,20 @@ with lib; rec {
     nushell = {
       enable = true;
       configFile.text = ''
-        $env.config = { show_banner: false }
+        let fish_completer = {|spans|
+            ${pkgs.fish}/bin/fish --command $'complete "--do-complete=($spans | str join " ")"'
+            | $"value(char tab)description(char newline)" + $in
+            | from tsv --flexible --no-infer
+        }
+        $env.config = {
+            show_banner: false
+            completions: {
+                external: {
+                    enable: true
+                    completer: $fish_completer
+                }
+            }
+        }
       '';
       envFile.text = ''
         alias py = python

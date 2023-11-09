@@ -236,6 +236,7 @@
             "exec": "swaync-client -swb",
             "on-click": "sleep 0.2 && swaync-client -t -sw",
             "on-click-right": "sleep 0.2 && swaync-client -d -sw",
+            "on-click-middle": "sleep 0.2 && swaync-client -C -sw",
             "escape": true
         },
         "custom/kde-connect": {
@@ -250,20 +251,6 @@
             "return-type": "json",
             "format": "{}",
             "interval": 60
-        },
-        "custom/cpu-governor": {
-            "format": "{icon}",
-            "interval": 120,
-            "return-type": "json",
-            "exec": "sh ~/.config/waybar/custom_modules/cpu-governor.sh",
-            "min-length": 2,
-            "max-length": 3,
-            "signal": 8,
-            "format-icons": {
-                "perf": "󰡴",
-                "powersave": "󰡳"
-            },
-            "on-click": "sh ~/.config/waybar/custom_modules/cpu-governor.sh switch"
         },
         "custom/power-menu": {
             "format": "󰐥",

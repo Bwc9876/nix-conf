@@ -5,8 +5,11 @@
 }: {
   users.users.bean.shell = pkgs.nushell;
 
+  # For completions
+  programs.fish.enable = true;
+
   environment = {
-    shells = with pkgs; [nushell];
+    shells = with pkgs; [nushell fish];
     variables = {
       EDITOR = "nvim";
     };
