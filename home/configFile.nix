@@ -6,13 +6,14 @@
   dolphinrc.source = ../res/dolphinrc;
   waybar.source = ../res/waybar;
   swaync.source = ../res/swaync;
+  Vencord.source = ../res/vencord;
   "qt5ct/qt5ct.conf".source = ../res/qt5ct.conf;
   "hyfetch.json".source = ../res/hyfetch.json;
   "gtk-3.0/settings.ini".source = ../res/gtk/settings.ini;
   "gtk-4.0/settings.ini".source = ../res/gtk/settings.ini;
   "swayidle/config".source = ../res/swayidle;
   "keepassxc/keepassxc.ini".source = ../res/keepassxc.ini;
-  "discord/settings.json".text = "{ \"SKIP_HOST_UPDATE\": true }";
+  "discord/settings.json".source = ../res/discord.json;
   "gtklock/config.ini".text = ''
     [main]
     time-format=%I:%M %p

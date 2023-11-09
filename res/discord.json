@@ -1,0 +1,20 @@
+{
+  "SKIP_HOST_UPDATE": true,
+  "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true,
+  "MIN_WIDTH": 940,
+  "MIN_HEIGHT": 500,
+  "openasar": {
+    "setup": true,
+    "quickstart": true,
+    "cmdPreset": "balanced"
+  },
+  "IS_MAXIMIZED": false,
+  "IS_MINIMIZED": false,
+  "WINDOW_BOUNDS": {
+    "x": 24,
+    "y": 121,
+    "width": 2208,
+    "height": 1272
+  },
+  "trayBalloonShown": true
+}

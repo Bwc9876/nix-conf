@@ -118,7 +118,10 @@
     firefox-devedition
     obsidian
     keepassxc
-    discord
+    (discord.override {
+      withVencord = true;
+      withOpenASAR = true;
+    })
     spotify
 
     ### Dolphin
