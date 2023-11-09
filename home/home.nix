@@ -8,6 +8,10 @@
   ...
 }:
 with lib; rec {
+  imports = [
+    inputs.nix-index-database.hmModules.nix-index
+  ];
+
   home = {
     username = "bean";
     homeDirectory = "/home/bean";
@@ -57,34 +61,10 @@ with lib; rec {
       settings = fromTOML (fileContents ../res/starship.toml);
     };
 
-    nushell = {
-      enable = true;
-      configFile.text = ''
-        let fish_completer = {|spans|
-            ${pkgs.fish}/bin/fish --command $'complete "--do-complete=($spans | str join " ")"'
-            | $"value(char tab)description(char newline)" + $in
-            | from tsv --flexible --no-infer
-        }
-        $env.config = {
-            show_banner: false
-            completions: {
-                external: {
-                    enable: true
-                    completer: $fish_completer
-                }
-            }
-        }
-      '';
-      envFile.text = ''
-        alias py = python
-        alias cat = bat
-        alias neofetch = hyfetch
-        alias screensaver = pipes-rs -k curved -p 10 --fps 30
-        alias hyperctl = hyprctl
-        alias hyprland = Hyprland
-        alias hyperland = hyprland
-      '';
-    };
+    command-not-found.enable = false;
+    nix-index.enable = true;
+
+    nushell = import ./nushell.nix {inherit pkgs lib;};
 
     rofi = {
       enable = true;

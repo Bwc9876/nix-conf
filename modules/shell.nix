@@ -1,12 +1,16 @@
 {
   pkgs,
   inputs,
+  system,
   ...
 }: {
   users.users.bean.shell = pkgs.nushell;
 
   # For completions
-  programs.fish.enable = true;
+  programs = {
+    command-not-found.enable = false; # Replaced with my own nushell script (../res/command_not_found.nu)
+    fish.enable = true;
+  };
 
   environment = {
     shells = with pkgs; [nushell fish];
@@ -18,6 +22,7 @@
       nushell
 
       # Tools
+      inputs.nix-index-database.packages.${system}.comma-with-db
       neofetch
       hyfetch
       lolcat

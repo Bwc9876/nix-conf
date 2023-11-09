@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -24,6 +26,7 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
+    nix-index-database,
     lanzaboote,
     hyprland,
     xdg-desktop-portal-hyprland,
@@ -32,6 +35,8 @@
     ow-mod-man,
   }: let
     globalModules = [
+      # For nix-index
+      nix-index-database.nixosModules.nix-index
       # Load lanzaboote for Secure Boot
       lanzaboote.nixosModules.lanzaboote
       # Load the main configuration
