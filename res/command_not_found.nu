@@ -1,6 +1,5 @@
 {|cmd_name|
     try {
-        let toplevel = "p"
         let attrs = (nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root $"/bin/($cmd_name)")
         let len = (echo $attrs | split row "\n" | length)
 
