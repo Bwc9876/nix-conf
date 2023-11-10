@@ -124,6 +124,7 @@
       "SUPER SHIFT,C,exec,hyprpicker -a"
       "SUPER SHIFT ALT,R,exec,wl-screenrec"
       ",XF86RFKill,exec,rfkill toggle wifi"
+      ",Caps_Lock,exec,swayosd-client --caps-lock"
     ];
     bindl = [
       ",switch:Lid Switch,exec,gtklock"
@@ -139,9 +140,6 @@
       ",XF86AudioMute,exec,swayosd-client --output-volume mute-toggle"
       ",XF86MonBrightnessUp,exec,swayosd-client --brightness raise"
       ",XF86MonBrightnessDown,exec,swayosd-client --brightness lower"
-    ];
-    bindr = [
-      ",Caps_Lock,exec,swayosd-client --caps-lock"
     ];
     bindm = [
       "SUPER,mouse:272,movewindow"
