@@ -260,32 +260,21 @@
     {
         "layer": "top",
         "position": "bottom",
-        "modules-center": [
+        "modules-left": [
             "hyprland/workspaces"
         ],
+        "modules-center": [
+            "wlr/taskbar"
+        ],
+        "wlr/taskbar": {
+            "icon-theme": "candy-icons",
+            "format": "{icon}",
+            "icon-size": 35,
+            "on-click": "activate"
+        },
         "hyprland/workspaces": {
             "disable-scroll": true,
-            "format": "{windows}{icon}",
-            "format-icons": {
-                "default": "",
-                "empty": ""
-            },
-            "window-rewrite-default": "󰘔",
-            "window-rewrite": {
-                "firefox": "󰈹",
-                "thunderbird": "󰛮",
-                "code": "󰨞",
-                "foot": "",
-                "footclient": "",
-                "dolphin": "󰉋",
-                "[dD]iscord": "󰙯",
-                "obsidian": "󰠮",
-                "keepassxc": "󱕴",
-                "[sS]team": "",
-                "[sS]potify": "󰓇",
-                "obsstudio": "",
-                "lorien": "󰏫"
-            }
+            "format": "{name}"
         }
     }
 ]
