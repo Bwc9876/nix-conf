@@ -80,7 +80,7 @@ weather_icons = {
 night_map = {"󰖙": "󰖔", "󰖕": "󰼱"}
 
 
-def past_sunset(astronomy):
+def is_night(astronomy):
     sunset = astronomy["sunset"]
     sunset_hour = int(sunset.split(":")[0])
     sunset_minute = int(sunset.split(":")[1][:2])
@@ -88,13 +88,22 @@ def past_sunset(astronomy):
     sunset_time = (
         sunset_hour * 60 + sunset_minute + (12 * 60 if sunset_ampm == "PM" else 0)
     )
+    
+    sunrise = astronomy["sunrise"]
+    sunrise_hour = int(sunrise.split(":")[0])
+    sunrise_minute = int(sunrise.split(":")[1][:2])
+    sunrise_ampm = sunrise.split(":")[1][2:].strip()
+    
+    sunrise_time = (
+        sunrise_hour * 60 + sunrise_minute + (12 * 60 if sunrise_ampm == "PM" else 0)
+    )
 
     now = datetime.datetime.now()
     now_hour = now.hour
     now_minute = now.minute
     now_time = now_hour * 60 + now_minute
     
-    return now_time > sunset_time
+    return now_time < sunrise_time or now_time > sunset_time
 
 
 def main():
@@ -109,7 +118,7 @@ def main():
 
     icon = weather_icons[condition]
 
-    night = past_sunset(astronomy)
+    night = is_night(astronomy)
 
     if night and icon in night_map:
         icon = night_map[icon]
