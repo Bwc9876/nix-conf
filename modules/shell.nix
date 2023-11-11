@@ -6,10 +6,9 @@
 }: {
   users.users.bean.shell = pkgs.nushell;
 
-  # For completions
   programs = {
     command-not-found.enable = false; # Replaced with my own nushell script (../res/command_not_found.nu)
-    fish.enable = true;
+    fish.enable = true; # For completions
   };
 
   environment = {
