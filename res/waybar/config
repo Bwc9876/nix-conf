@@ -19,34 +19,13 @@
             "pulseaudio",
             "custom/kde-connect",
             "idle_inhibitor",
-            "privacy",
             "custom/notification",
+            "privacy",
             "tray"
         ],
         "user": {
             "format": " {user}",
             "icon": true
-        },
-        "hyprland/workspaces": {
-            "disable-scroll": true,
-            "format": "{windows}{icon} ",
-            "format-icons": {
-                "default": "",
-                "empty": ""
-            },
-            "window-rewrite-default": "󰘔",
-            "window-rewrite": {
-                "firefox": "󰈹",
-                "thunderbird": "󰛮",
-                "code": "󰨞",
-                "foot": "",
-                "footclient": "",
-                "dolphin": "󰉋",
-                "[dD]iscord": "󰙯",
-                "obsidian": "󰠮",
-                "keepassxc": "󱕴",
-                "[sS]team": ""
-            }
         },
         "clock#1": {
             "format": "󰃭 {:%A, %B %d}",
@@ -100,7 +79,9 @@
                 "album"
             ],
             "title-len": 35,
-            "dynamic-len": 65,
+            "artist-len": 25,
+            "album-len": 20,
+            "dynamic-len": 50,
             "format": "{player_icon} {dynamic}",
             "format-paused": "{status_icon} {dynamic}"
         },
