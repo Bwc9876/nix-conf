@@ -19,6 +19,7 @@ with lib; rec {
     file = {
       ".face".source = ../res/pictures/cow.png;
       ".gtkrc-2.0".source = ../res/gtk/.gtkrc-2.0;
+      ".tuxpaintrc".source = ../res/tuxpaintrc;
     };
     activation = {
       createXDGFoldersAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
