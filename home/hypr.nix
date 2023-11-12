@@ -45,6 +45,7 @@
       "QT_QPA_PLATFORMTHEME,qt5ct"
       "QT_QPA_PLATFORM,wayland;xcb"
       "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+      "GRIMBLAST_EDITOR,swappy -f "
     ];
     exec-once = [
       "hyprpaper"
@@ -67,11 +68,14 @@
       "workspace 1 silent,class:(.*)discord(.*),title:(.*)Discord(.*)"
       "idleinhibit fullscreen,class:(.*),title:(.*)"
     ];
-    bind = [
+    bind = let
+      powerMenu = "rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\"";
+      screenshot = "swappy -f $(grimblast --freeze copysave area)";
+    in [
       "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"
       "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
-      "SUPER,Delete,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
-      ",XF86PowerOff,exec,rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
+      "SUPER,Delete,exec,${powerMenu}"
+      ",XF86PowerOff,exec,${powerMenu}"
       "SUPER ALT,C,exec,rofi -modi calc -show calc"
       "SUPER,I,exec,rofi-pulse-select source"
       "SUPER,O,exec,rofi-pulse-select sink"
@@ -118,8 +122,8 @@
       "SUPER SHIFT,8,movetoworkspace,8"
       "SUPER SHIFT,9,movetoworkspace,9"
       "SUPER SHIFT,0,movetoworkspace,10"
-      ",Print,exec,grimblast --freeze save area - | swappy -f -"
-      "SUPER SHIFT,S,exec,grimblast --freeze save area - | swappy -f -"
+      ",Print,exec,${screenshot}"
+      "SUPER SHIFT,S,exec,${screenshot}"
       "SUPER SHIFT,R,exec,wl-screenrec -g \"$(slurp)\""
       "SUPER SHIFT,C,exec,hyprpicker -a"
       "SUPER SHIFT ALT,R,exec,wl-screenrec"

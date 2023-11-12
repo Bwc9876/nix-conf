@@ -9,6 +9,7 @@
   Vencord.source = ../res/vencord;
   "qt5ct/qt5ct.conf".source = ../res/qt5ct.conf;
   "hyfetch.json".source = ../res/hyfetch.json;
+  "swappy/config".source = ../res/swappy;
   "gtk-3.0/settings.ini".source = ../res/gtk/settings.ini;
   "gtk-4.0/settings.ini".source = ../res/gtk/settings.ini;
   "swayidle/config".source = ../res/swayidle;

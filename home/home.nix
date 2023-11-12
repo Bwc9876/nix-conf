@@ -21,15 +21,6 @@ with lib; rec {
       ".gtkrc-2.0".source = ../res/gtk/.gtkrc-2.0;
       ".tuxpaintrc".source = ../res/tuxpaintrc;
     };
-    activation = {
-      createXDGFoldersAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        mkdir -p $HOME/Desktop
-        mkdir -p $HOME/Documents
-        mkdir -p $HOME/Pictures
-        mkdir -p $HOME/Videos
-        mkdir -p $HOME/Music
-      '';
-    };
   };
 
   # Enable management of known folders
@@ -37,11 +28,15 @@ with lib; rec {
     enable = true;
     userDirs = {
       enable = true;
+      createDirectories = true;
       desktop = "${home.homeDirectory}/Desktop";
       documents = "${home.homeDirectory}/Documents";
       pictures = "${home.homeDirectory}/Pictures";
       videos = "${home.homeDirectory}/Videos";
       music = "${home.homeDirectory}/Music";
+      extraConfig = {
+        "XDG_SCREENSHOTS_DIR" = "${home.homeDirectory}/Pictures/Screenshots";
+      };
     };
     configFile = import ./configFile.nix {inherit lib hostName;};
     mimeApps = import ./mime.nix;

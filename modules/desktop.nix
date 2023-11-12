@@ -108,7 +108,7 @@
     ## Screenshot / Record
     wl-screenrec
     slurp
-    grimblast
+    inputs.hyprland-contrib.packages.${system}.grimblast
     swappy
 
     # Theming

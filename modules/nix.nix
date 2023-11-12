@@ -8,6 +8,7 @@
     overlays = [
       inputs.hyprland.overlays.default
       inputs.waybar.overalys.default
+      inputs.hyprland-contrib.overlays.default
     ];
   };
 
