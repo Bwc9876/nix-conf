@@ -189,11 +189,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699748018,
-        "narHash": "sha256-28rwXnxgscLkeII6wj44cuP6RuiynhzZSa424ZwGt/s=",
+        "lastModified": 1699783872,
+        "narHash": "sha256-4zTwLT2LL45Nmo6iwKB3ls3hWodVP9DiSWxki/oewWE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "50e582b9f91e409ffd2e134017445d376659b32e",
+        "rev": "280721186ab75a76537713ec310306f0eba3e407",
         "type": "github"
       },
       "original": {
@@ -211,11 +211,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1699726486,
-        "narHash": "sha256-8PP26+ybmScq5WpFd2JPqUDzG2VggYOvD6/rzY9/CJ4=",
+        "lastModified": 1699833473,
+        "narHash": "sha256-LfKVb8lf+KQ5pusxc4wC6hZYeLnz9l0SAcVDsx6F/T0=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "9afdd61adeaf413afbe853dbc5fdf6853c8bde21",
+        "rev": "2e26542e3bba3533e71e13f2257823d96da2318a",
         "type": "github"
       },
       "original": {
@@ -251,11 +251,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699713586,
-        "narHash": "sha256-UahRrEiyO6KKgSPPmKWyktZlfL8TO3hl0kvSX2V8f6I=",
+        "lastModified": 1699829380,
+        "narHash": "sha256-KSLTqvOIzv12IDJHPBKsrKd4eWOEKQBLEQr15PATMjE=",
         "owner": "hyprwm",
         "repo": "hyprland-plugins",
-        "rev": "2cc193e6dc524baed841c016109b4f48fd0512a3",
+        "rev": "9ad145a1021ea48beec65f234137d23e05c30918",
         "type": "github"
       },
       "original": {
@@ -325,11 +325,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1699626196,
-        "narHash": "sha256-/arAIgFkEOTss4BsppCJn1DIBxvx1ESgWOj9CJqx4lQ=",
+        "lastModified": 1699854300,
+        "narHash": "sha256-+vtwI57MvMKoPuLe1yxi9abkA3EbhK+NodVxxkrv3rg=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "81975f3bc4a7f3f4c689c43645110c2e1aac56b2",
+        "rev": "f8d26384363b3b1ed17de4f2d87aaa553e70b466",
         "type": "github"
       },
       "original": {
@@ -463,11 +463,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699676561,
-        "narHash": "sha256-r32GwURII2e+mkXknV3SpHmN5WZNoYQ1FQvfRZ2BiG0=",
+        "lastModified": 1699858411,
+        "narHash": "sha256-xzgfPusb8iN5L7d31/Tsre0WYpWiqk/iDNcwmS2A43s=",
         "owner": "ow-mods",
         "repo": "ow-mod-man",
-        "rev": "b8a6cb0b82ec992ae66870baa5bed496a359d292",
+        "rev": "089a0fa60f6bb23fc6e578fbfa4ddc21f9eab798",
         "type": "github"
       },
       "original": {
@@ -648,11 +648,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699286320,
-        "narHash": "sha256-y/dOzxN/7+ZBJlSe0u/UrpWnvKqJO+tNlzPrEGQkeiE=",
+        "lastModified": 1699860899,
+        "narHash": "sha256-SaLX9359guqStFxpB4qJwBc9gvl2oA3fKXLSHyd+Q0Q=",
         "owner": "Alexays",
         "repo": "Waybar",
-        "rev": "c4330a1e361ed25767ea257013aee19f55ba69f4",
+        "rev": "9ac27de7d8ec472b490d280b6409e8195682647d",
         "type": "github"
       },
       "original": {
