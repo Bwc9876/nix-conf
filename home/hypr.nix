@@ -21,6 +21,7 @@
     };
     decoration = {
       rounding = 10;
+      drop_shadow = false;
     };
     input = {
       numlock_by_default = true;
@@ -59,6 +60,7 @@
       "swayosd-server"
       "swayidle -w"
       "nm-applet"
+      "nu ${../res/sunset.nu}"
       "playerctld"
       "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
       "[workspace 1 silent] sleep 5; discord"
