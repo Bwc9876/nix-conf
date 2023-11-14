@@ -172,7 +172,6 @@
     ## Debug / Utility
     libsForQt5.kmousetool
     wev
-    wlsunset # For night light
   ];
 
   programs.steam = {

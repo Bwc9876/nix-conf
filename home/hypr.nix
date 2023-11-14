@@ -60,7 +60,7 @@
       "swayosd-server"
       "swayidle -w"
       "nm-applet"
-      "nu ${../res/sunset.nu}"
+      "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
       "playerctld"
       "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
       "[workspace 1 silent] sleep 5; discord"
