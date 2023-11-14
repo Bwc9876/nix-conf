@@ -29,7 +29,7 @@
     users.bean = {
       isNormalUser = true;
       description = "Benjamin Crocker";
-      extraGroups = ["networkmanager" "wheel" "video" "lpadmin"];
+      extraGroups = ["networkmanager" "wheel" "video" "lpadmin" "wireshark"];
     };
   };
 
