@@ -55,7 +55,7 @@
       "foot -s"
       "dolphin --daemon"
       "waybar"
-      "wl-paste --watch cliphist store"
+      "wl-paste --watch bash ${../res/clipboard_middleman.sh}"
       "swaync"
       "swayosd-server"
       "swayidle -w"

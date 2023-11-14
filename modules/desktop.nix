@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   system,
   pkgs,
   ...
@@ -102,7 +103,14 @@
     swayidle # For locking when idle
 
     ## Clipboard
-    wl-clipboard
+    (callPackage wl-clipboard.overrideAttrs {
+        src = fetchFromGitHub {
+            owner = "Bwc9876";
+            repo = "wl-clipboard";
+            rev = "bwc9876/x-kde-passwordManagerHint-sensitive";
+            sha256 = "sha256-EHZYaynlWpZhhk1KURB+l3WcRRLErj9ScQVfpi/awtQ=";
+        };
+    })
     cliphist
 
     ## Screenshot / Record
