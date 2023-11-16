@@ -22,16 +22,6 @@
 
     # Use latest kernel with module signing and lockdown enabled
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelPatches = [
-      {
-        name = "kernel-lockdown";
-        patch = null;
-        extraConfig = ''
-          SECURITY_LOCKDOWN_LSM y
-          MODULE_SIG y
-        '';
-      }
-    ];
     kernelParams = ["lockdown=confidentiality"];
   };
 }
