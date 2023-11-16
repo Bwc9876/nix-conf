@@ -31,6 +31,7 @@
       perl536Packages.TextLorem
       cowsay
       toilet
+      gay
       pipes-rs
       brightnessctl
       playerctl
