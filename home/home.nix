@@ -76,8 +76,18 @@ with lib; rec {
       ];
     };
 
+    zoxide.enable = true;
+    carapace.enable = true;
+
     # CLI Tools
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config = {
+        theme = "OneHalfDark";
+      };
+      extraPackages = with pkgs.bat-extras; [(prettybat.override {rustfmt = pkgs.rustfmt;}) batdiff batman batgrep batwatch];
+    };
+
     ripgrep.enable = true;
     gh = {
       enable = true;

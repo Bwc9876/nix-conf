@@ -9,6 +9,7 @@
     "inode/directory" = ["org.kde.dolphin.desktop"];
     "text/plain" = textEditors;
     "text/markdown" = textEditors;
+    "text/xml" = textEditors;
     "text/x-markdown" = textEditors;
     "text/x-readme" = textEditors;
     "text/x-changelog" = textEditors;
@@ -39,6 +40,7 @@
     "application/x-extension-xht" = browsers;
     "application/x-extension-xhtml" = browsers;
     "application/xhtml+xml" = browsers;
+    "application/xml" = browsers;
     "application/pdf" = browsers;
     "message/rfc822" = mailClients;
   };
