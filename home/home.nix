@@ -85,7 +85,7 @@ with lib; rec {
       config = {
         theme = "OneHalfDark";
       };
-      extraPackages = with pkgs.bat-extras; [(prettybat.override {rustfmt = pkgs.rustfmt;}) batdiff batman batgrep batwatch];
+      extraPackages = with pkgs.bat-extras; [prettybat batdiff batman batgrep batwatch];
     };
 
     ripgrep.enable = true;

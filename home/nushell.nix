@@ -5,6 +5,8 @@
 with lib; {
   enable = true;
   shellAliases = {
+    cd = "z";
+    sw = "zi";
     py = "python";
     cat = "bat";
     pcat = "prettybat";
@@ -15,9 +17,6 @@ with lib; {
     screensaver = "pipes-rs -k curved -p 10 --fps 30";
   };
   configFile.text = ''
-    let carapace_completer = {|spans|
-        ${pkgs.carapace}/bin/carapace $spans.0 nushell $spans | from json
-    }
     let fish_completer = {|spans|
         ${pkgs.fish}/bin/fish --command $'complete "--do-complete=($spans | str join " ")"'
         | $"value(char tab)description(char newline)" + $in
@@ -41,9 +40,7 @@ with lib; {
             zi => $zoxide_completer
             __zoxide_z => $zoxide_completer
             __zoxide_zi => $zoxide_completer
-            nu => $fish_completer
-            owmods => $fish_completer
-            _ => $carapace_completer
+            _ => $fish_completer
         } | do $in $spans
     }
     let command_not_found = ${fileContents ../res/command_not_found.nu}
