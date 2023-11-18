@@ -1,10 +1,15 @@
-{...}: {
+{hostName, ...}: let
+  fontSize =
+    if hostName == "b-pc-laptop"
+    then "16"
+    else "12";
+in {
   programs.foot = {
     enable = true;
     settings = {
       main = {
         title = "Terminal (Foot)";
-        font = "monospace:size=16";
+        font = "monospace:size=${fontSize}";
       };
       bell = {
         visual = true;

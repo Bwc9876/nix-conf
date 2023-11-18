@@ -42,7 +42,7 @@
     "hypr/hyprpaper.conf".text = ''
       ipc = off
       preload = ${../res/pictures/background.jpg}
-      wallpaper = eDP-1,${../res/pictures/background.jpg}
+      wallpaper = ,${../res/pictures/background.jpg}
     '';
   };
 }

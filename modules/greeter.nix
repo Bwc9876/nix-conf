@@ -7,8 +7,13 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${lib.toUpper hostName}\" --time --cmd Hyprland";
+      default_session = let
+        wlr_setting =
+          if hostName == "b-pc-tower"
+          then "WLR_NO_HARDWARE_CURSORS=1"
+          else "WLR_NO_HARDWARE_CURSORS=0";
+      in {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${lib.toUpper hostName}\" --time --cmd \"sh -c \\\"${wlr_setting} Hyprland\\\"\"";
       };
     };
   };
