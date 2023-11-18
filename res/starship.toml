@@ -5,6 +5,8 @@ format = """
 [░▒▓](grey)[ \
 $os\
 $hostname\
+[](bg:grey #999999)\
+$shell\
 $username\
 [](bg:grey #999999)\
 $directory\
@@ -131,3 +133,13 @@ use_12hr = true
 time_format = "%a %b %d %I:%M %p 󰥔"
 style = "bg:grey bold header"
 format = "[ $time ]($style)"
+
+[shell]
+fish_indicator = '󰈺'
+powershell_indicator = '󰨊'
+nu_indicator = '󰨊'
+bash_indicator = "󱆃"
+unknown_indicator = '󰋗'
+style = 'bg:grey header'
+format = '[ $indicator ]($style)'
+disabled = false

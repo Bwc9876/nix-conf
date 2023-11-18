@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   system,
   ...
@@ -98,5 +99,9 @@
       };
     };
     ssh.startAgent = true;
+    starship = {
+        enable = true;
+        settings = fromTOML (lib.fileContents ../res/starship.toml);
+    };
   };
 }
