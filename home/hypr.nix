@@ -59,7 +59,7 @@
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "GRIMBLAST_EDITOR,swappy -f "
-        "WLR_NO_HARDWARE_CURSORS=${hardwareCursors}"
+        "WLR_NO_HARDWARE_CURSORS,${hardwareCursors}"
       ];
       exec-once = [
         "hyprpaper"
