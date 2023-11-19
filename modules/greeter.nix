@@ -13,7 +13,7 @@
           then "WLR_NO_HARDWARE_CURSORS=1"
           else "WLR_NO_HARDWARE_CURSORS=0";
       in {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${lib.toUpper hostName}\" --time --cmd \"sh -c \\\"${wlr_setting} Hyprland\\\"\"";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --greeting \"Authenticate into ${lib.toUpper hostName}\" --time --cmd \"systemd-inhibit --what=handle-power-key:handle-lid-switch sh -c \\\"${wlr_setting} Hyprland\\\"\"";
       };
     };
   };
