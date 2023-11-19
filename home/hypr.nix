@@ -48,12 +48,18 @@
         disable_hyprland_logo = true;
         focus_on_activate = true;
       };
-      env = [
+      env = let
+        hardwareCursors =
+          if hostName == "b-pc-tower"
+          then "1"
+          else "0";
+      in [
         "GTK_THEME,Sweet-Ambar-Blue:dark"
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "GRIMBLAST_EDITOR,swappy -f "
+        "WLR_NO_HARDWARE_CURSORS=${hardwareCursors}"
       ];
       exec-once = [
         "hyprpaper"
