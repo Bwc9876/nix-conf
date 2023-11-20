@@ -19,7 +19,7 @@
       "text/html" = browsers;
       "image/png" = imageViewers;
       "image/jpeg" = imageViewers;
-      "image/gif" = imageViewers;
+      "image/gif" = browsers;
       "image/bmp" = imageViewers;
       "image/x-portable-pixmap" = imageViewers;
       "image/x-portable-bitmap" = imageViewers;

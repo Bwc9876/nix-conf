@@ -139,7 +139,6 @@
         "SUPER SHIFT,0,movetoworkspace,10"
         ",Print,exec,${screenshot}"
         "SUPER SHIFT,S,exec,${screenshot}"
-        "SUPER SHIFT,R,exec,wl-screenrec -g \"$(slurp)\""
         "SUPER SHIFT,C,exec,hyprpicker -a"
         "SUPER SHIFT ALT,R,exec,wl-screenrec"
         ",XF86RFKill,exec,rfkill toggle wifi"
@@ -152,6 +151,9 @@
         ",XF86AudioStop,exec,playerctl stop"
         ",XF86AudioNext,exec,playerctl next"
         ",XF86AudioPrev,exec,playerctl previous"
+      ];
+      bindr = [
+        "SUPER SHIFT,R,exec,pkill wf-recorder --signal SIGINT || nu ${../res/screenrec.nu}"
       ];
       binde = [
         ",XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise"
