@@ -114,7 +114,7 @@
     cliphist
 
     ## Screenshot / Record
-    wl-screenrec
+    wf-recorder
     slurp
     inputs.hyprland-contrib.packages.${system}.grimblast
     swappy
