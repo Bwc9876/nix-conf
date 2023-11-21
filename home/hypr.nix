@@ -171,14 +171,14 @@
       "plugin:hyprbars" = {
         bar_height = 30;
         bar_text_size = 10;
-        hyprbars-button = [
+        hyprbars-button = let sep = "rgba(00000000), 14, |,"; in [
           "rgb(ff4040), 14, 󰅖, hyprctl dispatch killactive"
           "rgb(eeee11), 14, 󰖯, hyprctl dispatch fullscreen 1"
           "rgb(05bf9d), 14, 󰨦, hyprctl dispatch togglefloating"
-          "rgba(00000000), 14, |,"
+          sep
           "rgb(3374d6), 14, 󰁔, hyprctl dispatch swapnext"
           "rgb(3374d6), 14, , hyprctl dispatch swapnext prev"
-          "rgba(00000000), 14, |,"
+          sep
           "rgb(775e93), 14, 󱞤, hyprctl dispatch movetoworkspace e+1"
           "rgb(775e93), 14, 󱞢, hyprctl dispatch movetoworkspace e-1"
         ];
