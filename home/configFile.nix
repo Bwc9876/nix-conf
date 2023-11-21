@@ -1,6 +1,7 @@
 {
   lib,
   hostName,
+  pkgs,
   ...
 }: {
   xdg.configFile = {
@@ -14,7 +15,6 @@
     "swappy/config".source = ../res/swappy;
     "gtk-3.0/settings.ini".source = ../res/gtk/settings.ini;
     "gtk-4.0/settings.ini".source = ../res/gtk/settings.ini;
-    "swayidle/config".source = ../res/swayidle;
     "keepassxc/keepassxc.ini".source = ../res/keepassxc.ini;
     "discord/settings.json".source = ../res/discord.json;
     "gtklock/config.ini".text = ''
@@ -25,7 +25,7 @@
       idle-hide=true
       style=${../res/gtklock-style.css}
       start-hidden=true
-      modules=/run/current-system/sw/lib/gtklock/userinfo-module.so
+      modules=${pkgs.gtklock-userinfo-module}/lib/gtklock/userinfo-module.so
 
       [userinfo]
       vertical-layout=false

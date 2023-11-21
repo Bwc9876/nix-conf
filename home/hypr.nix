@@ -60,9 +60,10 @@
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "GRIMBLAST_EDITOR,swappy -f "
         "WLR_NO_HARDWARE_CURSORS,${hardwareCursors}"
+        "TERMINAL,footclient"
       ];
       exec-once = [
-        "hyprpaper"
+        "${pkgs.hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Sweet-cursors 24"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "foot -s"
@@ -71,8 +72,8 @@
         "wl-paste --watch bash ${../res/clipboard_middleman.sh}"
         "swaync"
         "swayosd-server"
-        "swayidle -w"
-        "nm-applet"
+        "${pkgs.swayidle}/bin/swayidle -w -C ${../computers/${hostName}/idleconfig}"
+        "${pkgs.networkmanagerapplet}/bin/nm-applet"
         "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
@@ -83,67 +84,68 @@
         "idleinhibit fullscreen,class:(.*),title:(.*)"
       ];
       bind = let
-        powerMenu = "rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\"";
+        powerMenu = "rofi -modi 'p:${pkgs.rofi-power-menu}/bin/rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\"";
+        openTerminal = "footclient";
         screenshot = "nu ${../res/screenshot.nu}";
-      in [
-        "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"
-        "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
-        "SUPER,Delete,exec,${powerMenu}"
-        ",XF86PowerOff,exec,${powerMenu}"
-        "SUPER ALT,C,exec,rofi -modi calc -show calc"
-        "SUPER,I,exec,rofi-pulse-select source"
-        "SUPER,O,exec,rofi-pulse-select sink"
-        "SUPER,B,exec,rofi-bluetooth"
-        "SUPER,grave,exec,rofi-systemd"
-        "SUPER,D,exec,rofi-code"
-        "SUPER,Tab,exec,rofi -show window -show-icons"
-        "SUPER,Q,exec,firefox"
-        "SUPER,E,exec,dolphin"
-        "SUPER,Z,exec,${lockSuspend}"
-        ",XF86AudioMedia,exec,footclient"
-        "SUPER,T,exec,footclient"
-        "SUPER,N,exec,swaync-client -t -sw"
-        "SUPER,L,exec,gtklock"
-        "SUPER,C,killactive,"
-        "SUPER SHIFT,D,exec,code"
-        "SUPER,V,exec,cliphist list | sed -r \"s|binary data image/(.*)|󰋩 Image (\\1)|g\" | rofi -dmenu -display-columns 2 -p Clipboard | cliphist decode | wl-copy"
-        "SUPER ALT,V,exec,echo -e \"Yes\\nNo\" | [[ $(rofi -dmenu -mesg \"Clear Clipboard History?\" -p Clear) == \"Yes\" ]] && cliphist wipe"
-        "SUPER,P,pseudo,"
-        "SUPER,R,togglefloating,"
-        "SUPER,F,fullscreen,1"
-        "SUPER SHIFT,F,fullscreen,0"
-        "SUPER,J,togglesplit,"
-        "SUPER,left,movefocus,l"
-        "SUPER,right,movefocus,r"
-        "SUPER,up,movefocus,u"
-        "SUPER,down,movefocus,d"
-        "SUPER,1,workspace,1"
-        "SUPER,2,workspace,2"
-        "SUPER,3,workspace,3"
-        "SUPER,4,workspace,4"
-        "SUPER,5,workspace,5"
-        "SUPER,6,workspace,6"
-        "SUPER,7,workspace,7"
-        "SUPER,8,workspace,8"
-        "SUPER,9,workspace,9"
-        "SUPER,0,workspace,10"
-        "SUPER SHIFT,1,movetoworkspace,1"
-        "SUPER SHIFT,2,movetoworkspace,2"
-        "SUPER SHIFT,3,movetoworkspace,3"
-        "SUPER SHIFT,4,movetoworkspace,4"
-        "SUPER SHIFT,5,movetoworkspace,5"
-        "SUPER SHIFT,6,movetoworkspace,6"
-        "SUPER SHIFT,7,movetoworkspace,7"
-        "SUPER SHIFT,8,movetoworkspace,8"
-        "SUPER SHIFT,9,movetoworkspace,9"
-        "SUPER SHIFT,0,movetoworkspace,10"
-        ",Print,exec,${screenshot}"
-        "SUPER SHIFT,S,exec,${screenshot}"
-        "SUPER SHIFT,C,exec,hyprpicker -a"
-        "SUPER SHIFT ALT,R,exec,wl-screenrec"
-        ",XF86RFKill,exec,rfkill toggle wifi"
-        ",Caps_Lock,exec,swayosd-client --caps-lock"
-      ];
+        forEachWorkspace = {
+          mod,
+          dispatch,
+        }:
+          builtins.genList (i: let
+            num =
+              if i == 0
+              then "10"
+              else builtins.toString i;
+          in "${mod},${num},${dispatch},${num}")
+          10;
+      in
+        [
+          "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"
+          "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
+          "SUPER,Delete,exec,${powerMenu}"
+          ",XF86PowerOff,exec,${powerMenu}"
+          "SUPER ALT,C,exec,rofi -modi calc -show calc"
+          "SUPER,I,exec,${pkgs.rofi-pulse-select}/bin/rofi-pulse-select source"
+          "SUPER,O,exec,${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink"
+          "SUPER,B,exec,${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
+          "SUPER,grave,exec,${pkgs.callPackage ../pkgs/rofi-systemd.nix {}}/bin/rofi-systemd"
+          "SUPER,D,exec,${pkgs.callPackage ../pkgs/rofi-code.nix {}}/bin/rofi-code"
+          "SUPER,Tab,exec,rofi -show window -show-icons"
+          "SUPER,Q,exec,firefox"
+          "SUPER,E,exec,dolphin"
+          "SUPER,Z,exec,${lockSuspend}"
+          ",XF86AudioMedia,exec,${openTerminal}"
+          "SUPER,T,exec,${openTerminal}"
+          "SUPER,N,exec,swaync-client -t -sw"
+          "SUPER,L,exec,gtklock"
+          "SUPER,C,killactive,"
+          "SUPER SHIFT,D,exec,code"
+          "SUPER,V,exec,cliphist list | sed -r \"s|binary data image/(.*)|󰋩 Image (\\1)|g\" | rofi -dmenu -display-columns 2 -p Clipboard | cliphist decode | wl-copy"
+          "SUPER ALT,V,exec,echo -e \"Yes\\nNo\" | [[ $(rofi -dmenu -mesg \"Clear Clipboard History?\" -p Clear) == \"Yes\" ]] && cliphist wipe"
+          "SUPER,P,pseudo,"
+          "SUPER,R,togglefloating,"
+          "SUPER,F,fullscreen,1"
+          "SUPER SHIFT,F,fullscreen,0"
+          "SUPER ALT,F,fakefullscreen"
+          "SUPER,J,togglesplit,"
+          "SUPER,left,movefocus,l"
+          "SUPER,right,movefocus,r"
+          "SUPER,up,movefocus,u"
+          "SUPER,down,movefocus,d"
+          ",Print,exec,${screenshot}"
+          "SUPER SHIFT,S,exec,${screenshot}"
+          "SUPER SHIFT,C,exec,hyprpicker -a"
+          ",XF86RFKill,exec,rfkill toggle wifi"
+          ",Caps_Lock,exec,swayosd-client --caps-lock"
+        ]
+        ++ forEachWorkspace {
+          mod = "SUPER";
+          dispatch = "workspace";
+        }
+        ++ forEachWorkspace {
+          mod = "SUPER SHIFT";
+          dispatch = "movetoworkspace";
+        };
       bindl = [
         ",switch:on:Lid Switch,exec,${lockSuspend}"
         ",XF86AudioPlay,exec,playerctl play-pause"

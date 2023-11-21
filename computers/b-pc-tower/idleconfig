@@ -1,0 +1,2 @@
+timeout 600 'gtklock -d'
+lock 'gtklock'

@@ -90,16 +90,10 @@
     ## Rofi
     rofi
     rofi-emoji
-    rofi-power-menu
-    rofi-bluetooth
     rofi-calc
-    rofi-pulse-select
-    (callPackage ../pkgs/rofi-code.nix {})
-    (callPackage ../pkgs/rofi-systemd.nix {})
 
     ## GTK Lock
     gtklock
-    gtklock-userinfo-module # For displaying name and picture
     swayidle # For locking when idle
 
     ## Clipboard
@@ -131,7 +125,6 @@
 
     ## System Management / Monitoring
     libsForQt5.filelight
-    networkmanagerapplet
     pavucontrol
 
     ## General / Everyday
