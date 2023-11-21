@@ -84,7 +84,7 @@
       ];
       bind = let
         powerMenu = "rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\"";
-        screenshot = "swappy -f $(grimblast --freeze copysave area)";
+        screenshot = "nu ${../res/screenshot.nu}";
       in [
         "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"
         "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"

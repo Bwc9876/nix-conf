@@ -35,8 +35,6 @@
 
   # Pass extra arguments to home-manager.
   home-manager.extraSpecialArgs = {
-    hostName = hostName;
-    inputs = inputs;
-    system = system;
+    inherit hostName inputs system;
   };
 }
