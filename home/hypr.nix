@@ -171,7 +171,9 @@
       "plugin:hyprbars" = {
         bar_height = 30;
         bar_text_size = 10;
-        hyprbars-button = let sep = "rgba(00000000), 14, |,"; in [
+        hyprbars-button = let
+          sep = "rgba(00000000), 14, |,";
+        in [
           "rgb(ff4040), 14, 󰅖, hyprctl dispatch killactive"
           "rgb(eeee11), 14, 󰖯, hyprctl dispatch fullscreen 1"
           "rgb(05bf9d), 14, 󰨦, hyprctl dispatch togglefloating"

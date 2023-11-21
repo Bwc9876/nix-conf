@@ -13,7 +13,7 @@ with lib; {
       cat = "bat";
       pcat = "prettybat";
       pbat = "prettybat";
-      man = "batman";
+      man = "__batman";
       bgrep = "batgrep";
       neofetch = "hyfetch";
       screensaver = "pipes-rs -k curved -p 10 --fps 30";
@@ -45,7 +45,13 @@ with lib; {
               _ => $fish_completer
           } | do $in $spans
       }
+
       let command_not_found = ${fileContents ../res/command_not_found.nu}
+
+      def --env __batman [...rest:string] {
+        BAT_THEME="Monokai Extended" batman $rest
+      }
+
       $env.config = {
           show_banner: false
           completions: {
@@ -58,6 +64,7 @@ with lib; {
               command_not_found: $command_not_found
           }
       }
+
     '';
   };
 }
