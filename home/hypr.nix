@@ -73,7 +73,7 @@
         "swaync"
         "swayosd-server"
         "${pkgs.swayidle}/bin/swayidle -w -C ${../computers/${hostName}/idleconfig}"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet"
+        "nm-applet"
         "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"

@@ -125,6 +125,7 @@
 
     ## System Management / Monitoring
     libsForQt5.filelight
+    networkmanagerapplet
     pavucontrol
 
     ## General / Everyday
