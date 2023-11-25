@@ -92,11 +92,8 @@
           dispatch,
         }:
           builtins.genList (i: let
-            num =
-              if i == 0
-              then "10"
-              else builtins.toString i;
-          in "${mod},${num},${dispatch},${num}")
+            num = builtins.toString i;
+          in "${mod},${num},${dispatch},${if num == "0" then "10" else num}")
           10;
       in
         [

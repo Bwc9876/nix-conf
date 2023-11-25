@@ -9,6 +9,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [inputs.xdg-desktop-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland];
+    config.common.default = ["hyprland"];
   }; # For screensharing
 
   # Theming
@@ -89,7 +90,9 @@
 
     ## Rofi
     rofi
+    rofi-power-menu
     rofi-emoji
+    rofi-bluetooth
     rofi-calc
 
     ## GTK Lock
