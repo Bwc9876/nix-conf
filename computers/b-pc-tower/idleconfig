@@ -1,2 +1,3 @@
-timeout 600 'gtklock -d'
-lock 'gtklock'
+timeout 600 'swaylock -f'
+lock 'swaylock -f'
+unlock 'pkill swaylock --signal SIGUSR1'

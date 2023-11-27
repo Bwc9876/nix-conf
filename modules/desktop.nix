@@ -52,8 +52,7 @@
   }; # For polkit-gnome
 
   # Lock Screen
-  services.accounts-daemon.enable = true; # So gtklock can get user info
-  security.pam.services.gtklock.text = ''
+  security.pam.services.swaylock.text = ''
     auth            sufficient      pam_unix.so try_first_pass likeauth nullok
     auth            sufficient      pam_fprintd.so
     auth            include         login
@@ -96,7 +95,7 @@
     rofi-calc
 
     ## GTK Lock
-    gtklock
+    swaylock-effects
     swayidle # For locking when idle
 
     ## Clipboard
