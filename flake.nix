@@ -77,5 +77,24 @@
           nixos-hardware.nixosModules.framework-13th-gen-intel
         ];
     };
+    repl = with nixpkgs.lib;
+    with builtins;
+      foldl' attrsets.unionOfDisjoint {} [
+        (removeAttrs nixpkgs.lib ["meta" "options"])
+        (mapAttrs (_: v: v // v.config) self.nixosConfigurations)
+        (let
+          hn = getEnv "HOSTNAME";
+        in
+          if hn == ""
+          then {}
+          else (x: removeAttrs (x // x.config) ["lib" "pkgs" "passthru"]) (self.nixosConfigurations.${hn}))
+        {
+          inherit (self) inputs sourceInfo outputs;
+          inherit (nixpkgs) lib;
+          inherit self;
+          pkgs = self.nixosConfigurations.${getEnv "HOSTNAME"}.pkgs;
+          o.k = foldr seq 0 (attrValues self.repl);
+        }
+      ];
   };
 }
