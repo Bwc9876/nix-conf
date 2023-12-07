@@ -126,6 +126,8 @@ def main():
     text = f"{icon} {weather['temp_F']} °F"
     tooltip = "\n".join(
         [
+            condition,
+            f"Temperature: {weather['temp_F']} °F",
             f"Feels like {weather['FeelsLikeF']} °F",
             f"{weather['humidity']}% Humidity",
             f"{weather['pressure']} in. Pressure",
