@@ -132,7 +132,7 @@
 
     ## General / Everyday
     firefox-devedition
-    obsidian
+    # obsidian
     keepassxc
     (discord.override {
       withVencord = true;

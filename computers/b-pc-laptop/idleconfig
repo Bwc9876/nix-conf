@@ -1,4 +1,7 @@
 timeout 300 'hyprctl dispatch dpms off; swaync-client --inhibitor-add "timeout"' resume 'hyprctl dispatch dpms on; swaync-client --inhibitor-remove "timeout"'
 timeout 320 'swaylock -f'
+before-sleep 'swaylock -f'
 lock 'swaylock -f'
-unlock 'pkill swaylock --signal SIGUSR1'
+unlock 'pkill swaylock --signal SIGUSR1'nfb
+
+ljhbjitycvyitfyitfi8y688yhgvjjkhlihyeee

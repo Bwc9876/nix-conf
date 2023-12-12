@@ -15,10 +15,10 @@ rustPlatform.buildRustPackage {
   version = "unstable-2023-05-09";
 
   src = fetchFromGitHub {
-    owner = "Syndelis";
+    owner = "ErikReider";
     repo = "SwayOSD";
-    rev = "feat/brightnessctl-backend";
-    hash = "sha256-5xb5mGGRQVCWrp3jVtBH12UhY1OVT8nsJaXmhh/C8MU=";
+    rev = "main";
+    hash = "sha256-3NJHZv4Ed7haUUmE9JV9Yl4rRnJlPqQFv53Xuw0q+IY=";
   };
 
   cargoHash = "sha256-uWV1t8aPrN28NZMehNyOfHQNFftrn3skWhSZQUDaIQ0=";
