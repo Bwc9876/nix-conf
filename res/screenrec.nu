@@ -1,12 +1,14 @@
 #!/usr/bin/env nu
 
+let date_format = "%Y-%m-%d_%H-%M-%S"
+
 let captures_folder = $"($env.HOME)/Videos/Captures"
 
 if not ($captures_folder | path exists) {
     mkdir $captures_folder
 }
 
-let file_name = date now | format date $"($captures_folder)/%Y-%m-%d_%H-%M-%S.gif" 
+let out_name = date now | format date $"($captures_folder)/($date_format).mp4"
 
 let workspaces = hyprctl monitors -j | from json | get activeWorkspace.id
 let windows = hyprctl clients -j | from json | where workspace.id in $workspaces
@@ -19,15 +21,13 @@ if $stat.exit_code == 1 {
     exit
 }
 
-wf-recorder -g ($stat.stdout) -F fps=30 -c gif -f $file_name
+wf-recorder -g ($stat.stdout) -F fps=30 -f $out_name
 
-open $file_name | wl-copy --type image/gif
-
-let action = notify-send -i $file_name -t 7500 --action=open=Open --action=folder="Show In Folder" "Recording finished" $"File saved to ($file_name) and copied to clipboard"
+let action = notify-send -t 7500 --action=open=Open --action=folder="Show In Folder" "Recording finished" $"File saved to ($out_name)"
 
 match $action {
     "open" => {
-        xdg-open $file_name
+        xdg-open $out_name
     }
     "folder" => {
         xdg-open $captures_folder
