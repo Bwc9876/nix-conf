@@ -12,6 +12,7 @@
     Vencord.source = ../res/vencord;
     "VencordDesktop/VencordDesktop/settings".source = ../res/vencord/settings;
     "VencordDesktop/VencordDesktop/themes".source = ../res/vencord/themes;
+    "swayosd/style.css".source = ../res/swayosd.css;
     "qt5ct/qt5ct.conf".source = ../res/qt5ct.conf;
     "hyfetch.json".source = ../res/hyfetch.json;
     "swappy/config".source = ../res/swappy;
