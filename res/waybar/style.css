@@ -7,9 +7,10 @@ window#waybar {
   color: #fdf6e3;
 }
 
-window > * > *:not(.modules-center) > * > * {
+.modules-left > * > *,
+.modules-right > * > * {
   font-size: 1.5rem;
-  background: rgb(45, 45, 45);
+  background: rgb(241, 213, 213);
   background: linear-gradient(
     180deg,
     rgba(34, 34, 34, 0.8) 0%,
@@ -31,20 +32,20 @@ window > * > *:not(.modules-center) > * > * {
   font-size: 30px;
 }
 
-.modules-left > *:first-child > * {
+#waybar .modules-left > *:first-child > * {
   margin-left: 25px;
 }
 
-.modules-right > *:last-child > * {
+#waybar .modules-right > *:last-child > * {
   margin-right: 25px;
 }
 
-.modules-left,
-.modules-right {
+#waybar .modules-left,
+#waybar .modules-right {
   margin-top: 10px;
 }
 
-.modules-center {
+#waybar .modules-center {
   margin-bottom: 10px;
 }
 
@@ -76,7 +77,7 @@ window > * > *:not(.modules-center) > * > * {
 }
 
 #workspaces {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 #taskbar button,
@@ -233,4 +234,8 @@ window > * > *:not(.modules-center) > * > * {
     rgb(0, 209, 209) 0%,
     rgb(0, 60, 164) 100%
   );
+}
+
+#mpris.paused.kdeconnect {
+  opacity: 0;
 }
