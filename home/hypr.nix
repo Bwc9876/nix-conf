@@ -76,10 +76,10 @@
         "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
-        "[workspace 1 silent] sleep 5; discord"
+        "[workspace 1 silent] sleep 10; vencorddesktop"
       ];
       windowrulev2 = [
-        "workspace 1 silent,class:(.*)discord(.*),title:(.*)Discord(.*)"
+        "workspace 1 silent,class:(.*)vencorddesktop(.*),title:(.*)Vencord(.*)"
         "idleinhibit fullscreen,class:(.*),title:(.*)"
       ];
       bind = let

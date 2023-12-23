@@ -1,3 +1,7 @@
+body {
+    zoom: 150% !important; /* I like big UI :) */
+}
+  
 :root {
   /* amount of spacing and padding */
   --spacing: 12px;

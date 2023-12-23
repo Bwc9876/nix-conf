@@ -10,13 +10,14 @@
     waybar.source = ../res/waybar;
     swaync.source = ../res/swaync;
     Vencord.source = ../res/vencord;
+    "VencordDesktop/VencordDesktop/settings".source = ../res/vencord/settings;
+    "VencordDesktop/VencordDesktop/themes".source = ../res/vencord/themes;
     "qt5ct/qt5ct.conf".source = ../res/qt5ct.conf;
     "hyfetch.json".source = ../res/hyfetch.json;
     "swappy/config".source = ../res/swappy;
     "gtk-3.0/settings.ini".source = ../res/gtk/settings.ini;
     "gtk-4.0/settings.ini".source = ../res/gtk/settings.ini;
     "keepassxc/keepassxc.ini".source = ../res/keepassxc.ini;
-    "discord/settings.json".source = ../res/discord.json;
     "swaylock/config".text = let
       ringColor = "0072FF";
       insideColor = "00000088";

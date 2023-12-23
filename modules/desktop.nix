@@ -134,10 +134,11 @@
     firefox-devedition
     # obsidian
     keepassxc
-    (discord.override {
-      withVencord = true;
-      withOpenASAR = true;
-    })
+    # (discord.override {
+    #   withVencord = true;
+    #   withOpenASAR = true;
+    # })
+    vesktop
     spotify
 
     ### Dolphin
