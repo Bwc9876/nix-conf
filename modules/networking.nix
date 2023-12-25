@@ -9,6 +9,7 @@
     hostName = lib.toUpper hostName;
     networkmanager.enable = true;
   };
+  environment.variables.HOSTNAME = hostName; # To make repl work
 
   # Bluetooth
   hardware.bluetooth = {
