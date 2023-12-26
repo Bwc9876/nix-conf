@@ -58,6 +58,41 @@
     auth            include         login
   ''; # Allow fingerprint auth
 
+  services.syncthing = {
+    enable = true;
+    user = "bean";
+    group = "users";
+    dataDir = "/home/bean";
+
+    openDefaultPorts = true;
+
+    settings = {
+      options = {
+        urAccepted = 1;
+      };
+      folders = {
+        "ObisidianVault" = {
+          id = "wswsa6s-zewvd";
+          enable = true;
+          label = "Obsidian Vault";
+          path = "~/Documents/Notes";
+          devices = ["phone"];
+          versioning = {
+            type = "trashcan";
+            params.cleanoutDays = "120";
+          };
+        };
+      };
+      devices = {
+        # Laptop id for when i setup desktop: 76GZ2RN-UX35UUQ-PRHEGJE-MORMEOY-7EC4M2S-YN34YEF-5QS44SW-MMZK5AE
+        phone = {
+          name = "Phone";
+          id = "X7IARRX-PZBFNE3-TMSHIU2-JRMKW53-SVR2NMV-2JZSFBV-WW3THIN-QSD3HQF";
+        };
+      };
+    };
+  };
+
   # KDE Connect
   programs.kdeconnect.enable = true;
 
@@ -86,6 +121,9 @@
     ## Waybar
     inputs.waybar.packages.${system}.waybar
     qt6.qttools # For component
+
+    ### Syncthing tray
+    syncthingtray-minimal
 
     ## Rofi
     rofi
@@ -129,6 +167,7 @@
     libsForQt5.filelight
     networkmanagerapplet
     pavucontrol
+    zoom-us
 
     ## General / Everyday
     firefox-devedition

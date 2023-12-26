@@ -77,6 +77,7 @@
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
         "[workspace 1 silent] sleep 10; vencorddesktop"
+        "sleep 20; syncthingtray"
       ];
       windowrulev2 = [
         "workspace 1 silent,class:(.*)vencorddesktop(.*),title:(.*)Vencord(.*)"
