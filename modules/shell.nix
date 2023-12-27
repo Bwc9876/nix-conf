@@ -40,6 +40,7 @@
       playerctl
       libnotify
       flatpak-builder
+      gh
 
       ## Networking
       nmap

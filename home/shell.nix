@@ -30,10 +30,6 @@
       };
       extraPackages = with pkgs.bat-extras; [prettybat batdiff batman batgrep batwatch];
     };
-    gh = {
-      enable = true;
-      gitCredentialHelper.enable = true;
-    };
     neovim = {
       enable = true;
       viAlias = true;
