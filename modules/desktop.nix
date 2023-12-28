@@ -200,22 +200,20 @@
     libreoffice-qt
 
     ## Games
-    # steam: see below
     prismlauncher
     ace-of-penguins
+    inputs.ow-mod-man.packages.${system}.owmods-gui
 
     ## Programming
     github-desktop
     vscode.fhs
     android-studio
     jetbrains.rider
-    jetbrains.webstorm
-    jetbrains.rust-rover
-    jetbrains.pycharm-professional
 
     ## Debug / Utility
     libsForQt5.kmousetool
     wev
+    xcowsay
   ];
 
   programs.steam = {

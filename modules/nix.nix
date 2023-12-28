@@ -3,24 +3,13 @@
   pkgs,
   ...
 }: {
-  nixpkgs.config = {
-    allowUnfree = true;
-    overlays = [
-      inputs.hyprland.overlays.default
-      inputs.waybar.overalys.default
-      inputs.hyprland-contrib.overlays.default
-    ];
-  };
-
-  environment.systemPackages = [pkgs.xcowsay];
-
   system.stateVersion = "23.05";
 
   nix = {
     registry.p.flake = inputs.self;
     settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+      substituters = ["https://hyprland.cachix.org" "https://ow-mods.cachix.org"];
+      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "ow-mods.cachix.org-1:6RTOd1dSRibA2W0MpZHxzT0tw1RzyhKObTPKQJpcrZo="];
       nix-path = "nixpkgs=${inputs.nixpkgs}";
       experimental-features = [
         "nix-command"

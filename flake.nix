@@ -34,6 +34,23 @@
     waybar,
     ow-mod-man,
   }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "openssl-1.1.1w"
+        ];
+      };
+      overlays = [
+        hyprland.overlays.default
+        waybar.overlays.default
+        hyprland-contrib.overlays.default
+        ow-mod-man.overlay.owmods
+      ];
+      lib = nixpkgs.lib;
+    };
     globalModules = [
       # For nix-index
       nix-index-database.nixosModules.nix-index
@@ -50,26 +67,23 @@
         home-manager.users.bean = import ./home/home.nix;
       }
     ];
-    system = "x86_64-linux";
   in {
-    legacyPackages.${system} = self.nixosConfigurations.b-pc-laptop._module.args.pkgs;
+    legacyPackages.${system} = pkgs;
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations.b-pc-tower = nixpkgs.lib.nixosSystem {
+      inherit system pkgs;
       specialArgs = {
         hostName = "b-pc-tower";
-        inputs = inputs;
-        system = system;
+        inherit inputs system;
       };
-      system = system;
       modules = globalModules ++ [];
     };
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
+      inherit system pkgs;
       specialArgs = {
         hostName = "b-pc-laptop";
-        inputs = inputs;
-        system = system;
+        inherit inputs system;
       };
-      system = system;
       modules =
         globalModules
         ++ [
