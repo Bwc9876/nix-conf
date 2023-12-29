@@ -9,7 +9,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     enableNvidiaPatches = hostName == "b-pc-tower";
-    package = inputs.hyprland.packages.${system}.hyprland;
+    package = pkgs.hyprland;
     settings = let
       lockSuspend = "systemctl suspend";
     in {
@@ -17,7 +17,7 @@
       monitor = [
         "HDMI-A-1,1920x1080,0x0,1"
         "DVI-D-1,1920x1080,1920x0,1"
-        ",2256x1504@60,0x0,1"
+        "eDP-1,2256x1504,0x0,1"
         ",preferred,auto,1"
       ];
       general = {
@@ -64,7 +64,7 @@
       exec-once = [
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "hyprctl setcursor Sweet-cursors 24"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        ''dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland && systemctl --user start wireplumber''
         "foot -s"
         "dolphin --daemon"
         "waybar"

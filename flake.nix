@@ -10,11 +10,9 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
     hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
-    xdg-desktop-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    xdg-desktop-portal-hyprland.inputs.nixpkgs.follows = "nixpkgs";
     waybar.url = "github:Alexays/Waybar";
     waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
@@ -29,7 +27,6 @@
     nix-index-database,
     lanzaboote,
     hyprland,
-    xdg-desktop-portal-hyprland,
     hyprland-contrib,
     waybar,
     ow-mod-man,
@@ -47,7 +44,7 @@
         hyprland.overlays.default
         waybar.overlays.default
         hyprland-contrib.overlays.default
-        ow-mod-man.overlay.owmods
+        ow-mod-man.overlays.default
       ];
       lib = nixpkgs.lib;
     };
@@ -56,6 +53,8 @@
       nix-index-database.nixosModules.nix-index
       # Load lanzaboote for Secure Boot
       lanzaboote.nixosModules.lanzaboote
+      # Load Hyprland Stuff
+      hyprland.nixosModules.default
       # Load the main configuration
       ./configuration.nix
       # Load home manager

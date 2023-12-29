@@ -3,14 +3,12 @@
   lib,
   system,
   pkgs,
+  hostName,
   ...
 }: {
-  # XDG portal
-  xdg.portal = {
+  programs.hyprland = {
     enable = true;
-    extraPortals = [inputs.xdg-desktop-portal-hyprland.packages.${system}.xdg-desktop-portal-hyprland];
-    config.common.default = ["hyprland"];
-  }; # For screensharing
+  };
 
   # Theming
   environment.pathsToLink = [
@@ -96,6 +94,14 @@
   # KDE Connect
   programs.kdeconnect.enable = true;
 
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-devedition;
+    wrapperConfig = {
+      pipeWireSupport = true;
+    };
+  };
+
   systemd.user.services.kdeconnect = {
     description = "Adds communication between your desktop and your smartphone";
     after = ["graphical-session-pre.target"];
@@ -170,13 +176,8 @@
     zoom-us
 
     ## General / Everyday
-    firefox-devedition
     # obsidian
     keepassxc
-    # (discord.override {
-    #   withVencord = true;
-    #   withOpenASAR = true;
-    # })
     vesktop
     spotify
 
