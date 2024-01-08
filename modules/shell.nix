@@ -12,8 +12,6 @@
     fish.enable = true; # For completions
   };
 
-  services.flatpak.enable = true;
-
   environment = {
     shells = with pkgs; [nushell fish];
     variables = {
@@ -39,7 +37,6 @@
       brightnessctl
       playerctl
       libnotify
-      flatpak-builder
       gh
 
       ## Networking
@@ -75,6 +72,7 @@
       clippy
       mprocs
       rust-analyzer
+      evcxr
 
       ## JavaScript
       nodejs

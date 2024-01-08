@@ -62,7 +62,8 @@
                 "default": "󰎆",
                 "kdeconnect": "",
                 "spotify": "󰓇",
-                "firefox": "󰈹"
+                "firefox": "󰈹",
+                "firefox-devedition": "󰈹"
             },
             "dynamic-order": [
                 "title",

@@ -112,7 +112,7 @@
           "SUPER,grave,exec,${pkgs.callPackage ../pkgs/rofi-systemd.nix {}}/bin/rofi-systemd"
           "SUPER,D,exec,${pkgs.callPackage ../pkgs/rofi-code.nix {}}/bin/rofi-code"
           "SUPER,Tab,exec,rofi -show window -show-icons"
-          "SUPER,Q,exec,firefox"
+          "SUPER,Q,exec,firefox-devedition"
           "SUPER,E,exec,dolphin"
           "SUPER,Z,exec,${lockSuspend}"
           ",XF86AudioMedia,exec,${openTerminal}"

@@ -42,7 +42,7 @@
       };
       overlays = [
         hyprland.overlays.default
-        waybar.overlays.default
+        # waybar.overlays.default
         hyprland-contrib.overlays.default
         ow-mod-man.overlays.default
       ];

@@ -3,7 +3,7 @@
     enable = true;
     defaultApplications = let
       textEditors = ["code.desktop"];
-      browsers = ["firefox.desktop" "chromium.desktop"];
+      browsers = ["firefox-devedition.desktop" "firefox.desktop" "chromium.desktop"];
       mailClients = ["userapp-Thunderbird-WKLTC2.desktop"];
       imageViewers = ["com.github.weclaw1.ImageRoll.desktop" "gimp.desktop"];
     in {

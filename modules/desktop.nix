@@ -10,6 +10,8 @@
     enable = true;
   };
 
+  services.flatpak.enable = true;
+
   # Theming
   environment.pathsToLink = [
     "/share/Kvantum"
@@ -125,7 +127,7 @@
     (callPackage ../pkgs/swayosd.nix {})
 
     ## Waybar
-    inputs.waybar.packages.${system}.waybar
+    waybar # inputs.waybar.packages.${system}.waybar
     qt6.qttools # For component
 
     ### Syncthing tray
@@ -148,7 +150,7 @@
         owner = "Bwc9876";
         repo = "wl-clipboard";
         rev = "bwc9876/x-kde-passwordManagerHint-sensitive";
-        sha256 = "sha256-EHZYaynlWpZhhk1KURB+l3WcRRLErj9ScQVfpi/awtQ=";
+        sha256 = "sha256-DD0efaKaqAMqp4KwQPwuKlNtGuHIXvfE0SBfTKSADOM=";
       };
     })
     cliphist
@@ -214,6 +216,7 @@
     ## Debug / Utility
     libsForQt5.kmousetool
     wev
+    flatpak-builder
     xcowsay
   ];
 

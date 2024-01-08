@@ -7,13 +7,13 @@
     owner = "EliverLara";
     repo = "Sweet";
     rev = "Ambar-Blue";
-    hash = "sha256-7hNQ+TocetezMpt4GleHx3L4enOOIC0i8LJV8SDlFM4=";
+    hash = "sha256-vRq9D9+HnZ54uDst2g6bTb86eZGOQd3jX5UxLJKq/w0=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "candy-icons";
     rev = "master";
-    hash = "sha256-yXjhztUWmXMD+40pw0vnUMslxPiog3ZLrSkxcJgpxsU=";
+    hash = "sha256-/G5FP6gKD6ymWCLirxtN8jTRb8l47cgLc+c7U6sHCMA=";
   };
   cursor-src = ../res/Sweet-cursors.tar.xz;
   bg-src = ../res/pictures/background.jpg;
@@ -24,7 +24,8 @@ in
     # Candy Icons
     mkdir -p $out/share/icons/candy-icons
     cp -r ${icons-src}/* $out/share/icons/candy-icons
-
+    chmod +w $out/share/icons/candy-icons/apps/scalable
+    ln -s -T $out/share/icons/candy-icons/apps/scalable/firefox-developer.svg $out/share/icons/candy-icons/apps/scalable/firefox-devedition.svg
 
     # Cursor Theme
     tar -xf ${cursor-src} -C $out/share/icons
