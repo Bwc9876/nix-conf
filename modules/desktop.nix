@@ -178,7 +178,7 @@
     zoom-us
 
     ## General / Everyday
-    # obsidian
+    obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)
     keepassxc
     vesktop
     spotify
