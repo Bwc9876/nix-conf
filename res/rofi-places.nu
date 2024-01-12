@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-let places = cat ~/.local/share/user-places.xbel | from xml | get content | where tag == "bookmark" | where attributes.href != "" | each {|it| {loc: $it.attributes.href, name: ($it.content | where tag == "title" | get content.0.content.0), icon: ($it.content | where tag == "info" | get content.0.content.0 | where tag == "icon" | get attributes.name.0 )} }
+let places = open ~/.local/share/user-places.xbel | from xml | get content | where tag == "bookmark" | where attributes.href != "" | each {|it| {loc: $it.attributes.href, name: ($it.content | where tag == "title" | get content.0.content.0), icon: ($it.content | where tag == "info" | get content.0.content.0 | where tag == "icon" | get attributes.name.0 )} }
 
 let disp_loc = {|it| (if ($it | str starts-with "file://") { $it | str substring 7.. } else { $it } | str replace $"/home/($env.USER)" "~")}
 
