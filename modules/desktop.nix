@@ -127,7 +127,7 @@
     (callPackage ../pkgs/swayosd.nix {})
 
     ## Waybar
-    waybar # inputs.waybar.packages.${system}.waybar
+    inputs.waybar.packages.${system}.waybar
     qt6.qttools # For component
 
     ### Syncthing tray

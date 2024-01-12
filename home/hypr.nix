@@ -113,7 +113,7 @@
           "SUPER,D,exec,${pkgs.callPackage ../pkgs/rofi-code.nix {}}/bin/rofi-code"
           "SUPER,Tab,exec,rofi -show window -show-icons"
           "SUPER,Q,exec,firefox-devedition"
-          "SUPER,E,exec,dolphin"
+          "SUPER,E,exec,nu ${../res/rofi-places.nu}"
           "SUPER,Z,exec,${lockSuspend}"
           ",XF86AudioMedia,exec,${openTerminal}"
           "SUPER,T,exec,${openTerminal}"
