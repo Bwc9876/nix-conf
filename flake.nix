@@ -11,8 +11,12 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.inputs.xdph.follows = "xdph";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
+    xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    xdph.inputs.nixpkgs.follows = "nixpkgs";
+    xdph.inputs.hyprland-protocols.follows = "hyprland";
     waybar.url = "github:Alexays/Waybar";
     waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
@@ -30,6 +34,7 @@
     hyprland-contrib,
     waybar,
     ow-mod-man,
+    xdph,
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

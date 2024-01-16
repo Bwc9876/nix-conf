@@ -7,13 +7,13 @@
     owner = "EliverLara";
     repo = "Sweet";
     rev = "Ambar-Blue";
-    hash = "sha256-vRq9D9+HnZ54uDst2g6bTb86eZGOQd3jX5UxLJKq/w0=";
+    hash = "sha256-Zewz7FFCDU/DtoHZCL6c8TWN9dDKN7JxEyEP3fMjqGo=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "candy-icons";
     rev = "master";
-    hash = "sha256-/G5FP6gKD6ymWCLirxtN8jTRb8l47cgLc+c7U6sHCMA=";
+    hash = "sha256-XdYjxWf8R4b1GK2iFQnoEOWykc19ZT37ki83WeESQBM=";
   };
   cursor-src = ../res/Sweet-cursors.tar.xz;
   bg-src = ../res/pictures/background.jpg;

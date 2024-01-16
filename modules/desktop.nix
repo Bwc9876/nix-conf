@@ -8,6 +8,12 @@
 }: {
   programs.hyprland = {
     enable = true;
+    portalPackage = inputs.xdph.packages.${system}.default;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [inputs.xdph.packages.${system}.default];
   };
 
   services.flatpak.enable = true;

@@ -10,10 +10,10 @@
       enable = true;
       package = pkgs.callPackage pkgs.zoxide.overrideAttrs {
         src = pkgs.fetchFromGitHub {
-          owner = "ajeetdsouza";
+          owner = "Zuruuh";
           repo = "zoxide";
-          rev = "3022cf3686b85288e6fbecb2bd23ad113fd83f3b";
-          sha256 = "sha256-ut+/F7cQ5Xamb7T45a78i0mjqnNG9/73jPNaDLxzAx8=";
+          rev = "1809333be652be474d132da235cf9aad9a998b3d";
+          sha256 = "sha256-itcGtLUVa60WSqerUNPHLK60D53cQRoLptpRg61rkxM=";
         };
       };
     };
