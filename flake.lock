@@ -139,11 +139,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705408632,
-        "narHash": "sha256-/AhkReVocTli5BLWA5WXxUlGYXn3Agi/uzX76TNrsbo=",
+        "lastModified": 1705446327,
+        "narHash": "sha256-n7FCuAR2BI1SvLjF6eFc8VE6WLZCMlbToyfqU2ihbkU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "37d6eeceee464adc03585404eebd68765b3c8615",
+        "rev": "16cefa78cc801911ebd4ff1faddc6280ab3c9228",
         "type": "github"
       },
       "original": {
@@ -165,11 +165,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705332646,
-        "narHash": "sha256-D/7HUGGYBZHn8Zjs8Agf2i8mL64uqksKEjXz1QAd80c=",
+        "lastModified": 1705503680,
+        "narHash": "sha256-e+ou1KvZeZp104yeCgvgTTp5G+DB380CUZuUkijZxAc=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "3c964a9fdc220250a85b1c498e5b6fad9390272f",
+        "rev": "c4365f20ed8ff0dd480b7ed7cf1bfff1a0b6911a",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
         "pnpm2nix": "pnpm2nix"
       },
       "locked": {
-        "lastModified": 1705366446,
-        "narHash": "sha256-nDVDpGe3skcJLBM+IISc1/7z7W2fl5nWZwu9rA6zB5o=",
+        "lastModified": 1705504212,
+        "narHash": "sha256-NaKm7SsNXKx0vVsNf9tbfGaJ9EmE8/Wed6fMheMSh/c=",
         "owner": "ow-mods",
         "repo": "ow-mod-man",
-        "rev": "5faa15052189c43aebd7a6fe15d96902256adbd1",
+        "rev": "f6a78b2874edddfb13449d7dfe880bc6709ef0c2",
         "type": "github"
       },
       "original": {
@@ -534,11 +534,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705246408,
-        "narHash": "sha256-Tbhj9nAP3PoECFWVVk3bciM+x1Vw6MVo779OqSFfZ/Y=",
+        "lastModified": 1705495468,
+        "narHash": "sha256-YG/4LeOPtc0u/bLbFQ4yCyLSatrzPfE3a9X1+k8Ttpc=",
         "owner": "Alexays",
         "repo": "Waybar",
-        "rev": "07eabc5328dc5056f667a93f58549314d10f007b",
+        "rev": "6e12f8122347ae279ae0fa1923acd6b908fa769c",
         "type": "github"
       },
       "original": {

@@ -129,6 +129,7 @@ def main():
             condition,
             f"Temperature: {weather['temp_F']} °F",
             f"Feels like {weather['FeelsLikeF']} °F",
+            f"High of {data['weather'][0]['maxtempF']} °F / Low of {data['weather'][0]['mintempF']} °F",
             f"{weather['humidity']}% Humidity",
             f"{weather['pressure']} in. Pressure",
             f"{weather['uvIndex']} UV Index",
