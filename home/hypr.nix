@@ -45,6 +45,7 @@
         enable_swallow = true;
         swallow_regex = "^(footclient)$";
         disable_hyprland_logo = true;
+        disable_splash_rendering = true;
         focus_on_activate = true;
       };
       env = let
@@ -76,11 +77,11 @@
         "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
-        "[workspace 1 silent] sleep 10; vencorddesktop"
+        "[workspace 1 silent] sleep 10; vesktop"
         "sleep 20; syncthingtray"
       ];
       windowrulev2 = [
-        "workspace 1 silent,class:(.*)vencorddesktop(.*),title:(.*)Vencord(.*)"
+        "workspace 1 silent,class:(.*)vesktop(.*),title:(.*)[Vv]esktop(.*)"
         "idleinhibit fullscreen,class:(.*),title:(.*)"
       ];
       bind = let
