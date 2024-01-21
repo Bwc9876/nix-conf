@@ -8,7 +8,7 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    enableNvidiaPatches = hostName == "b-pc-tower";
+    # enableNvidiaPatches = hostName == "b-pc-tower";
     package = pkgs.hyprland;
     settings = let
       lockSuspend = "systemctl suspend";
