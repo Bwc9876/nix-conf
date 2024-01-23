@@ -74,6 +74,9 @@
       rust-analyzer
       evcxr
 
+      ## Java
+      jdk
+
       ## JavaScript
       nodejs
       nodePackages.pnpm
