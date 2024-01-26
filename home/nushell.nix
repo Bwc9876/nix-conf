@@ -25,7 +25,7 @@ with lib; {
           | from tsv --flexible --no-infer
       }
       let zoxide_completer = {|spans|
-          $spans | skip 1 | zoxide query -l $in | lines | where {|x| $x != $env.PWD}
+          $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
       }
       let multiple_completers = {|spans|
           # if the current command is an alias, get it's expansion
@@ -49,7 +49,7 @@ with lib; {
       let command_not_found = ${fileContents ../res/command_not_found.nu}
 
       def --env __batman [...rest:string] {
-        BAT_THEME="Monokai Extended" batman $rest
+        BAT_THEME="Monokai Extended" batman ...$rest
       }
 
       $env.config = {

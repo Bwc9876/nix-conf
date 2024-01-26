@@ -60,6 +60,7 @@
     '';
     "hypr/hyprpaper.conf".text = ''
       ipc = off
+      splash = off
       preload = ${../res/pictures/background.jpg}
       wallpaper = ,${../res/pictures/background.jpg}
     '';
