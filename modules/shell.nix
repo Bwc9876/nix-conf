@@ -87,6 +87,9 @@
 
       ## .NET
       mono
+
+      ## Math
+      libqalculate
     ];
   };
 

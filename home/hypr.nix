@@ -108,7 +108,7 @@
           "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
           "SUPER,Delete,exec,${powerMenu}"
           ",XF86PowerOff,exec,${powerMenu}"
-          "SUPER ALT,C,exec,rofi -modi calc -show calc"
+          "SUPER ALT,C,exec,rofi -show calc -modi calc -no-show-match -no-sort -calc-command \"echo -n '{result}' | wl-copy\""
           "SUPER,I,exec,${pkgs.rofi-pulse-select}/bin/rofi-pulse-select source"
           "SUPER,O,exec,${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink"
           "SUPER,B,exec,${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
