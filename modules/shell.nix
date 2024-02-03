@@ -38,6 +38,7 @@
       playerctl
       libnotify
       gh
+      inputs.gh-grader-preview.packages.${system}.default
 
       ## Networking
       nmap

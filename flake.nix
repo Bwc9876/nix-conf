@@ -21,6 +21,8 @@
     waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
+    gh-grader-preview.url = "github:Bwc9876/gh-grader-preview";
+    gh-grader-preview.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -35,6 +37,7 @@
     waybar,
     ow-mod-man,
     xdph,
+    gh-grader-preview,
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

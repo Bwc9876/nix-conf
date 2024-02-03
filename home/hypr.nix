@@ -77,6 +77,7 @@
         "${pkgs.swayidle}/bin/swayidle -w -C ${../computers/${hostName}/idleconfig}"
         "nm-applet"
         "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
+        "udiskie -A"
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
         "[workspace 1 silent] sleep 10; vesktop"

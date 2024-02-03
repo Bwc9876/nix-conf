@@ -24,7 +24,7 @@
     "/share/icons"
   ]; # Kvantum needs linking
   fonts = {
-    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts noto-fonts-color-emoji];
+    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts noto-fonts-color-emoji liberation_ttf];
     fontconfig = {
       enable = true;
       defaultFonts = rec {
@@ -182,6 +182,7 @@
     networkmanagerapplet
     pavucontrol
     zoom-us
+    udiskie
 
     ## General / Everyday
     obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)
