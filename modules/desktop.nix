@@ -206,6 +206,9 @@
     tuxpaint
     image-roll
 
+    ## 3D
+    prusa-slicer
+
     ## Office
     libreoffice-qt
 

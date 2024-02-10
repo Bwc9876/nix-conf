@@ -25,13 +25,17 @@ with lib; {
           | from tsv --flexible --no-infer
       }
       let zoxide_completer = {|spans|
-          $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
+          let query = $spans | skip 1
+          let z_results = $query | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
+          let l_results = ls -a | where type != "file" | where (($it.name | str downcase) | str starts-with ($query | get 0 | str downcase)) | get name
+          $l_results | append $z_results
       }
       let multiple_completers = {|spans|
           # if the current command is an alias, get it's expansion
           let expanded_alias = (scope aliases | where name == $spans.0 | get -i 0 | get -i expansion)
 
           # overwrite
+
           let spans = (if $expanded_alias != null  {
               # put the first word of the expanded alias first in the span
               $spans | skip 1 | prepend ($expanded_alias | split row " ")
