@@ -9,12 +9,12 @@
     zoxide = {
       enable = true;
       package = pkgs.callPackage pkgs.zoxide.overrideAttrs {
-        src = pkgs.fetchFromGitHub {
-          owner = "Zuruuh";
-          repo = "zoxide";
-          rev = "1809333be652be474d132da235cf9aad9a998b3d";
-          sha256 = "sha256-itcGtLUVa60WSqerUNPHLK60D53cQRoLptpRg61rkxM=";
-        };
+        # src = pkgs.fetchFromGitHub {
+        #   owner = "Zuruuh";
+        #   repo = "zoxide";
+        #   rev = "1809333be652be474d132da235cf9aad9a998b3d";
+        #   sha256 = "sha256-itcGtLUVa60WSqerUNPHLK60D53cQRoLptpRg61rkxM=";
+        # };
       };
     };
     ripgrep.enable = true;

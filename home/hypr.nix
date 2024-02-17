@@ -123,6 +123,7 @@
           "SUPER,T,exec,${openTerminal}"
           "SUPER,N,exec,swaync-client -t -sw"
           "SUPER,L,exec,swaylock"
+          "SUPER ALT CTRL SHIFT,L,exec,xdg-open https://linkedin.com"
           "SUPER,C,killactive,"
           "SUPER SHIFT,D,exec,code"
           "SUPER,V,exec,cliphist list | sed -r \"s|binary data image/(.*)|󰋩 Image (\\1)|g\" | rofi -dmenu -display-columns 2 -p Clipboard | cliphist decode | wl-copy"
