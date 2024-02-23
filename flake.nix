@@ -17,7 +17,7 @@
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdph.inputs.nixpkgs.follows = "nixpkgs";
     xdph.inputs.hyprland-protocols.follows = "hyprland";
-    waybar.url = "github:Alexays/Waybar";
+    waybar.url = "github:Bwc9876/Waybar";
     waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +51,7 @@
       };
       overlays = [
         hyprland.overlays.default
-        # waybar.overlays.default
+        waybar.overlays.default
         hyprland-contrib.overlays.default
         ow-mod-man.overlays.default
       ];

@@ -16,6 +16,7 @@
     shells = with pkgs; [nushell fish];
     variables = {
       EDITOR = "nvim";
+      COMMA_NIXPKGS_FLAKE = "p";
     };
     systemPackages = with pkgs; [
       # NuShell
@@ -38,6 +39,7 @@
       playerctl
       libnotify
       gh
+      nomino
       inputs.gh-grader-preview.packages.${system}.default
 
       ## Networking

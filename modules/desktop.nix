@@ -208,6 +208,16 @@
 
     ## 3D
     prusa-slicer
+    blender
+    # (callPackage renderdoc.overrideAttrs rec {
+    #     version = "1.25";
+    #     src = fetchFromGitHub {
+    #         owner = "baldurk";
+    #         repo = "renderdoc";
+    #         rev = "v${version}";
+    #         sha256 = "sha256-ViZMAuqbXN7upyVLc4arQy2EASHeoYViMGpCwZPEWuo=";
+    #     };
+    # })
 
     ## Office
     libreoffice-qt
