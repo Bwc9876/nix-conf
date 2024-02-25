@@ -39,6 +39,7 @@
       playerctl
       libnotify
       gh
+      htop
       nomino
       inputs.gh-grader-preview.packages.${system}.default
 

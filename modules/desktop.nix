@@ -208,7 +208,7 @@
 
     ## 3D
     prusa-slicer
-    blender
+    # blender
     # (callPackage renderdoc.overrideAttrs rec {
     #     version = "1.25";
     #     src = fetchFromGitHub {
@@ -226,6 +226,7 @@
     prismlauncher
     ace-of-penguins
     inputs.ow-mod-man.packages.${system}.owmods-gui
+    # (callPackage ../pkgs/olympus.nix {})
 
     ## Programming
     github-desktop
