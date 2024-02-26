@@ -226,7 +226,7 @@
     prismlauncher
     ace-of-penguins
     inputs.ow-mod-man.packages.${system}.owmods-gui
-    # (callPackage ../pkgs/olympus.nix {})
+    (callPackage ../pkgs/olympus.nix {})
 
     ## Programming
     github-desktop
