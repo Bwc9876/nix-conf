@@ -41,6 +41,7 @@
       gh
       htop
       nomino
+      ventoy
       inputs.gh-grader-preview.packages.${system}.default
 
       ## Networking

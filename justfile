@@ -44,3 +44,8 @@ alias gc := garbage-collect
 # gc: Run nix collect-garbage -d
 garbage-collect:
     sudo nix-collect-garbage -d
+
+[private]
+alias iso := generate-iso
+generate-iso:
+    nom build .#nixosConfigurations.iso.config.system.build.isoImage

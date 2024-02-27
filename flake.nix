@@ -99,6 +99,19 @@
           nixos-hardware.nixosModules.framework-13th-gen-intel
         ];
     };
+    nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
+        inherit system pkgs;
+        specialArgs = {
+            hostName = "install-media";
+            inherit inputs system;
+        };
+        modules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            nix-index-database.nixosModules.nix-index
+            ./iso/iso.nix
+            home-manager.nixosModules.home-manager
+        ];
+    };
     repl = with nixpkgs.lib;
     with builtins;
       foldl' attrsets.unionOfDisjoint {} [

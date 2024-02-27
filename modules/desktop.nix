@@ -175,7 +175,6 @@
 
     # Applications
     xcowsay
-    virtualbox
 
     ## System Management / Monitoring
     libsForQt5.filelight
@@ -242,6 +241,12 @@
     flatpak-builder
     xcowsay
   ];
+
+  virtualisation.virtualbox.host = {
+    enable = true;
+  };
+
+  users.extraGroups.vboxusers.members = [ "bean" ];
 
   programs.steam = {
     enable = true;
