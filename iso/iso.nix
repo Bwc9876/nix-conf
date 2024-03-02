@@ -111,8 +111,10 @@
       mprocs
       libqalculate
       cage
+      gptfdisk
       util-linux
-      ( writeScriptBin "installer-check" (lib.readFile ../res/installer-banner.nu) )
+      ( writeScriptBin "installer-check" (lib.readFile ../res/installer/banner.nu) )
+      ( writeScriptBin "installer-disks" (lib.readFile ../res/installer/disks.nu) )
     ];
   };
 

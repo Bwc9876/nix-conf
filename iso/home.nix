@@ -11,7 +11,7 @@ with lib; rec {
     ../home/foot.nix
   ];
 
-  programs.nushell.loginFile.source = ../res/installer-banner.nu;
+  programs.nushell.loginFile.source = ../res/installer/banner.nu;
 
   xdg.configFile = {
     "hyfetch.json".source = ../res/hyfetch.json;
