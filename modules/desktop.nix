@@ -246,7 +246,7 @@
     enable = true;
   };
 
-  users.extraGroups.vboxusers.members = [ "bean" ];
+  users.extraGroups.vboxusers.members = ["bean"];
 
   programs.steam = {
     enable = true;

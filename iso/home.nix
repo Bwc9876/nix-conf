@@ -16,5 +16,4 @@ with lib; rec {
   xdg.configFile = {
     "hyfetch.json".source = ../res/hyfetch.json;
   };
-
 }

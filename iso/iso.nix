@@ -36,10 +36,10 @@
     enable = true;
     autologinUser = "nixos";
     fonts = [
-        {
-            name = "FiraMono Nerd Font Mono";
-            package = pkgs.nerdfonts.override {fonts = ["FiraMono"];};
-        }
+      {
+        name = "FiraMono Nerd Font Mono";
+        package = pkgs.nerdfonts.override {fonts = ["FiraMono"];};
+      }
     ];
   };
 
@@ -53,30 +53,30 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.nixos = {
-        imports = [ ./home.nix ];
-        home = {
-            file.nix-conf.source = inputs.self;
-            username = "nixos";
-            homeDirectory = "/home/nixos";
-            stateVersion = "23.05";
-        };
+      imports = [./home.nix];
+      home = {
+        file.nix-conf.source = inputs.self;
+        username = "nixos";
+        homeDirectory = "/home/nixos";
+        stateVersion = "23.05";
+      };
     };
     users.root = {
-        imports = [ ./home.nix ];
-        home = {
-            username = "root";
-            homeDirectory = "/root";
-            stateVersion = "23.05";
-        };
+      imports = [./home.nix];
+      home = {
+        username = "root";
+        homeDirectory = "/root";
+        stateVersion = "23.05";
+      };
     };
     extraSpecialArgs = {
-        inherit hostName inputs system;
+      inherit hostName inputs system;
     };
   };
 
   users.users.nixos = {
     shell = pkgs.nushell;
-    extraGroups = [ "networkmanager" "video" ];
+    extraGroups = ["networkmanager" "video"];
   };
 
   users.users.root = {
@@ -84,7 +84,7 @@
   };
 
   environment = {
-    shells = with pkgs; [ nushell fish ];
+    shells = with pkgs; [nushell fish];
     variables = {
       EDITOR = "nvim";
       COMMA_NIXPKGS_FLAKE = "p";
@@ -113,8 +113,8 @@
       cage
       gptfdisk
       util-linux
-      ( writeScriptBin "installer-check" (lib.readFile ../res/installer/banner.nu) )
-      ( writeScriptBin "installer-disks" (lib.readFile ../res/installer/disks.nu) )
+      (writeScriptBin "installer-check" (lib.readFile ../res/installer/banner.nu))
+      (writeScriptBin "installer-disks" (lib.readFile ../res/installer/disks.nu))
     ];
   };
 
@@ -133,5 +133,4 @@
       };
     };
   };
-
 }
