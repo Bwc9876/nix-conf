@@ -91,6 +91,9 @@
       gcc
 
       ## .NET
+      dotnet-sdk
+      dotnet-runtime
+      dotnetPackages.Nuget
       mono
 
       ## Math

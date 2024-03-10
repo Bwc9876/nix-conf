@@ -7,7 +7,7 @@
     owner = "EliverLara";
     repo = "Sweet";
     rev = "Ambar-Blue";
-    hash = "sha256-38u7AHeVH9FNsp6I0t7YRs5aS2iUAmKYcvs1FNLq1pI=";
+    hash = "sha256-rGshZcN4sw+X3qOCVXhBnoU2TAadjbkZDo6dJtb0PfI=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
