@@ -133,18 +133,11 @@
     (callPackage ../pkgs/swayosd.nix {})
 
     ## Waybar
-    inputs.waybar.packages.${system}.waybar
+    waybar
     qt6.qttools # For component
 
     ### Syncthing tray
     syncthingtray-minimal
-
-    ## Rofi
-    rofi
-    rofi-power-menu
-    rofi-emoji
-    rofi-bluetooth
-    rofi-calc
 
     ## GTK Lock
     swaylock-effects

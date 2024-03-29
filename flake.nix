@@ -9,6 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.inputs.xdph.follows = "xdph";
@@ -17,8 +18,8 @@
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdph.inputs.nixpkgs.follows = "nixpkgs";
     xdph.inputs.hyprland-protocols.follows = "hyprland";
-    waybar.url = "github:Bwc9876/Waybar";
-    waybar.inputs.nixpkgs.follows = "nixpkgs";
+    # waybar.url = "github:Bwc9876/Waybar";
+    # waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     gh-grader-preview.url = "github:Bwc9876/gh-grader-preview";
@@ -34,7 +35,7 @@
     lanzaboote,
     hyprland,
     hyprland-contrib,
-    waybar,
+    # waybar,
     ow-mod-man,
     xdph,
     gh-grader-preview,
@@ -51,7 +52,7 @@
       };
       overlays = [
         hyprland.overlays.default
-        waybar.overlays.default
+        # waybar.overlays.default
         hyprland-contrib.overlays.default
         ow-mod-man.overlays.default
       ];

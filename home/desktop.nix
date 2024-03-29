@@ -8,16 +8,21 @@
 
     rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      package = pkgs.rofi-wayland.override {
+        plugins = with pkgs; [
+          (pkgs.rofi-emoji.override {
+            rofi-unwrapped = rofi-wayland-unwrapped;
+          })
+          rofi-power-menu
+          rofi-bluetooth
+          (pkgs.rofi-calc.override {
+            rofi-unwrapped = rofi-wayland-unwrapped;
+          })
+          rofi-pulse-select
+        ];
+      };
       location = "center";
       theme = ../res/rofi-style.rasi;
-      plugins = with pkgs; [
-        rofi-emoji
-        rofi-power-menu
-        rofi-bluetooth
-        rofi-calc
-        rofi-pulse-select
-      ];
     };
     thunderbird = {
       enable = true;
