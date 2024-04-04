@@ -15,6 +15,10 @@
     hyprland.inputs.xdph.follows = "xdph";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hyprlock.inputs.nixpkgs.follows = "nixpkgs";
+    hypridle.url = "github:hyprwm/hypridle";
+    hypridle.inputs.nixpkgs.follows = "nixpkgs";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdph.inputs.nixpkgs.follows = "nixpkgs";
     xdph.inputs.hyprland-protocols.follows = "hyprland";
@@ -35,6 +39,8 @@
     lanzaboote,
     hyprland,
     hyprland-contrib,
+    hyprlock,
+    hypridle,
     # waybar,
     ow-mod-man,
     xdph,

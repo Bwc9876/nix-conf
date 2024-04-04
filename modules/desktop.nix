@@ -57,13 +57,6 @@
     };
   }; # For polkit-gnome
 
-  # Lock Screen
-  security.pam.services.swaylock.text = ''
-    auth            sufficient      pam_unix.so try_first_pass likeauth nullok
-    auth            sufficient      pam_fprintd.so
-    auth            include         login
-  ''; # Allow fingerprint auth
-
   services.syncthing = {
     enable = true;
     user = "bean";
@@ -127,6 +120,8 @@
     # Hyprland: Configured in HM
 
     # Shell Components
+    inputs.hyprlock.packages.${system}.hyprlock
+    inputs.hypridle.packages.${system}.hypridle
     hyprpicker
     hyprpaper
     swaynotificationcenter
@@ -138,10 +133,6 @@
 
     ### Syncthing tray
     syncthingtray-minimal
-
-    ## GTK Lock
-    swaylock-effects
-    swayidle # For locking when idle
 
     ## Clipboard
     (callPackage wl-clipboard.overrideAttrs {
@@ -180,7 +171,7 @@
     obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)
     keepassxc
     vesktop
-    spotify
+    # spotify TODO: Re-enable when snapcraft isn't down
 
     ### Dolphin
     libsForQt5.dolphin

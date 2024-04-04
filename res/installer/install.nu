@@ -15,8 +15,6 @@ if (a == "y" or a == "Y") {
     mkdir $"/mnt/nix-conf/computers/($name)"
     nixos-generate-config --root /mnt --show-hardware-config | write $"/mnt/nix-conf/computers/($name)/hardware-configuration.nix"
     echo "Done making the hardware-configuration.nix"
-    echo "Creating stub idleconfig"
-    echo "" | write $"/mnt/nix-conf/computers/($name)/idleconfig"
     input "Now you need to edit flake.nix to include the new system. I will launch vim for you to edit it. Press enter to continue"
     vim /mnt/nix-conf/flake.nix
     input "Alright, now we're ready to install, press enter to continue"

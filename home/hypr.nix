@@ -6,6 +6,108 @@
   pkgs,
   ...
 }: {
+  xdg.configFile."hypr/hypridle.conf".text = ''
+    general {
+        lock_cmd = pidof hyprlock || hyprlock
+        unlock_cmd = pkill hyprlock --signal SIGUSR1
+        before_sleep_cmd = loginctl lock-session
+        after_sleep_cmd = hyprctl dispatch dpms on
+    }
+
+    listener {
+        timeout = 120
+        on-timeout = loginctl lock-session
+    }
+
+    listener {
+        timeout = 180
+        on-timeout = hyprctl dispatch dpms off && brightnessctl -sd rgb:kbd_backlight set 0
+        on-resume = hyprctl dispatch dpms on && brightnessctl -rd rgb:kbd_backlight
+    }
+
+    listener {
+        timeout = 1800
+        on-timeout = systemctl suspend
+    }
+  '';
+  xdg.configFile."hypr/hyprlock.conf".text = ''
+    background {
+        monitor =
+        path = ${../res/pictures/background.png}
+        grace = 30
+        blur_passes = 0
+    }
+
+    image {
+        monitor =
+        path = ${../res/pictures/cow.png}
+        size = 150
+        rounding = -1
+        border_size = 4
+        border_color = rgb(109, 237, 153)
+        rotate = 0
+        position = 0, 120
+        halign = center
+        valign = center
+    }
+
+    input-field {
+        monitor =
+        size = 200, 50
+        outline_thickness = 3
+        dots_size = 0.25 # Scale of input-field height, 0.2 - 0.8
+        dots_spacing = 0.15 # Scale of dots' absolute size, 0.0 - 1.0
+        dots_center = false
+        dots_rounding = -1 # -1 default circle, -2 follow input-field rounding
+        outer_color = rgb(151515)
+        inner_color = rgb(16, 16, 19)
+        font_color = rgb(255, 255, 255)
+        fade_on_empty = false
+        fade_timeout = 1000 # Milliseconds before fade_on_empty is triggered.
+        placeholder_text =
+        hide_input = false
+        rounding = -1 # -1 means complete rounding (circle/oval)
+        check_color = rgb(15, 219, 255)
+        fail_color = rgb(237, 37, 78) # if authentication failed, changes outer_color and fail message color
+        fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i> # can be set to empty
+        fail_transition = 300 # transition time in ms between normal outer_color and fail_color
+        capslock_color = -1
+        numlock_color = -1
+        bothlock_color = -1 # when both locks are active. -1 means don't change outer color (same for above)
+        invert_numlock = false # change color if numlock is off
+        swap_font_color = false # see below
+
+        position = 0, -80
+        halign = center
+        valign = center
+    }
+
+    label {
+        monitor =
+        text = $DESC
+        color = rgba(255, 255, 255, 1.0)
+        font_size = 25
+        font_family = sans-serif
+        rotate = 0 # degrees, counter-clockwise
+
+        position = 0, 0
+        halign = center
+        valign = center
+    }
+
+    label {
+        monitor =
+        text = cmd[update:60000] echo "$(date +"%A, %B %-d | %I:%M %p") | $(nu ${../res/bat_display.nu})"
+        color = rgba(255, 255, 255, 1.0)
+        font_size = 20
+        font_family = sans-serif
+        rotate = 0 # degrees, counter-clockwise
+
+        position = 0, -40
+        halign = center
+        valign = top
+    }
+  '';  
   wayland.windowManager.hyprland = {
     enable = true;
     # enableNvidiaPatches = hostName == "b-pc-tower";
@@ -71,10 +173,10 @@
         "foot -s"
         "dolphin --daemon"
         "waybar"
+        "hypridle"
         "wl-paste --watch bash ${../res/clipboard_middleman.sh}"
         "swaync"
         "swayosd-server"
-        "${pkgs.swayidle}/bin/swayidle -w -C ${../computers/${hostName}/idleconfig}"
         "nm-applet"
         "${pkgs.wlsunset}/bin/wlsunset -S 6:00 -s 22:00"
         "udiskie -A"
@@ -122,7 +224,7 @@
           ",XF86AudioMedia,exec,${openTerminal}"
           "SUPER,T,exec,${openTerminal}"
           "SUPER,N,exec,swaync-client -t -sw"
-          "SUPER,L,exec,swaylock"
+          "SUPER,L,exec,loginctl lock-session"
           "SUPER ALT CTRL SHIFT,L,exec,xdg-open https://linkedin.com"
           "SUPER,C,killactive,"
           "SUPER SHIFT,D,exec,code"

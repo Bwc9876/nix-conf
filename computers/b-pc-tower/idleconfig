@@ -1,3 +1,0 @@
-timeout 600 'swaylock -f'
-lock 'swaylock -f'
-unlock 'pkill swaylock --signal SIGUSR1'
