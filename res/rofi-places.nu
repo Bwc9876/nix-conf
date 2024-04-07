@@ -12,7 +12,7 @@ let display_loc = {|it| (if ($it | str starts-with "file://") { $it | str substr
 let places = if ($dataPath | path exists) {
     open $dataPath
 } else {
-    let places = $contents | from xml | get content | where tag == "bookmark" | where attributes.href != "" | each {|it| {loc: $it.attributes.href, disp_loc: ($it.attributes.href | each $display_loc), name: ($it.content | where tag == "title" | get content.0.content.0), icon: ($it.content | where tag == "info" | get content.0.content.0 | where tag == "icon" | get attributes.name.0 )} }
+    let places = $contents | lines | skip 2 | str join "\n" | from xml | get content | where tag == "bookmark" | where attributes.href != "" | each {|it| {loc: $it.attributes.href, disp_loc: ($it.attributes.href | each $display_loc), name: ($it.content | where tag == "title" | get content.0.content.0), icon: ($it.content | where tag == "info" | get content.0.content.0 | where tag == "icon" | get attributes.name.0 )} }
     mkdir $cache
     $places | to nuon | save $dataPath
     $places

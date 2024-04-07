@@ -28,7 +28,7 @@
             "icon": true
         },
         "clock#1": {
-            "format": "󰃭 {:%A, %B %d}",
+            "format": "󰃭 {:%A, %B %Od}",
             "tooltip-format": "<tt><small>{calendar}</small></tt>",
             "calendar": {
                 "mode": "month",

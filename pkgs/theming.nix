@@ -13,7 +13,7 @@
     owner = "EliverLara";
     repo = "candy-icons";
     rev = "master";
-    hash = "sha256-XdYjxWf8R4b1GK2iFQnoEOWykc19ZT37ki83WeESQBM=";
+    hash = "sha256-VYB9G5dqlJBIHaNpOCXOhekAjZrcU1xeAgz+EiYecX0=";
   };
   cursor-src = ../res/Sweet-cursors.tar.xz;
   bg-src = ../res/pictures/background.jpg;
