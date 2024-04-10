@@ -14,7 +14,7 @@ def checklist_item [name: string, checked: bool, hint = ""] {
 
 def check_network [] {
     try { 
-        http get https://bwc9876.dev 
+        ping google.com -c 1 | null
         true
     } catch {
         false

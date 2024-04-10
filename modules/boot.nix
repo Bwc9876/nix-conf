@@ -17,6 +17,12 @@
       pkiBundle = "/etc/secureboot";
     };
 
+    # Plymouth puts a theme on boot
+    # plymouth = {
+    #     enable = true;
+    #     theme = "bgrt";
+    # };
+
     # Use latest kernel with module signing and lockdown enabled
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["lockdown=confidentiality"];

@@ -1,12 +1,12 @@
 #!/usr/bin/env nu
 
 echo "All block devices:"
-echo (ls /dev | where type == "block device")
+echo (ls /dev | where type == "block device" | get name | where {|it| not ($it | str contains "loop")})
 
 echo $"You can use `(ansi blue)cgdisk(ansi reset)` to do partitioning"
 echo "Reminder:"
 echo $"1. The disk should use (ansi blue)GPT partitioning(ansi reset)"
-echo $"2. You need two partitions, one for the (ansi blue)root(ansi reset) and one for (ansi blue)EFI boot(ansi reset)"
+echo $"2. You need two partitions, one for the (ansi blue)root(ansi reset) \(/dev/sdX2\) and one for (ansi blue)EFI boot(ansi reset) \(/dev/sdX1\)"
 echo $"3. You could also create a (ansi blue)swap(ansi reset) partition"
 echo "\n"
 echo "For the first partition:"
@@ -24,8 +24,8 @@ echo $"- Use (ansi blue)swap filesystem(ansi reset)"
 echo "- Allocate as much as you want, but 4GB is a good starting point"
 echo "\n"
 echo "Once you have created the partitions, you need to mount them"
-echo $"Root partition should go on /mnt: sudo mount /dev/sdX1 (ansi blue)/mnt(ansi reset)"
-echo $"EFI boot partition should go on /mnt/boot: sudo mkdir /mnt/boot && sudo mount /dev/sdX2 (ansi blue)/mnt/boot(ansi reset)"
+echo $"Root partition should go on /mnt: sudo mount /dev/sdX2 (ansi blue)/mnt(ansi reset)"
+echo $"EFI boot partition should go on /mnt/boot: sudo mkdir /mnt/boot && sudo mount /dev/sdX1 (ansi blue)/mnt/boot(ansi reset)"
 echo "\n"
 echo "You don't need to mount the swap *IN INSTALL* but, you will need to edit the `hardware-configuration.nix`"
 echo "file to use the swap partition (see swapDevices)"
