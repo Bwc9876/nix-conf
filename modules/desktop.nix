@@ -128,7 +128,7 @@
     (callPackage ../pkgs/swayosd.nix {})
 
     ## Waybar
-    waybar
+    inputs.waybar.packages.${system}.waybar
     qt6.qttools # For component
 
     ### Syncthing tray
@@ -168,10 +168,10 @@
     udiskie
 
     ## General / Everyday
-    obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)
+    # obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)
     keepassxc
     vesktop
-    # spotify TODO: Re-enable when snapcraft isn't down
+    spotify
 
     ### Dolphin
     libsForQt5.dolphin

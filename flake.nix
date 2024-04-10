@@ -22,8 +22,8 @@
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdph.inputs.nixpkgs.follows = "nixpkgs";
     xdph.inputs.hyprland-protocols.follows = "hyprland";
-    # waybar.url = "github:Bwc9876/Waybar";
-    # waybar.inputs.nixpkgs.follows = "nixpkgs";
+    waybar.url = "github:Alexays/Waybar";
+    waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     gh-grader-preview.url = "github:Bwc9876/gh-grader-preview";
@@ -41,7 +41,7 @@
     hyprland-contrib,
     hyprlock,
     hypridle,
-    # waybar,
+    waybar,
     ow-mod-man,
     xdph,
     gh-grader-preview,
@@ -53,7 +53,7 @@
         allowUnfree = true;
         permittedInsecurePackages = [
           "openssl-1.1.1w"
-          "electron-25.9.0"
+          # "electron-25.9.0"
         ];
       };
       overlays = [
