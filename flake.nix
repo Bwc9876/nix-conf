@@ -91,7 +91,7 @@
         hostName = "b-pc-tower";
         inherit inputs system;
       };
-      modules = globalModules ++ [];
+      modules = globalModules ++ [ ./computers/b-pc-tower/ssh.nix ];
     };
     nixosConfigurations.b-pc-laptop = nixpkgs.lib.nixosSystem {
       inherit system pkgs;
