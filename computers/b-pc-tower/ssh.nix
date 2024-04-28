@@ -1,12 +1,25 @@
-{...}: {
+{lib, ...}: {
   users.users."bean".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKb2qxNUbvdBTAntmUyPIaOXwFd1nhZO/SS00SNss0nU bean@B-PC-LAPTOP"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKb2qxNUbvdBTAntmUyPIaOXwFd1nhZO/SS00SNss0nU"
   ];
+
+  networking.firewall.allowedTCPPorts = [8080];
 
   services.openssh = {
     enable = true;
-    ports = [8022];
+    openFirewall = true;
+    banner = ''=== B-PC-TOWER ==='';
+    listenAddresses = [
+      {
+        addr = "0.0.0.0";
+      }
+    ];
+    ports = [8069];
+    settings.GSSAPIAuthentication = false;
     settings.PasswordAuthentication = false;
+    settings.UseDns = false;
+    settings.LogLevel = "DEBUG1";
+    settings.PermitRootLogin = "no";
     settings.KbdInteractiveAuthentication = false;
   };
 }
