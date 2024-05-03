@@ -10,18 +10,18 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.inputs.xdph.follows = "xdph";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    # hyprland.inputs.xdph.follows = "xdph";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
     hyprlock.url = "github:hyprwm/hyprlock";
     hyprlock.inputs.nixpkgs.follows = "nixpkgs";
     hypridle.url = "github:hyprwm/hypridle";
     hypridle.inputs.nixpkgs.follows = "nixpkgs";
-    xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    xdph.inputs.nixpkgs.follows = "nixpkgs";
-    xdph.inputs.hyprland-protocols.follows = "hyprland";
+    # xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    # xdph.inputs.nixpkgs.follows = "nixpkgs";
+    # xdph.inputs.hyprland-protocols.follows = "hyprland";
     waybar.url = "github:Alexays/Waybar";
     waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
@@ -37,13 +37,13 @@
     nixos-hardware,
     nix-index-database,
     lanzaboote,
-    hyprland,
+    # hyprland,
     hyprland-contrib,
     hyprlock,
     hypridle,
     waybar,
     ow-mod-man,
-    xdph,
+    # xdph,
     gh-grader-preview,
   }: let
     system = "x86_64-linux";
@@ -57,12 +57,13 @@
         ];
       };
       overlays = [
-        hyprland.overlays.default
-        # waybar.overlays.default
+        (final: prev: {wayland-protocols-good = prev.wayland-protocols;})
+        # hyprland.overlays.hyprland-packages
+        # # waybar.overlays.default
         hyprland-contrib.overlays.default
         ow-mod-man.overlays.default
+        (final: prev: {wayland-protocols = prev.wayland-protocols-good;})
       ];
-      lib = nixpkgs.lib;
     };
     globalModules = [
       # For nix-index
@@ -70,7 +71,7 @@
       # Load lanzaboote for Secure Boot
       lanzaboote.nixosModules.lanzaboote
       # Load Hyprland Stuff
-      hyprland.nixosModules.default
+      # hyprland.nixosModules.default
       # Load the main configuration
       ./configuration.nix
       # Load home manager

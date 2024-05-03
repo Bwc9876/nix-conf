@@ -8,12 +8,12 @@
 }: {
   programs.hyprland = {
     enable = true;
-    portalPackage = inputs.xdph.packages.${system}.default;
+    # portalPackage = inputs.xdph.packages.${system}.default;
   };
 
   xdg.portal = {
     enable = true;
-    extraPortals = [inputs.xdph.packages.${system}.default];
+    # extraPortals = [inputs.xdph.packages.${system}.default];
   };
 
   services.flatpak.enable = true;
@@ -171,6 +171,7 @@
     # obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)
     keepassxc
     vesktop
+    ungoogled-chromium
     spotify
 
     ### Dolphin
@@ -208,8 +209,8 @@
     ## Games
     prismlauncher
     ace-of-penguins
-    inputs.ow-mod-man.packages.${system}.owmods-gui
-    (callPackage ../pkgs/olympus.nix {})
+    # inputs.ow-mod-man.packages.${system}.owmods-gui
+    # (callPackage ../pkgs/olympus.nix {})
 
     ## Programming
     github-desktop

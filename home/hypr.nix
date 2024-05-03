@@ -137,7 +137,7 @@ in {
         "HDMI-A-1,1920x1080,0x0,1"
         "DVI-D-1,1920x1080,1920x0,1"
         "eDP-1,2256x1504,0x0,1"
-        ",preferred,auto,1"
+        ",highres,auto,1"
       ];
       general = {
         border_size = 2;

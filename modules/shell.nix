@@ -51,7 +51,7 @@
       speedtest-cli
 
       ## Mod Manager
-      owmods-cli
+      inputs.ow-mod-man.packages.${system}.owmods-cli
 
       ## Build Tools
       pkg-config

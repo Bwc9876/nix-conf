@@ -1,11 +1,9 @@
 {pkgs, ...}: {
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
   };
   programs = {
-    chromium.enable = true;
-
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland.override {
