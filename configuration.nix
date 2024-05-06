@@ -13,6 +13,7 @@
     ./computers/${hostName}/hardware-configuration.nix
     ./modules/audio.nix
     ./modules/boot.nix
+    ./modules/firefox.nix
     ./modules/desktop.nix
     ./modules/greeter.nix
     ./modules/networking.nix

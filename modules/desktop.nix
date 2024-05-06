@@ -95,14 +95,6 @@
   # KDE Connect
   programs.kdeconnect.enable = true;
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition;
-    wrapperConfig = {
-      pipeWireSupport = true;
-    };
-  };
-
   systemd.user.services.kdeconnect = {
     description = "Adds communication between your desktop and your smartphone";
     after = ["graphical-session-pre.target"];
