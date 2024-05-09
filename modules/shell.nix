@@ -96,6 +96,9 @@
       dotnetPackages.Nuget
       mono
 
+      ## Man Pages
+      man-pages
+
       ## Math
       libqalculate
     ];

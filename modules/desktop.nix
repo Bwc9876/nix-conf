@@ -180,7 +180,7 @@
     inkscape
     lorien
     tuxpaint
-    image-roll
+    (image-roll.overrideAttrs {doCheck = false;})
 
     ## 3D
     prusa-slicer
@@ -218,12 +218,6 @@
     flatpak-builder
     xcowsay
   ];
-
-  virtualisation.virtualbox.host = {
-    enable = true;
-  };
-
-  users.extraGroups.vboxusers.members = ["bean"];
 
   programs.steam = {
     enable = true;
