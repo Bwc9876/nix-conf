@@ -197,6 +197,7 @@ in {
         "nm-applet"
         sunsetCmd
         "udiskie -A"
+        "wayland-mpris-idle-inhibit --ignore \"kdeconnect\" --ignore \"playerctld\""
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
         "[workspace 1 silent] sleep 10; vesktop"

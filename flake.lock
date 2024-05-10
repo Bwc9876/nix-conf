@@ -461,7 +461,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "ow-mod-man": "ow-mod-man",
-        "waybar": "waybar"
+        "waybar": "waybar",
+        "wayland-mpris-idle-inhibit": "wayland-mpris-idle-inhibit"
       }
     },
     "rust-overlay": {
@@ -597,6 +598,26 @@
       "original": {
         "owner": "Alexays",
         "repo": "Waybar",
+        "type": "github"
+      }
+    },
+    "wayland-mpris-idle-inhibit": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715302209,
+        "narHash": "sha256-fY0fPl0AHOp/73B4nBV+GbykdORIfzR3CTPWAn2rC4k=",
+        "owner": "Bwc9876",
+        "repo": "wayland-mpris-idle-inhibit",
+        "rev": "b4fc1a238fde65d5f75c9c9eff05fe203221b51d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Bwc9876",
+        "repo": "wayland-mpris-idle-inhibit",
         "type": "github"
       }
     }

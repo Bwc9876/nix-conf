@@ -158,6 +158,7 @@
     pavucontrol
     zoom-us
     udiskie
+    inputs.wayland-mpris-idle-inhibit.packages.${system}.default
 
     ## General / Everyday
     # obsidian # Needs `electron-25.9.0` (EOL, see flake.nix)

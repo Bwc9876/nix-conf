@@ -28,6 +28,8 @@
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     gh-grader-preview.url = "github:Bwc9876/gh-grader-preview";
     gh-grader-preview.inputs.nixpkgs.follows = "nixpkgs";
+    wayland-mpris-idle-inhibit.url = "github:Bwc9876/wayland-mpris-idle-inhibit";
+    wayland-mpris-idle-inhibit.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -45,6 +47,7 @@
     ow-mod-man,
     # xdph,
     gh-grader-preview,
+    wayland-mpris-idle-inhibit,
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

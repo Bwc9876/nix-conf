@@ -4,7 +4,6 @@
         "layer": "top",
         "position": "top",
         "modules-left": [
-            "custom/power-menu",
             "user",
             "clock#1",
             "clock#2",
@@ -233,10 +232,6 @@
             "return-type": "json",
             "format": "{}",
             "interval": 60
-        },
-        "custom/power-menu": {
-            "format": "󰐥",
-            "on-click": "rofi -modi 'p:rofi-power-menu' -show p --symbols-font \"FiraMono Nerd Font Mono\""
         }
     },
     {

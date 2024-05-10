@@ -6,6 +6,10 @@
   # For firmware updates (not boot stuff but im putting it here anyway)
   services.fwupd.enable = true;
 
+  services.upower = {
+    enable = true;
+  };
+
   boot = {
     # Use bootspec instead of systemd-boot
     loader.systemd-boot.enable = lib.mkForce false;
