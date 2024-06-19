@@ -162,7 +162,7 @@ in {
       };
       misc = {
         enable_swallow = true;
-        swallow_regex = "^(footclient)$";
+        # swallow_regex = "^(footclient)$";
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         focus_on_activate = true;
@@ -192,8 +192,8 @@ in {
         "waybar"
         "hypridle"
         "wl-paste --watch bash ${../res/clipboard_middleman.sh}"
-        "swaync"
-        "swayosd-server"
+        # "swaync"
+        # "swayosd-server"
         "nm-applet"
         sunsetCmd
         "udiskie -A"
@@ -201,7 +201,6 @@ in {
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
         "[workspace 1 silent] sleep 10; vesktop"
-        "sleep 20; syncthingtray"
       ];
       windowrulev2 = [
         "workspace 1 silent,class:(.*)vesktop(.*),title:(.*)[Vv]esktop(.*)"
