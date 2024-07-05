@@ -192,8 +192,8 @@ in {
         "waybar"
         "hypridle"
         "wl-paste --watch bash ${../res/clipboard_middleman.sh}"
-        # "swaync"
-        # "swayosd-server"
+        "swaync"
+        "swayosd-server"
         "nm-applet"
         sunsetCmd
         "udiskie -A"

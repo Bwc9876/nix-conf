@@ -70,11 +70,11 @@
       black
 
       ## Rust
-      rustc
-      cargo
+      (rust-bin.selectLatestNightlyWith (toolchain:
+        toolchain.default.override {
+          targets = ["x86_64-pc-windows-gnu" "x86_64-apple-darwin"];
+        }))
       cargo-tauri
-      rustfmt
-      clippy
       mprocs
       rust-analyzer
       evcxr

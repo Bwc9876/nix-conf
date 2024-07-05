@@ -12,7 +12,7 @@
     users.bean = {
       isNormalUser = true;
       description = "Benjamin Crocker";
-      extraGroups = ["vboxusers" "networkmanager" "wheel" "video" "lpadmin" "wireshark"];
+      extraGroups = ["libvirtd" "networkmanager" "wheel" "video" "lpadmin" "wireshark"];
     };
   };
 

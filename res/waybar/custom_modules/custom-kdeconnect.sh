@@ -10,16 +10,20 @@ get_status() {
     for device in $(qdbus --literal org.kde.kdeconnect /modules/kdeconnect org.kde.kdeconnect.daemon.devices); do
         deviceid=$(echo "$device" | awk -F'["|"]' '{print $2}')
         isreach="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid" org.kde.kdeconnect.device.isReachable)"
-    if [ "$isreach" = "true" ]
+        ispair="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid" org.kde.kdeconnect.device.isPaired)"
+    if [ "$isreach" = "true" ] && [ "$ispair" = "true" ];
         then
             battery="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$deviceid/battery" org.kde.kdeconnect.device.battery.charge)󰏰"
             icon="󰄜"
             devices+="$icon $battery"
             conn+=connected
-    else
-        devices+="󰥍"
-        conn+=disconnected
-        fi
+    else if [ "$ispair" = "true" ];
+        then
+            icon="󰄜"
+            devices+="$icon 󰏰"
+            conn+=disconnected
+    fi
+    fi
     done
     echo -e "$devices\nKDE Connect\n$conn"
 }

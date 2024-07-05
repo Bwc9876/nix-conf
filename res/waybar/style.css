@@ -170,13 +170,15 @@ window#waybar {
 }
 
 #custom-weather.HeavyRain,
+#custom-weather.ThunderyHeavyRain,
+#custom-weather.ThunderyRain,
 #custom-weather.HeavyShowers,
 #custom-weather.LightRain,
 #custom-weather.LightShowers {
   background: linear-gradient(
     180deg,
     rgb(0, 209, 209) 0%,
-    rgb(0, 60, 164) 100%
+    rgb(129, 157, 207) 100%
   );
 }
 

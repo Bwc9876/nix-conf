@@ -20,5 +20,6 @@
     ./modules/nix.nix
     ./modules/printing.nix
     ./modules/shell.nix
+    ./modules/hypervisor.nix
   ];
 }

@@ -30,6 +30,8 @@
     gh-grader-preview.inputs.nixpkgs.follows = "nixpkgs";
     wayland-mpris-idle-inhibit.url = "github:Bwc9876/wayland-mpris-idle-inhibit";
     wayland-mpris-idle-inhibit.inputs.nixpkgs.follows = "nixpkgs";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -48,16 +50,13 @@
     # xdph,
     gh-grader-preview,
     wayland-mpris-idle-inhibit,
+    rust-overlay,
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
-        permittedInsecurePackages = [
-          "openssl-1.1.1w"
-          # "electron-25.9.0"
-        ];
       };
       overlays = [
         (final: prev: {wayland-protocols-good = prev.wayland-protocols;})
@@ -66,6 +65,7 @@
         hyprland-contrib.overlays.default
         ow-mod-man.overlays.default
         (final: prev: {wayland-protocols = prev.wayland-protocols-good;})
+        rust-overlay.overlays.default
       ];
     };
     globalModules = [

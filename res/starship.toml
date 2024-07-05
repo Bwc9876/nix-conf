@@ -88,9 +88,17 @@ modified = "󰏫"
 style = "bg:grey footer"
 format = '[$all_status $ahead_behind ]($style)'
 
+[git_state]
+revert = "󰕍"
+rebase = "󱗬"
+merge = "󰘭"
+style = "bg:grey footer yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\)'
+
 [nodejs]
 symbol = "󰎙"
 style = "bg:grey footer"
+not_capable_style = "bg:grey footer bold red"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
