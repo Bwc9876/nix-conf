@@ -1,8 +1,5 @@
 {hostName, ...}: let
-  fontSize =
-    if hostName == "b-pc-laptop"
-    then "16"
-    else "12";
+  fontSize = "20";
 in {
   programs.foot = {
     enable = true;

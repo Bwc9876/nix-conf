@@ -7,15 +7,16 @@
     owner = "EliverLara";
     repo = "Sweet";
     rev = "Ambar-Blue";
-    hash = "sha256-Yt0C3RTpyUH7HkI+Xr+smcU+k9nvAqUbDnd86Vgw7lE=";
+    hash = "sha256-BbAsnnGZ+qGNW7WdjezqsDIYTlQbg3tTv1CwdkBV9Es=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "candy-icons";
     rev = "master";
-    hash = "sha256-/mirQfX35xDwwCLbXuQ9zkEL+IRQfk3W9DwnyNXw/DY=";
+    hash = "sha256-HZ6diq/RGoU3NY+h3MhSp0TvYPKrk+FlwAdjNIF9eyE=";
   };
-  cursor-src = ../res/Sweet-cursors.tar.xz;
+  cursor-src = ../res/cursors/Sweet-cursors.tar.xz;
+  hypr-cursor-src = ../res/cursors/Sweet-cursors-hypr.tar.xz;
   bg-src = ../res/pictures/background.jpg;
   pfp-src = ../res/pictures/cow.png;
 in
@@ -29,6 +30,7 @@ in
 
     # Cursor Theme
     tar -xf ${cursor-src} -C $out/share/icons
+    tar -xf ${hypr-cursor-src} -C $out/share/icons
 
     # Kvantum
     mkdir -p $out/share/Kvantum

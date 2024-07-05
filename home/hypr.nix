@@ -170,6 +170,7 @@ in {
         key_press_enables_dpms = true;
       };
       env = let
+        cursorSize = "24";
         hardwareCursors =
           if hostName == "b-pc-tower"
           then "1"
@@ -179,13 +180,17 @@ in {
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "HYPRCURSOR_THEME,Sweet-cursors-hypr"
+        "HYPRCURSOR_SIZE,${cursorSize}"
+        "XCURSOR_THEME,Sweet-cursors"
+        "XCURSOR_SIZE,${cursorSize}"
         "GRIMBLAST_EDITOR,swappy -f "
         "WLR_NO_HARDWARE_CURSORS,${hardwareCursors}"
         "TERMINAL,footclient"
       ];
       exec-once = [
         "${pkgs.hyprpaper}/bin/hyprpaper"
-        "hyprctl setcursor Sweet-cursors 24"
+        ''dconf write /org/gnome/desktop/interface/cursor-theme "Sweet-cursors"''
         ''dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland && systemctl --user start wireplumber''
         "foot -s"
         "dolphin --daemon"

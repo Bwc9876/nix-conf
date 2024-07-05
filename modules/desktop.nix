@@ -24,14 +24,14 @@
     "/share/icons"
   ]; # Kvantum needs linking
   fonts = {
-    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraMono"];}) noto-fonts noto-fonts-color-emoji liberation_ttf];
+    packages = with pkgs; [(nerdfonts.override {fonts = ["FiraCode"];}) noto-fonts noto-fonts-color-emoji liberation_ttf];
     fontconfig = {
       enable = true;
       defaultFonts = rec {
-        serif = ["Noto Sans" "FiraMono Nerd Font Mono" "Noto Color Emoji"];
+        serif = ["Noto Sans" "FiraCode Nerd Font" "Noto Color Emoji"];
         sansSerif = serif;
-        monospace = ["FiraCode Nerd Font Mono" "Noto Sans Mono" "Noto Color Emoji"];
-        emoji = ["FiraCode Nerd Font Mono" "Noto Color Emoji"];
+        monospace = ["FiraCode Nerd Font Mono" "Noto Color Emoji"];
+        emoji = ["FiraCode Nerd Font" "Noto Color Emoji"];
       };
     };
   };
