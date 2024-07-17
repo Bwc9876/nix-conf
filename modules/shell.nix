@@ -24,7 +24,6 @@
 
       # Tools
       inputs.nix-index-database.packages.${system}.comma-with-db
-      neofetch
       hyfetch
       lolcat
       wget
@@ -39,6 +38,9 @@
       playerctl
       libnotify
       gh
+      links2
+      w3m
+      rdrview
       htop
       nomino
       ventoy
@@ -70,10 +72,7 @@
       black
 
       ## Rust
-      (rust-bin.selectLatestNightlyWith (toolchain:
-        toolchain.default.override {
-          targets = ["x86_64-pc-windows-gnu" "x86_64-apple-darwin"];
-        }))
+      (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
       cargo-tauri
       mprocs
       rust-analyzer

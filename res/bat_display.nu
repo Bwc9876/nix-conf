@@ -38,7 +38,7 @@ let idx = if $percent == 100 {
 }
 
 let icon = if $status == "Charging" or $status == "Full" {
-    $icons | get "charging" | get $idx
+    ($icons | get "charging" | get $idx) + " "
 } else {
     $icons | get "default" | get $idx
 }

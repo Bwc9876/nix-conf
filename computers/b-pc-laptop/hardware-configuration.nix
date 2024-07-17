@@ -22,6 +22,9 @@
     fsType = "vfat";
   };
 
+  # I don't really use this kmod and like an untained kernel
+  #hardware.framework.enableKmod = false;
+
   swapDevices = [{device = "/dev/disk/by-uuid/fde5784f-93e8-4e3b-8ca2-74bf44b00479";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

@@ -19,8 +19,7 @@ get_status() {
             conn+=connected
     else if [ "$ispair" = "true" ];
         then
-            icon="󰄜"
-            devices+="$icon 󰏰"
+            devices+="󰥍"
             conn+=disconnected
     fi
     fi

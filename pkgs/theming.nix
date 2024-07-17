@@ -6,19 +6,17 @@
   src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "Sweet";
-    rev = "Ambar-Blue";
+    rev = "dd2dca053b437dcbcbbce082298d28e07dfb384d";
     hash = "sha256-BbAsnnGZ+qGNW7WdjezqsDIYTlQbg3tTv1CwdkBV9Es=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "candy-icons";
-    rev = "master";
-    hash = "sha256-HZ6diq/RGoU3NY+h3MhSp0TvYPKrk+FlwAdjNIF9eyE=";
+    rev = "3b36e89485daab8845f5793f9cbd2bc2ae2e303d";
+    hash = "sha256-49cegx2moKY8INjSm2AcNo7kKC0vy+Iai3R3k/afywI=";
   };
   cursor-src = ../res/cursors/Sweet-cursors.tar.xz;
   hypr-cursor-src = ../res/cursors/Sweet-cursors-hypr.tar.xz;
-  bg-src = ../res/pictures/background.jpg;
-  pfp-src = ../res/pictures/cow.png;
 in
   runCommand "sweet-ambar-blue" {} ''
 

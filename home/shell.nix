@@ -30,6 +30,7 @@
       };
       extraPackages = with pkgs.bat-extras; [prettybat batdiff batman batgrep batwatch];
     };
+    # TODO: Fix colors
     neovim = {
       enable = true;
       viAlias = true;

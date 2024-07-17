@@ -8,15 +8,18 @@
 }: {
   programs.hyprland = {
     enable = true;
-    # portalPackage = inputs.xdph.packages.${system}.default;
+    #systemd.setPath.enable = true;
   };
 
-  xdg.portal = {
+  qt = {
     enable = true;
-    # extraPortals = [inputs.xdph.packages.${system}.default];
+    platformTheme = "qt5ct";
+    style = "kvantum";
   };
 
   services.flatpak.enable = true;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Theming
   environment.pathsToLink = [
@@ -109,13 +112,8 @@
 
   # Applications
   environment.systemPackages = with pkgs; [
-    # Hyprland: Configured in HM
-
     # Shell Components
-    inputs.hyprlock.packages.${system}.hyprlock
-    inputs.hypridle.packages.${system}.hypridle
-    hyprpicker
-    hyprpaper
+    hyprlock
     swaynotificationcenter
     (callPackage ../pkgs/swayosd.nix {})
 
@@ -140,7 +138,9 @@
     ## Screenshot / Record
     wf-recorder
     slurp
-    inputs.hyprland-contrib.packages.${system}.grimblast
+    grim
+    xdg-utils
+    grimblast
     swappy
 
     # Theming

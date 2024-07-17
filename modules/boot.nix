@@ -27,7 +27,7 @@
     #     theme = "bgrt";
     # };
 
-    # Use latest kernel with module signing and lockdown enabled
+    # Use latest kernel with sysrqs and lockdown enabled
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = ["lockdown=confidentiality"];
     kernel.sysctl."kernel.sysrq" = 1;

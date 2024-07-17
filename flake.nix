@@ -10,21 +10,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    # hyprland.inputs.xdph.follows = "xdph";
-    hyprland-contrib.url = "github:hyprwm/contrib";
-    hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
-    hyprlock.url = "github:hyprwm/hyprlock";
-    hyprlock.inputs.nixpkgs.follows = "nixpkgs";
-    hypridle.url = "github:hyprwm/hypridle";
-    hypridle.inputs.nixpkgs.follows = "nixpkgs";
-    # xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    # xdph.inputs.nixpkgs.follows = "nixpkgs";
-    # xdph.inputs.hyprland-protocols.follows = "hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
     waybar.url = "github:Alexays/Waybar";
     waybar.inputs.nixpkgs.follows = "nixpkgs";
-    ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
+    ow-mod-man.url = "github:ow-mods/ow-mod-man";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     gh-grader-preview.url = "github:Bwc9876/gh-grader-preview";
     gh-grader-preview.inputs.nixpkgs.follows = "nixpkgs";
@@ -41,13 +31,9 @@
     nixos-hardware,
     nix-index-database,
     lanzaboote,
-    # hyprland,
-    hyprland-contrib,
-    hyprlock,
-    hypridle,
+    hyprland,
     waybar,
     ow-mod-man,
-    # xdph,
     gh-grader-preview,
     wayland-mpris-idle-inhibit,
     rust-overlay,
@@ -59,12 +45,10 @@
         allowUnfree = true;
       };
       overlays = [
-        (final: prev: {wayland-protocols-good = prev.wayland-protocols;})
-        # hyprland.overlays.hyprland-packages
-        # # waybar.overlays.default
-        hyprland-contrib.overlays.default
+        #(final: prev: {wayland-protocols-good = prev.wayland-protocols;})
+        #hyprland.overlays.default
+        #(final: prev: {wayland-protocols = prev.wayland-protocols-good;})
         ow-mod-man.overlays.default
-        (final: prev: {wayland-protocols = prev.wayland-protocols-good;})
         rust-overlay.overlays.default
       ];
     };
@@ -74,7 +58,7 @@
       # Load lanzaboote for Secure Boot
       lanzaboote.nixosModules.lanzaboote
       # Load Hyprland Stuff
-      # hyprland.nixosModules.default
+      hyprland.nixosModules.default
       # Load the main configuration
       ./configuration.nix
       # Load home manager

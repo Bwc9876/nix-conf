@@ -62,7 +62,8 @@
                 "kdeconnect": "",
                 "spotify": "󰓇",
                 "firefox": "󰈹",
-                "firefox-devedition": "󰈹"
+                "firefox-devedition": "󰈹",
+                "QMPlay2": "󰐌"
             },
             "dynamic-order": [
                 "title",

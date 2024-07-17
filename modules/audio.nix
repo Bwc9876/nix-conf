@@ -1,5 +1,4 @@
 {...}: {
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
 
   security.rtkit.enable = true; # Allows pipewire and friends to run realtime

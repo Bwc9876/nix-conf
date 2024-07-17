@@ -39,12 +39,15 @@ in {
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;
+        EmailTracking = true;
       };
 
       Preferences = {
         "browser.newtabpage.activity-stream.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+        "dom.private-attribution.submission.enabled" = lock-false;
+        "privacy.globalprivacycontrol.enabled" = lock-true;
       };
     };
   };

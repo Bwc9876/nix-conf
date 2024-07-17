@@ -10,11 +10,13 @@
 with lib; rec {
   imports = [
     inputs.nix-index-database.hmModules.nix-index
+    inputs.hyprland.homeManagerModules.default
     ./configFile.nix
     ./desktop.nix
     ./foot.nix
     ./hypr.nix
     ./mime.nix
+    ./news.nix
     ./nushell.nix
     ./shell.nix
     ./xdg.nix

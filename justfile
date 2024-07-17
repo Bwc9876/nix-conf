@@ -25,7 +25,7 @@ build:
 alias s := switch
 # s:    activate configuration & add to boot menu
 switch: 
-    sudo nixos-rebuild switch --flake .#{{ host }}
+    sudo nixos-rebuild switch --flake .#{{ host }} --log-format internal-json |& nom --json
 
 [private]
 alias c := check

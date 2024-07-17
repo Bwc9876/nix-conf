@@ -1,5 +1,5 @@
 {hostName, ...}: let
-  fontSize = "20";
+  fontSize = "18";
 in {
   programs.foot = {
     enable = true;

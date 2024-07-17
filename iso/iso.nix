@@ -12,11 +12,20 @@
     ../modules/nix.nix
   ];
 
-  boot = {
+  boot = rec {
     loader.systemd-boot.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = ["btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs"];
-    initrd.supportedFilesystems = ["btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs"];
+    supportedFilesystems = {
+      btrfs = true;
+      reiserfs = true;
+      vfat = true;
+      f2fs = true;
+      xfs = true;
+      ntfs = true;
+      cifs = true;
+      zfs = lib.mkForce false;
+    };
+    initrd.supportedFilesystems = supportedFilesystems;
   };
 
   fonts = {
@@ -91,7 +100,6 @@
     };
     systemPackages = with pkgs; [
       inputs.nix-index-database.packages.${system}.comma-with-db
-      neofetch
       hyfetch
       lolcat
       wget
@@ -100,6 +108,7 @@
       gay
       pipes-rs
       htop
+      links2
       nomino
       nmap
       dig
@@ -115,6 +124,7 @@
       util-linux
       (writeScriptBin "installer-check" (lib.readFile ../res/installer/banner.nu))
       (writeScriptBin "installer-disks" (lib.readFile ../res/installer/disks.nu))
+      (writeScriptBin "installer-go" (lib.readFile ../res/installer/install.nu))
     ];
   };
 

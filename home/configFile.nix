@@ -4,6 +4,10 @@
   pkgs,
   ...
 }: {
+  home.file.".w3m/keymap".text = ''
+    keymap o COMMAND "RESHAPE ; LINK_BEGIN ; EXTERN_LINK"
+  '';
+
   xdg.configFile = {
     kdeglobals.source = ../res/kdeglobals;
     dolphinrc.source = ../res/dolphinrc;
