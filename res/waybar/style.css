@@ -231,6 +231,18 @@ window#waybar {
   );
 }
 
+#custom-news.utd {
+    font-size: 1.5rem;
+}
+
+#custom-news.unread {
+  background: linear-gradient(
+    180deg,
+    rgb(0, 209, 209) 0%,
+    rgb(0, 60, 164) 100%
+  );
+}
+
 #mpris.playing {
   background: linear-gradient(
     180deg,

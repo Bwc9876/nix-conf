@@ -7,6 +7,7 @@
             "user",
             "clock#1",
             "clock#2",
+            "custom/news",
             "custom/weather",
             "mpris"
         ],
@@ -233,6 +234,16 @@
             "return-type": "json",
             "format": "{}",
             "interval": 60
+        },
+        "custom/news": {
+            "exec": "nu ~/.config/waybar/custom_modules/newsboat.nu",
+            "exec-on-event": true,
+            "signal": 6,
+            "on-click": "pidof -q newsboat && hyprctl dispatch focuswindow newsboat || foot --title=\"Newsboat\" --app-id=\"newsboat\" newsboat; pkill -SIGRTMIN+6 waybar",
+            "on-click-right": "echo",
+            "return-type": "json",
+            "format": "{}",
+            "restart-interval": 1800
         }
     },
     {

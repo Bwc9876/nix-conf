@@ -7,7 +7,7 @@
     owner = "EliverLara";
     repo = "Sweet";
     rev = "dd2dca053b437dcbcbbce082298d28e07dfb384d";
-    hash = "sha256-BbAsnnGZ+qGNW7WdjezqsDIYTlQbg3tTv1CwdkBV9Es=";
+    hash = "sha256-3UUyprD89fQMn/S69DP0rF3UNPEMJlS5lVRLQuzJlLk=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
@@ -25,6 +25,8 @@ in
     cp -r ${icons-src}/* $out/share/icons/candy-icons
     chmod +w $out/share/icons/candy-icons/apps/scalable
     ln -s -T $out/share/icons/candy-icons/apps/scalable/firefox-developer.svg $out/share/icons/candy-icons/apps/scalable/firefox-devedition.svg
+    ln -s -T $out/share/icons/candy-icons/apps/scalable/rss_indicator.svg $out/share/icons/candy-icons/apps/scalable/newsboat.svg
+    ln -s -T $out/share/icons/candy-icons/apps/scalable/discord.svg $out/share/icons/candy-icons/apps/scalable/vesktop.svg
 
     # Cursor Theme
     tar -xf ${cursor-src} -C $out/share/icons

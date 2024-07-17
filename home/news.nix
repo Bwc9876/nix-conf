@@ -48,10 +48,18 @@
     "UC8EYr_ArKMKaxfgRq-iCKzA" # WindowsG Electronics
   ];
 in {
+  xdg.dataFile."applications/newsboat.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=newsboat
+    NoDisplay=true
+    Icon=newsboat
+  '';
+
   programs.newsboat = {
     enable = true;
     autoReload = true;
-    reloadTime = 25;
+    reloadTime = 30;
     browser = ''"${../res/news-open.nu} %u"'';
 
     extraConfig = ''
