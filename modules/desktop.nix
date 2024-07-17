@@ -115,7 +115,7 @@
     # Shell Components
     hyprlock
     swaynotificationcenter
-    (callPackage ../pkgs/swayosd.nix {})
+    swayosd
 
     ## Waybar
     inputs.waybar.packages.${system}.waybar

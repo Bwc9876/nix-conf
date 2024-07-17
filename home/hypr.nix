@@ -273,7 +273,6 @@ in {
           "SUPER SHIFT,S,exec,${screenshot}"
           "SUPER SHIFT,C,exec,${pkgs.hyprpicker}/bin/hyprpicker -a"
           ",XF86RFKill,exec,rfkill toggle wifi"
-          ",Caps_Lock,exec,swayosd-client --caps-lock"
         ]
         ++ forEachWorkspace {
           mod = "SUPER";
@@ -294,13 +293,18 @@ in {
       ];
       bindr = [
         "SUPER SHIFT,R,exec,pkill wf-recorder --signal SIGINT || nu ${../res/screenrec.nu}"
+        "CAPS,Caps_Lock,exec,swayosd-client --caps-lock"
+        ",Scroll_Lock,exec,swayosd-client --scroll-lock"
+        ",Num_Lock,exec,swayosd-client --num-lock"
+      ];
+      bindel = [
+        ",XF86MonBrightnessUp,exec,swayosd-client --brightness raise"
+        ",XF86MonBrightnessDown,exec,swayosd-client --brightness lower"
       ];
       binde = [
         ",XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise"
         ",XF86AudioLowerVolume,exec,swayosd-client --output-volume lower"
         ",XF86AudioMute,exec,swayosd-client --output-volume mute-toggle"
-        ",XF86MonBrightnessUp,exec,swayosd-client --brightness raise"
-        ",XF86MonBrightnessDown,exec,swayosd-client --brightness lower"
       ];
       bindm = [
         "SUPER,mouse:272,movewindow"
