@@ -23,9 +23,5 @@
       location = "center";
       theme = ../res/rofi-style.rasi;
     };
-    thunderbird = {
-      enable = true;
-      profiles.bean.isDefault = true;
-    };
   };
 }

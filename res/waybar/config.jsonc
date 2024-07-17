@@ -240,7 +240,7 @@
             "exec-on-event": true,
             "signal": 6,
             "on-click": "pidof -q newsboat && hyprctl dispatch focuswindow newsboat || foot --title=\"Newsboat\" --app-id=\"newsboat\" newsboat; pkill -SIGRTMIN+6 waybar",
-            "on-click-right": "echo",
+            "on-click-right": "pkill waybar -SIGRTMIN+6",
             "return-type": "json",
             "format": "{}",
             "restart-interval": 1800

@@ -11,6 +11,7 @@ with lib; rec {
   imports = [
     inputs.nix-index-database.hmModules.nix-index
     inputs.hyprland.homeManagerModules.default
+    ./accounts.nix
     ./configFile.nix
     ./desktop.nix
     ./foot.nix

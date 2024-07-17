@@ -15,7 +15,7 @@ def main [
     if ($type | str starts-with "image/") {
         let temp_path = mktemp -t tmpimg.XXXXXXX;
         http get $url | save -f $temp_path;
-        image_roll $temp_path
+        image-roll $temp_path
         rm $temp_path
     } else if ($type | str starts-with "video/") or ($url =~ $YT_REGEX) {
         qmplay2 --open $url
