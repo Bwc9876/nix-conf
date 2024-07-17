@@ -6,7 +6,7 @@ if $file_path == "" {
     exit 1;
 }
 
-let choice = notify-send -i $file_path -t 7500 --action=open=Open --action=folder="Show In Folder" --action=edit=Edit "Screenshot taken" $"Screenshot saved to ($file_path) and copied to clipboard"
+let choice = notify-send --app-name=screengrab -i $file_path -t 7500 --action=open=Open --action=folder="Show In Folder" --action=edit=Edit "Screenshot taken" $"Screenshot saved to ($file_path) and copied to clipboard"
 
 match $choice {
     "open" => {

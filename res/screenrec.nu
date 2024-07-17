@@ -23,7 +23,7 @@ if $stat.exit_code == 1 {
 
 wf-recorder -g ($stat.stdout) -F fps=30 -f $out_name
 
-let action = notify-send --icon=simplescreenrecorder -t 7500 --action=open=Open --action=folder="Show In Folder" "Recording finished" $"File saved to ($out_name)"
+let action = notify-send --app-name=simplescreenrecorder --icon=simplescreenrecorder -t 7500 --action=open=Open --action=folder="Show In Folder" "Recording finished" $"File saved to ($out_name)"
 
 match $action {
     "open" => {
