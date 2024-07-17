@@ -27,6 +27,7 @@ in
     ln -s -T $out/share/icons/candy-icons/apps/scalable/firefox-developer.svg $out/share/icons/candy-icons/apps/scalable/firefox-devedition.svg
     ln -s -T $out/share/icons/candy-icons/apps/scalable/rss_indicator.svg $out/share/icons/candy-icons/apps/scalable/newsboat.svg
     ln -s -T $out/share/icons/candy-icons/apps/scalable/discord.svg $out/share/icons/candy-icons/apps/scalable/vesktop.svg
+    ln -s -T $out/share/icons/candy-icons/apps/scalable/screengrab.svg $out/share/icons/candy-icons/apps/scalable/swappy.svg
 
     # Cursor Theme
     tar -xf ${cursor-src} -C $out/share/icons

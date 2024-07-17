@@ -180,7 +180,6 @@ in {
           then "1"
           else "0";
       in [
-        "GTK_THEME,Sweet-Ambar-Blue:dark"
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
         "HYPRCURSOR_THEME,Sweet-cursors-hypr"
@@ -195,6 +194,8 @@ in {
         "${pkgs.hyprpaper}/bin/hyprpaper"
         "${pkgs.hypridle}/bin/hypridle"
         ''dconf write /org/gnome/desktop/interface/cursor-theme "Sweet-cursors"''
+        ''dconf write /org/gnome/desktop/interface/icon-theme "candy-icons"''
+        ''dconf write /org/gnome/desktop/interface/gtk-theme "Sweet-Ambar-Blue"''
         "dolphin --daemon"
         "waybar"
         "wl-paste --watch bash ${../res/clipboard_middleman.sh}"

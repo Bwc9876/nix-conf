@@ -2,5 +2,5 @@
 
 def main [contents: string] {
     let body = $contents | str replace "Newsboat: finished reload, " "";
-    notify-send --urgency=low "Newsboat Refresh" $body
+    notify-send --icon=newsboat --urgency=low "Newsboat Refresh" $body
 }
