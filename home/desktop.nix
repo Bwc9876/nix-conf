@@ -4,6 +4,15 @@
     style.name = "kvantum";
     platformTheme.name = "qtct";
   };
+
+  xdg.dataFile."applications/htop.desktop".text = ''
+    [Desktop Entry]
+    Type=Application
+    Name=Htop
+    Exec=foot --title="Htop" --app-id="htop" htop
+    Icon=htop
+  '';
+
   programs = {
     rofi = {
       enable = true;

@@ -97,6 +97,33 @@ window#waybar {
   font-size: 1.5rem;
 }
 
+#cpu,
+#memory,
+#temperature {
+    font-size: 1.5rem;
+    padding: 5px 25px;
+    margin-bottom: 25px;
+}
+
+#cpu.warning,
+#memory.warning {
+    background: linear-gradient(
+        180deg,
+        rgb(137, 137, 0) 0%,
+        rgb(131, 102, 0) 100%
+    );
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+    background: linear-gradient(
+        180deg,
+        rgb(220, 66, 0) 0%,
+        rgb(110, 0, 0) 100%
+    );
+}
+
 #workspaces button.active {
   background: linear-gradient(
     180deg,
