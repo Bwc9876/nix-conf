@@ -112,6 +112,7 @@
       nomino
       nmap
       dig
+      dogdns
       inetutils
       speedtest-cli
       just

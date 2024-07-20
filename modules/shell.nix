@@ -49,6 +49,7 @@
       ## Networking
       nmap
       dig
+      dogdns
       inetutils
       speedtest-cli
 
