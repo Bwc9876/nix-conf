@@ -1,9 +1,13 @@
-{lib, ...}: {
+{lib, pkgs, ...}: {
   users.users."bean".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKb2qxNUbvdBTAntmUyPIaOXwFd1nhZO/SS00SNss0nU"
   ];
 
   networking.firewall.allowedTCPPorts = [8080];
+
+  environment.systemPackages = with pkgs; [
+    wayvnc
+  ]; 
 
   services.openssh = {
     enable = true;
