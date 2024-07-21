@@ -200,6 +200,10 @@
     ## Office
     libreoffice-qt
 
+    ## VNC
+    novnc
+    wayvnc
+
     ## Games
     prismlauncher
     ace-of-penguins
@@ -217,7 +221,6 @@
     ## Debug / Utility
     libsForQt5.kmousetool
     wev
-    flatpak-builder
     xcowsay
   ];
 

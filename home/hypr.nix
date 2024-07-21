@@ -201,7 +201,7 @@ in {
         "${pkgs.hypridle}/bin/hypridle"
         ''dconf write /org/gnome/desktop/interface/cursor-theme "Sweet-cursors"''
         ''dconf write /org/gnome/desktop/interface/icon-theme "candy-icons"''
-        ''dconf write /org/gnome/desktop/interface/gtk-theme "Sweet-Ambar-Blue"''
+        ''dconf write /org/gnome/desktop/interface/gtk-theme "Sweet-Ambar-Blue:dark"''
         "dolphin --daemon"
         "waybar"
         "wl-paste --watch bash ${../res/clipboard_middleman.sh}"
@@ -238,7 +238,7 @@ in {
           10;
       in
         [
-	  "SUPER,M,submap,passthru"
+          "SUPER,M,submap,passthru"
           "SUPER,S,exec,rofi -show drun -icon-theme \"candy-icons\" -show-icons"
           "SUPER SHIFT,E,exec,rofi -modi emoji -show emoji"
           "SUPER,Delete,exec,${powerMenu}"
