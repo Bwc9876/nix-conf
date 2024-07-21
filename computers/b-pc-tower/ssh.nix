@@ -10,7 +10,10 @@
   services.openssh = {
     enable = true;
     openFirewall = true;
-    banner = ''=== B-PC-TOWER ===\n'';
+    banner = ''
+      === B-PC-TOWER ===
+
+    '';
     listenAddresses = [
       {
         addr = "0.0.0.0";

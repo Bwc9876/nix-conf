@@ -40,6 +40,7 @@
       gh
       links2
       w3m
+      libsixel
       rdrview
       htop
       nomino

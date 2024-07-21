@@ -9,18 +9,17 @@ def main [
     let type = try {
         http head $url | where $it.name == "content-type" | first | get value
     } catch {
-        "text/html"
+        "?/?"
     }
 
-    if ($type | str starts-with "image/") {
-        let temp_path = mktemp -t tmpimg.XXXXXXX;
-        http get $url | save -f $temp_path;
-        image-roll $temp_path
-        rm $temp_path
+    if ($type == "image/svg+xml") {
+        xdg-open $url
+    } else if ($type | str starts-with "image/") {
+        http get $url | img2sixel
     } else if ($type | str starts-with "video/") or ($url =~ $YT_REGEX) {
         qmplay2 --open $url
     } else if ($type | str starts-with "text/html") {
-        let w3m_opts = $"-no-cookie -o ext_image_viewer=TRUE -o confirm_qq=FALSE -o display_link_number=TRUE -o extbrowser=($env.CURRENT_FILE)";
+        let w3m_opts = $"-sixel -no-cookie -o ext_image_viewer=TRUE -o confirm_qq=FALSE -o display_link_number=TRUE -o extbrowser=($env.CURRENT_FILE)";
         let w3m_cmd = $"w3m ($w3m_opts)";
         let s = (term size).columns;
         stty cols 90;        
