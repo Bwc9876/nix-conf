@@ -203,6 +203,7 @@
     ## VNC
     novnc
     wayvnc
+    (writeScriptBin "ssh-vnc" (lib.readFile ../res/ssh-vnc.nu))
 
     ## Games
     prismlauncher
