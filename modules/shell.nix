@@ -38,9 +38,11 @@
       playerctl
       libnotify
       gh
+      screen
       links2
       w3m
       libsixel
+      alsa-utils
       rdrview
       htop
       nomino
@@ -52,6 +54,7 @@
       dig
       dogdns
       inetutils
+      wol
       speedtest-cli
 
       ## Mod Manager

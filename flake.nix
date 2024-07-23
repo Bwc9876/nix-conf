@@ -10,8 +10,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
     waybar.url = "github:Alexays/Waybar";
     waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man";
@@ -31,7 +29,6 @@
     nixos-hardware,
     nix-index-database,
     lanzaboote,
-    hyprland,
     waybar,
     ow-mod-man,
     gh-grader-preview,
@@ -57,8 +54,6 @@
       nix-index-database.nixosModules.nix-index
       # Load lanzaboote for Secure Boot
       lanzaboote.nixosModules.lanzaboote
-      # Load Hyprland Stuff
-      hyprland.nixosModules.default
       # Load the main configuration
       ./configuration.nix
       # Load home manager
