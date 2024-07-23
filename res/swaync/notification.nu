@@ -2,11 +2,30 @@
 
 const SILENCED_APP_NAMES = [
     "vesktop",
+    "discord",
     "thunderbird"
 ]
 
+const APP_SOUNDS = {
+    "simplescreenrecorder": "camera-click",
+    "screengrab": "camera-click",
+    "kde connect": "pixel-notif",
+    "DEFAULT": "notif",
+}
+
 let name = $env.SWAYNC_APP_NAME? | default "" | str downcase
 
+# let LOG_FILE = $"($env.HOME)/.sawync-app-log.txt";
+
+# let log = if ($LOG_FILE | path exists) {
+#     (open $LOG_FILE) | lines
+# } else {
+#     []
+# };
+
+# $log | append $name | str join "\n" | save -f $LOG_FILE
+
 if ($name not-in $SILENCED_APP_NAMES) {
-    aplay ~/.config/swaync/notif.wav
+    let sound = $APP_SOUNDS | get -i $name | default $APP_SOUNDS.DEFAULT;
+    aplay $"($env.HOME)/.config/swaync/sounds/($sound).wav"
 }
