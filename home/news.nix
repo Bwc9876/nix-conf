@@ -58,8 +58,6 @@ in {
 
   programs.newsboat = {
     enable = true;
-    autoReload = true;
-    reloadTime = 30;
     browser = ''"${../res/news-open.nu} %u"'';
 
     extraConfig = ''
