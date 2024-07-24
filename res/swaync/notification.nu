@@ -9,6 +9,7 @@ const SILENCED_APP_NAMES = [
 const APP_SOUNDS = {
     "simplescreenrecorder": "camera-click",
     "screengrab": "camera-click",
+    "battery-notif": "critical",
     "kde connect": "pixel-notif",
     "DEFAULT": "notif",
 }

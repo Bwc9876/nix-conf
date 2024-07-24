@@ -210,6 +210,7 @@ in {
         "nm-applet"
         sunsetCmd
         "udiskie -A -f dolphin"
+        "nu ${../res/battery_notif.nu}"
         ''wayland-mpris-idle-inhibit --ignore "kdeconnect" --ignore "playerctld"''
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
