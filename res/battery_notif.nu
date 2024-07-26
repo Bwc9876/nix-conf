@@ -1,11 +1,14 @@
 #!/usr/bin/env nu
 
+const BUS_NAME = "org.freedesktop.UPower";
+const PATH_PREFIX = "/org/freedesktop/UPower";
+
 def list_all_devices [] {
-    dbus call --system --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower EnumerateDevices
+    dbus call --system --dest=$BUS_NAME $PATH_PREFIX org.freedesktop.UPower EnumerateDevices
 }
 
 def device_info [name: string] {
-    dbus call --system --dest=org.freedesktop.UPower $"/org/freedesktop/UPower/devices/($name)" org.freedesktop.DBus.Properties GetAll "org.freedesktop.UPower.Device"
+    dbus get-all --system --dest=$BUS_NAME $"($PATH_PREFIX)/devices/($name)" $"($BUS_NAME).Device"
 }
 
 def should_consider [device: record] -> bool {
@@ -65,7 +68,7 @@ def main [poll_interval: duration = 1min] {
 
         let devices = list_devices;
 
-        #print "===========" "Device List" ($devices | select friendly_name upower_path Type) "-----------";
+        print "===========" "Device List" ($devices | select friendly_name upower_path Type) "-----------";
 
         for dev in $devices {
             if (($shown_notifs | get -i $dev.upower_path | get -i 0) == null) {

@@ -187,13 +187,14 @@
       "escape": true
     },
     "custom/kde-connect": {
-      "exec": "sh ~/.config/waybar/custom_modules/custom-kdeconnect.sh battery",
+      "exec": "nu ~/.config/waybar/custom_modules/kdeconnect.nu",
       "format": "{}",
+      "return-type": "json",
       "on-click": "kdeconnect-settings",
       "interval": 30
     },
     "custom/weather": {
-      "exec": "sh ~/.config/waybar/custom_modules/weather.sh",
+      "exec": "nu ~/.config/waybar/custom_modules/weather.nu",
       "on-click": "xdg-open https://duckduckgo.com/?q=weather",
       "return-type": "json",
       "format": "{}",

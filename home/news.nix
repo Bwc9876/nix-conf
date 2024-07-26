@@ -216,16 +216,6 @@ in {
           tags = ["local"];
         }
         {
-          title = "BBC U.S. & Canada Headlines";
-          url = "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml";
-          tags = ["national"];
-        }
-        {
-          title = "CBS U.S. Headlines";
-          url = "https://www.cbsnews.com/latest/rss/us";
-          tags = ["national"];
-        }
-        {
           title = "CBS World Headlines";
           url = "https://www.cbsnews.com/latest/rss/world";
           tags = ["world"];
