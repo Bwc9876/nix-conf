@@ -70,7 +70,6 @@ with lib; {
       }
 
       plugin add ${pkgs.callPackage ../pkgs/nu_plugin_dbus.nix {}}/bin/nu_plugin_dbus
-      plugin use dbus
 
     '';
   };
