@@ -44,14 +44,14 @@ def get_battery_info [device: record] {
 
 # Everything except phone is a guess here, I don't know
 # what the other types are and I can't find any documentation
-# on it, we'll just assume laptop and computer for now
+# on it, we'll just assume laptop for now
 const icon_ref = {
     phone: [
         "󰄜",
         "󱎗",
         "󰥍",
     ],
-    computer: [
+    desktop: [
         "󰌢",
         "󰌢󱐋",
         "󰛧",
@@ -86,7 +86,7 @@ def main [] {
             }
         });
 
-        let percent = if $battery_info.charge? != null {
+        let percent = if $battery_info.charge? != null and $battery_info.charge != -1 {
             $" ($battery_info.charge)󰏰"
         } else { "" };
 
