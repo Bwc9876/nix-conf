@@ -40,6 +40,8 @@
     25565
   ];
 
+  networking.interfaces.enp4s0.wakeOnLan.enable = true;
+
   hardware.nvidia = {
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
