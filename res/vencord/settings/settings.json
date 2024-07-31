@@ -515,10 +515,10 @@
       "enabled": false
     },
     "FixYoutubeEmbeds": {
-      "enabled": false
+      "enabled": true
     },
     "FriendsSince": {
-      "enabled": false
+      "enabled": true
     },
     "ImageLink": {
       "enabled": false
@@ -558,7 +558,7 @@
       "enabled": false
     },
     "ReviewDB": {
-      "enabled": false
+      "enabled": true
     },
     "Summaries": {
       "enabled": false,

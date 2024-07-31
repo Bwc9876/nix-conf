@@ -231,7 +231,7 @@
       "thermal-zone": 10,
       "critical-threshold": 90,
       "format-icons": ["󱃃", "󰔏", "󱃂"],
-      "format-critical": "󰸁 {temperatureC} °C",
+      "format-critical": "{icon}! {temperatureC} °C",
       "format": "{icon} {temperatureC} °C"
     },
     "cpu": {

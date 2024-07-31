@@ -12,6 +12,7 @@
     users.bean = {
       isNormalUser = true;
       description = "Benjamin Crocker";
+      autoSubUidGidRange = true;
       extraGroups = ["libvirtd" "networkmanager" "wheel" "video" "lpadmin" "wireshark"];
     };
   };

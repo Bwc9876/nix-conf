@@ -1,22 +1,24 @@
 {
   rustPlatform,
   dbus,
+  nushell,
   pkg-config,
   fetchFromGitHub,
   lib,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "nu_plugin_dbus";
-  version = "0.8.0";
+  version = assert nushell.version == nu_version || abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}"; "0.9.0";
+  nu_version = "0.96.0";
 
   src = fetchFromGitHub {
     owner = "devyn";
     repo = "nu_plugin_dbus";
-    rev = "c1217b933a4ac7bfaac8d3fd30dbf75fd9a04966";
-    sha256 = "sha256-iTZanNEKuNZ+IVV8h3SixktJGg15iG9MIZyeZe7Gpjw=";
+    rev = version;
+    sha256 = "sha256-Bb55IO/qkQRVkPPyS0iYxYUw6qxhWMuaLj9oxK+I1fk=";
   };
 
-  cargoHash = "sha256-Qi5TGaUugH3AjaJsCS0r6g4ebn43HLKc+/mv8ICKH4Q=";
+  cargoHash = "sha256-JY5mjKx1m9hFWnXo+ej6C0aKuEvSKttHczybHUQIWWs=";
 
   nativeBuildInputs = [
     pkg-config

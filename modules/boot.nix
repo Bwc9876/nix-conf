@@ -10,6 +10,14 @@
     enable = true;
   };
 
+  security = {
+    audit = {
+      enable = true;
+      backlogLimit = 128;
+    };
+    auditd.enable = true;
+  };
+
   boot = {
     # Use bootspec instead of systemd-boot
     loader.systemd-boot.enable = lib.mkForce false;
