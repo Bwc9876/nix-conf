@@ -213,11 +213,6 @@
 
     ## Programming
     github-desktop
-    vscode.fhs
-    android-studio
-    jetbrains.rider
-    jetbrains.idea-ultimate
-    java-language-server
 
     ## Debug / Utility
     libsForQt5.kmousetool

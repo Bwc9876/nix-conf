@@ -9,7 +9,7 @@
 rustPlatform.buildRustPackage rec {
   pname = "nu_plugin_dbus";
   version = assert nushell.version == nu_version || abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}"; "0.9.0";
-  nu_version = "0.96.0";
+  nu_version = "0.96.1";
 
   src = fetchFromGitHub {
     owner = "devyn";

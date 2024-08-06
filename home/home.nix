@@ -13,6 +13,7 @@ with lib; rec {
     ./accounts.nix
     ./configFile.nix
     ./desktop.nix
+    ./code.nix
     ./foot.nix
     ./hypr.nix
     ./mime.nix

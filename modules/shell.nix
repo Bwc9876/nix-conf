@@ -63,6 +63,7 @@
       ## Build Tools
       pkg-config
       just
+      alejandra
       nix-output-monitor
       gnumake
 
@@ -80,7 +81,6 @@
       (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
       cargo-tauri
       mprocs
-      rust-analyzer
       evcxr
 
       ## Java

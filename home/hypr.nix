@@ -249,7 +249,7 @@ in {
           "SUPER,O,exec,${pkgs.rofi-pulse-select}/bin/rofi-pulse-select sink"
           "SUPER,B,exec,${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
           "SUPER,grave,exec,${pkgs.callPackage ../pkgs/rofi-systemd.nix {}}/bin/rofi-systemd"
-          "SUPER,D,exec,${pkgs.callPackage ../pkgs/rofi-code.nix {}}/bin/rofi-code"
+          "SUPER,D,exec,nu ${../res/rofi-code.nu}"
           "SUPER,Tab,exec,rofi -show window -show-icons"
           "SUPER,Q,exec,firefox-devedition"
           "SUPER,E,exec,nu ${../res/rofi-places.nu}"
