@@ -18,12 +18,10 @@
       enable = true;
       package = pkgs.rofi-wayland.override {
         plugins = with pkgs; [
-          (pkgs.rofi-emoji.override {
-            rofi-unwrapped = rofi-wayland-unwrapped;
-          })
+          rofi-emoji-wayland
           rofi-power-menu
           rofi-bluetooth
-          (pkgs.rofi-calc.override {
+          (rofi-calc.override {
             rofi-unwrapped = rofi-wayland-unwrapped;
           })
           rofi-pulse-select
