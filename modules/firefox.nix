@@ -46,6 +46,10 @@ in {
         "browser.newtabpage.activity-stream.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+        "browser.newtabpage.activity-stream.showWeather" = lock-false;
+        "browser.newtabpage.activity-stream.system.showWeather" = lock-false;
+        "browser.newtabpage.activity-stream.feeds.weatherfeed" = lock-false;
+        "browser.urlbar.suggest.weather" = lock-false;
         "dom.private-attribution.submission.enabled" = lock-false;
         "privacy.globalprivacycontrol.enabled" = lock-true;
       };

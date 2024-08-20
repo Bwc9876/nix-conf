@@ -28,7 +28,7 @@
       config = {
         theme = "OneHalfDark";
       };
-      extraPackages = with pkgs.bat-extras; [prettybat batdiff batman batgrep batwatch];
+      extraPackages = with pkgs.bat-extras; [prettybat batman batgrep batwatch];
     };
     # TODO: Fix colors
     neovim = {

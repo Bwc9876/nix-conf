@@ -46,13 +46,13 @@
     "UCPDXXXJj9nax0fr0Wfc048g" # Dropout
     "UCQALLeQPoZdZC4JNUboVEUg" # Jabrils
     "UC8EYr_ArKMKaxfgRq-iCKzA" # WindowsG Electronics
+    "UCJXa3_WNNmIpewOtCHf3B0g" # LaurieWired
   ];
 in {
   xdg.dataFile."applications/newsboat.desktop".text = ''
     [Desktop Entry]
     Type=Application
     Name=newsboat
-    NoDisplay=true
     Icon=newsboat
   '';
 

@@ -269,7 +269,7 @@ in {
           "SUPER,R,togglefloating,"
           "SUPER,F,fullscreen,1"
           "SUPER SHIFT,F,fullscreen,0"
-          "SUPER ALT,F,fakefullscreen"
+          # "SUPER ALT,F,fakefullscreen"
           "SUPER,J,togglesplit,"
           "SUPER,left,movefocus,l"
           "SUPER,right,movefocus,r"
