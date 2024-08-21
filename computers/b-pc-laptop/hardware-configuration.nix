@@ -22,8 +22,14 @@
     fsType = "vfat";
   };
 
-  # I don't really use this kmod and like an untained kernel
-  #hardware.framework.enableKmod = false;
+  nix.settings = {
+    substituters = [
+      "ssh://bean@b-pc-tower"
+    ];
+    trusted-public-keys = [
+      # TODO: Needed?
+    ];
+  };
 
   swapDevices = [{device = "/dev/disk/by-uuid/fde5784f-93e8-4e3b-8ca2-74bf44b00479";}];
 

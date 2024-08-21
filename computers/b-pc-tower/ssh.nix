@@ -2,10 +2,19 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  beanPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKb2qxNUbvdBTAntmUyPIaOXwFd1nhZO/SS00SNss0nU";
+in {
   users.users."bean".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKb2qxNUbvdBTAntmUyPIaOXwFd1nhZO/SS00SNss0nU"
+    beanPubkey
   ];
+
+  nix.sshServe = {
+    enable = true;
+    keys = [
+      beanPubkey
+    ];
+  };
 
   services.openssh = {
     enable = true;

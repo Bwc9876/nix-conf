@@ -6,6 +6,7 @@
   system.stateVersion = "23.05";
 
   nix = {
+    channel.enable = false;
     registry.p.flake = inputs.self;
     package = pkgs.nixVersions.latest;
     settings = {
