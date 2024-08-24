@@ -23,7 +23,6 @@
     "swappy/config".source = ../res/swappy;
     "gtk-3.0/settings.ini".source = ../res/gtk/settings.ini;
     "gtk-4.0/settings.ini".source = ../res/gtk/settings.ini;
-    "keepassxc/keepassxc.ini".source = ../res/keepassxc.ini;
     "Kvantum/kvantum.kvconfig".text = ''
       [General]
       theme=Sweet-Ambar-Blue

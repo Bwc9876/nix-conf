@@ -14,6 +14,7 @@ with lib; rec {
     ./configFile.nix
     ./desktop.nix
     ./code.nix
+    ./firefox.nix
     ./foot.nix
     ./hypr.nix
     ./mime.nix
