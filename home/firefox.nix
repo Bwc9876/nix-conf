@@ -39,11 +39,18 @@
         "Can I Use" = mkEngineForceFavicon ["@ciu" "@baseline"] "https://caniuse.com/?search={searchTerms}" "https://caniuse.com/img/favicon-128.png";
         "NPM" = mkEngineForceFavicon ["@npm"] "https://www.npmjs.com/search?q={searchTerms}" "https://static-production.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png";
         "Iconify" = mkEngine ["@iconify" "@icons"] "https://icon-sets.iconify.design/?query={searchTerms}" "ico";
+        "Astro" = mkEngineForceFavicon ["@astro"] "https://a.stro.cc/{searchTerms}" "https://docs.astro.build/favicon.svg";
 
         ## Rust
         "Crates.io" = mkEngine ["@crates" "@cratesio" "@cargo"] "https://crates.io/search?q={searchTerms}" "ico";
         "Rust Docs" = mkEngineForceFavicon ["@rust" "@rustdocs" "@ruststd"] "https://doc.rust-lang.org/std/index.html?search={searchTerms}" "https://doc.rust-lang.org/static.files/favicon-2c020d218678b618.svg";
         "Docsrs" = mkEngine ["@docsrs"] "https://docs.rs/releases/search?query={searchTerms}" "ico";
+
+        ## Python
+        "PyPI" = mkEngineForceFavicon ["@pypi" "@pip"] "https://pypi.org/search/?q={searchTerms}" "https://pypi.org/static/images/favicon.35549fe8.ico";
+
+        ## .NET
+        "NuGet" = mkEngine ["@nuget"] "https://www.nuget.org/packages?q={searchTerms}" "ico";
 
         ## Linux Stuff
         "Arch Wiki" = mkEngine ["@aw" "@arch"] "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={searchTerms}" "ico";

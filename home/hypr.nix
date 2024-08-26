@@ -214,7 +214,6 @@ in {
         ''wayland-mpris-idle-inhibit --ignore "kdeconnect" --ignore "playerctld"''
         "playerctld"
         "[workspace 3] keepassxc /home/bean/Documents/Database.kdbx"
-        "[workspace 1 silent] sleep 10; vesktop"
       ];
       windowrulev2 = [
         "workspace 1 silent,class:(.*)vesktop(.*),title:(.*)[Vv]esktop(.*)"
