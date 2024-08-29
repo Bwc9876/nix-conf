@@ -198,7 +198,7 @@
       "on-click": "xdg-open https://duckduckgo.com/?q=weather",
       "return-type": "json",
       "format": "{}",
-      "interval": 60
+      "interval": 600
     },
     "custom/news": {
       "exec": "nu ~/.config/waybar/custom_modules/newsboat.nu",

@@ -1,5 +1,35 @@
 #!/usr/bin/env nu
 
+# const WMO_CODE = {
+#     0: "Sunny",
+#     1: "PartlyCloudy",
+#     2: "Cloudy",
+#     3: "VeryCloudy",
+    
+# }
+
+def match_wmo_code [code: int] {
+    match $code {
+        0 => "Sunny",
+        1 => "PartlyCloudy",
+        2 => "Cloudy",
+        3 => "VeryCloudy",
+        45 | 48 => "Fog",
+        51 | 53 | 61 | 63 => "LightRain",
+        55 | 65 => "HeavyRain"
+        56 | 66 => "LightSleet",
+        57 | 67 => "HeavySleet",
+        71 | 73 | 77 => "LightSnow",
+        75 => "HeavySnow",
+        80 | 81 => "LightShowers",
+        82 => "HeavyShowers",
+        85 => "LightSnowShowers",
+        86 => "HeavySnowShowers",
+        95 | 96 | 99 => "ThunderyShowers",
+        _ => "Unknown"
+    }
+}
+
 const WWO_CODE = {
     "113": "Sunny",
     "116": "PartlyCloudy",

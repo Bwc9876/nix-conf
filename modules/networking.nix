@@ -11,6 +11,15 @@
   };
   environment.variables.HOSTNAME = hostName; # To make repl work
 
+  # services.geoclue2 = {
+  #   enable = true;
+  #   enableWifi = false; # Mozilla location service is no longer available
+  # };
+
+  # environment.etc."geoclue/conf.d/.keep" = {
+  #   text = "created the directory.";
+  # };
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true;

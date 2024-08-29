@@ -8,17 +8,20 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "nu_plugin_dbus";
-  version = assert nushell.version == nu_version || abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}"; "0.9.0";
-  nu_version = "0.96.1";
+  version =
+    if nushell.version == nu_version
+    then "0.9.0"
+    else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
+  nu_version = "0.97.1";
 
   src = fetchFromGitHub {
-    owner = "devyn";
+    owner = "LordMZTE";
     repo = "nu_plugin_dbus";
-    rev = version;
-    sha256 = "sha256-Bb55IO/qkQRVkPPyS0iYxYUw6qxhWMuaLj9oxK+I1fk=";
+    rev = "update-nu"; #version;
+    sha256 = "sha256-XVLX0tCgpf5Vfr00kbQZPWMolzHpkMVYKoBHYylpz48=";
   };
 
-  cargoHash = "sha256-JY5mjKx1m9hFWnXo+ej6C0aKuEvSKttHczybHUQIWWs=";
+  cargoHash = "sha256-aza+vLCkepDwKGnJeyHSnQmAKrBFIUzn2pZuzoWGhp4=";
 
   nativeBuildInputs = [
     pkg-config
