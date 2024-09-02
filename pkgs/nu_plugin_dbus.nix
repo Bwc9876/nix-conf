@@ -10,14 +10,14 @@ rustPlatform.buildRustPackage rec {
   pname = "nu_plugin_dbus";
   version =
     if nushell.version == nu_version
-    then "0.9.0"
+    then "0.10.0"
     else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
   nu_version = "0.97.1";
 
   src = fetchFromGitHub {
-    owner = "LordMZTE";
+    owner = "devyn";
     repo = "nu_plugin_dbus";
-    rev = "update-nu"; #version;
+    rev = version;
     sha256 = "sha256-XVLX0tCgpf5Vfr00kbQZPWMolzHpkMVYKoBHYylpz48=";
   };
 
