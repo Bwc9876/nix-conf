@@ -72,8 +72,12 @@
 
         # Misc
         "Firefox Add-ons" = mkEngine ["@addons"] "https://addons.mozilla.org/en-US/firefox/search/?q={searchTerms}" "ico";
+        "Urban Dictionary" = mkEngine ["@ud" "@urban"] "https://www.urbandictionary.com/define.php?term={searchTerms}" "ico";
 
         # Overrides
+        "History".metaData.alias = "@h";
+        "Bookmarks".metaData.alias = "@b";
+        "Tabs".metaData.alias = "@t";
         "Bing".metaData.hidden = true;
         "Amazon.com".metaData.alias = "@amz";
         "Google".metaData.alias = "@g";

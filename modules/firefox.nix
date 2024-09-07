@@ -122,6 +122,7 @@
         # Devtools
         "react-devtools"
         "open-graph-preview-and-debug"
+        "wave-accessibility-tool"
 
         # Misc
         "plasma-integration" # integration with MPRIS & KDE Connect
