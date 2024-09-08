@@ -81,11 +81,6 @@ in {
     urls =
       [
         {
-          title = "JustWatch New Releases";
-          url = "https://openrss.org/www.justwatch.com/us?genres=act,ani,cmy,crm,drm,fml,fnt,msc,scf&providers=amp,hlu,mxx,nfx&release_year_from=2020";
-          tags = ["movies" "tv"];
-        }
-        {
           title = "Outer Wilds Mods";
           url = "https://outerwildsmods.com/feed.xml";
           tags = ["dev" "outer-wilds"];

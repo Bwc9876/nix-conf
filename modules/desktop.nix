@@ -182,7 +182,7 @@
     inkscape
     lorien
     tuxpaint
-    (image-roll.overrideAttrs {doCheck = false;})
+    eog
 
     ## 3D
     prusa-slicer

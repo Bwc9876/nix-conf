@@ -5,7 +5,7 @@
       textEditors = ["code.desktop"];
       browsers = ["firefox-devedition.desktop" "firefox.desktop" "chromium.desktop"];
       mailClients = ["userapp-Thunderbird-WKLTC2.desktop"];
-      imageViewers = ["com.github.weclaw1.ImageRoll.desktop" "gimp.desktop"];
+      imageViewers = ["eog.desktop" "gimp.desktop"];
     in {
       "inode/directory" = ["org.kde.dolphin.desktop"];
       "text/plain" = textEditors;
