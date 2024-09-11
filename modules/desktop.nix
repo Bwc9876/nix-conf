@@ -199,6 +199,7 @@
 
     ## Office
     libreoffice-qt
+    hunspell
 
     ## VNC
     novnc

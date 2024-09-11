@@ -12,6 +12,8 @@
     fish.enable = true; # For completions
   };
 
+  documentation.man.generateCaches = false;
+
   environment = {
     shells = with pkgs; [nushell fish];
     variables = {
