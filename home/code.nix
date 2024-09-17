@@ -47,7 +47,6 @@
       ms-dotnettools.vscode-dotnet-runtime
 
       # Python
-      ms-python.python
       ms-python.vscode-pylance
       ms-python.pylint
       ms-python.black-formatter
@@ -71,7 +70,6 @@
       redhat.vscode-yaml
       ms-vsliveshare.vsliveshare
       leonardssh.vscord
-      github.copilot
     ];
 
     userSettings = {
@@ -105,12 +103,27 @@
       "vscord.behaviour.suppressNotifications" = true;
       "material-icon-theme.folders.color" = "#546E7B";
       "redhat.telemetry.enabled" = false;
-      "github.copilot.enable" = {"*" = true;};
-      "github.copilot.editor.enableAutoCompletions" = true;
       "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+      "prettier.prettierPath" = "${pkgs.nodePackages.prettier}/bin/prettier";
       "rust-analyzer.cargo.allTargets" = false;
       "rust-analyzer.hover.actions.references.enable" = true;
       "dotnetAcquisitionExtension.enableTelemetry" = false;
+
+      "[json][yaml][javascript][typescript][javascriptreact][typescriptreact][css][scss][less][tailwindcss][html][astro]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
+
+      "[python]" = {
+        "editor.defaultFormatter" = "ms-python.black-formatter";
+      };
+
+      "[rust]" = {
+        "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+      };
+
+      "[nix]" = {
+        "editor.defaultFormatter" = "kamadorueda.alejandra";
+      };
 
       "[markdown]" = {
         "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";

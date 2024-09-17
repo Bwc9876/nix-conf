@@ -6,6 +6,7 @@ in {
     settings = {
       main = {
         title = "Terminal (Foot)";
+        term = "xterm-256color";
         font = "monospace:size=${fontSize}";
       };
       bell = {

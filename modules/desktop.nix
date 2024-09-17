@@ -199,7 +199,11 @@
 
     ## Office
     libreoffice-qt
+
+    ### Spell Check
     hunspell
+    hunspellDicts.en_US
+    hunspellDicts.en_US-large
 
     ## VNC
     novnc

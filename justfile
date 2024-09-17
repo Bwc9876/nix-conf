@@ -43,6 +43,7 @@ format:
 alias gc := garbage-collect
 # gc: Run nix collect-garbage -d
 garbage-collect:
+    nix-collect-garbage -d
     sudo nix-collect-garbage -d
 
 [private]
