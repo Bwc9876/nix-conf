@@ -86,6 +86,31 @@ in {
           tags = ["dev" "outer-wilds"];
         }
         {
+          title = "Berks Weekly";
+          url = "https://berksweekly.com/feed/";
+          tags = ["local"];
+        }
+        {
+          title = "Philly Voice";
+          url = "https://www.phillyvoice.com/feed/section/news/";
+          tags = ["local"];
+        }
+        {
+          title = "ChesCo";
+          url = "https://www.mychesco.com/feed";
+          tags = ["local"];
+        }
+        {
+          title = "CBS World Headlines";
+          url = "https://www.cbsnews.com/latest/rss/world";
+          tags = ["world"];
+        }
+        {
+          title = "BBC World Headlines";
+          url = "http://feeds.bbci.co.uk/news/world/rss.xml";
+          tags = ["world"];
+        }
+        {
           title = "Mobius Digital";
           url = "https://www.mobiusdigitalgames.com/news/feed";
           tags = ["outer-wilds"];
@@ -151,8 +176,28 @@ in {
           tags = ["dev" "web"];
         }
         {
+          title = "Mozilla Blog";
+          url = "https://blog.mozilla.org/en/feed/";
+          tags = ["dev" "web"];
+        }
+        {
+          title = "Mozilla Nightly Blog";
+          url = "https://blog.nightly.mozilla.org/feed/";
+          tags = ["dev" "web"];
+        }
+        {
           title = "Mozilla Developer Network";
           url = "https://developer.mozilla.org/en-US/blog/rss.xml";
+          tags = ["dev" "web"];
+        }
+        {
+          title = "Chrome Dev Blog";
+          url = "https://developer.chrome.com/static/blog/feed.xml";
+          tags = ["dev" "web"];
+        }
+        {
+          title = "Webkit Blog";
+          url = "https://webkit.org/feed/";
           tags = ["dev" "web"];
         }
         {
@@ -199,26 +244,6 @@ in {
           title = "Framework Laptop";
           url = "https://frame.work/blog.rss";
           tags = ["hardware"];
-        }
-        {
-          title = "Berks Weekly";
-          url = "https://berksweekly.com/feed/";
-          tags = ["local"];
-        }
-        {
-          title = "ChesCo";
-          url = "https://www.mychesco.com/feed";
-          tags = ["local"];
-        }
-        {
-          title = "CBS World Headlines";
-          url = "https://www.cbsnews.com/latest/rss/world";
-          tags = ["world"];
-        }
-        {
-          title = "BBC World Headlines";
-          url = "http://feeds.bbci.co.uk/news/world/rss.xml";
-          tags = ["world"];
         }
         {
           title = "Neo Win";
