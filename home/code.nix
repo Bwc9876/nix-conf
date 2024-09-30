@@ -47,6 +47,7 @@
       ms-dotnettools.vscode-dotnet-runtime
 
       # Python
+      ms-python.python
       ms-python.vscode-pylance
       ms-python.pylint
       ms-python.black-formatter

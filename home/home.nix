@@ -19,6 +19,7 @@ with lib; rec {
     ./hypr.nix
     ./mime.nix
     ./news.nix
+    ./nvim.nix
     ./nushell.nix
     ./shell.nix
     ./xdg.nix

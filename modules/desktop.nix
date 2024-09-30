@@ -118,7 +118,7 @@
     swayosd
 
     ## Waybar
-    inputs.waybar.packages.${system}.waybar
+    waybar
     qt6.qttools # For component
 
     ### Syncthing tray

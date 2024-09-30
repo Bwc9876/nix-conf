@@ -40,6 +40,8 @@
         "NPM" = mkEngineForceFavicon ["@npm"] "https://www.npmjs.com/search?q={searchTerms}" "https://static-production.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png";
         "Iconify" = mkEngine ["@iconify" "@icons"] "https://icon-sets.iconify.design/?query={searchTerms}" "ico";
         "Astro" = mkEngineForceFavicon ["@astro"] "https://a.stro.cc/{searchTerms}" "https://docs.astro.build/favicon.svg";
+        "Porkbun" = mkEngine ["@porkbun"] "https://porkbun.com/checkout/search?q={searchTerms}" "ico";
+        "Http.Cat" = mkEngine ["@cat" "@hcat" "@httpcat"] "https://http.cat/{searchTerms}" "ico";
 
         ## Rust
         "Crates.io" = mkEngine ["@crates" "@cratesio" "@cargo"] "https://crates.io/search?q={searchTerms}" "ico";
@@ -53,6 +55,7 @@
         "NuGet" = mkEngine ["@nuget"] "https://www.nuget.org/packages?q={searchTerms}" "ico";
 
         ## Linux Stuff
+        "Kernel Docs" = mkEngine ["@lnx" "@linux" "@kernel"] "https://www.kernel.org/doc/html/latest/search.html?q={searchTerms}" "ico";
         "Arch Wiki" = mkEngine ["@aw" "@arch"] "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search={searchTerms}" "ico";
         "Nerd Fonts" = mkEngineForceFavicon ["@nf" "@nerdfonts"] "https://www.nerdfonts.com/cheat-sheet?q={searchTerms}" "https://www.nerdfonts.com/assets/img/favicon.ico";
 

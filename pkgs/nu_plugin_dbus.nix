@@ -10,18 +10,18 @@ rustPlatform.buildRustPackage rec {
   pname = "nu_plugin_dbus";
   version =
     if nushell.version == nu_version
-    then "0.10.0"
+    then "0.11.0"
     else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
-  nu_version = "0.97.1";
+  nu_version = "0.98.0";
 
   src = fetchFromGitHub {
-    owner = "devyn";
+    owner = "Canvis-Me";
     repo = "nu_plugin_dbus";
-    rev = version;
-    sha256 = "sha256-XVLX0tCgpf5Vfr00kbQZPWMolzHpkMVYKoBHYylpz48=";
+    rev = "main"; # version;
+    sha256 = "sha256-CrTVLbD7Q/swDCxiWcqoxkB8X6ydfxhTAZjoT0SoB4I=";
   };
 
-  cargoHash = "sha256-j78cGeeLf58U6KuO4x3ZQo1Uf82y+tpX7GNjWtUvDu8=";
+  cargoHash = "sha256-zXcDNvhJPBj18MiKyW+fNmGiHM9Odt90vGa1L0WQ2sE=";
 
   nativeBuildInputs = [
     pkg-config

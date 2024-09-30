@@ -10,8 +10,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
-    waybar.url = "github:Alexays/Waybar";
-    waybar.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     gh-grader-preview.url = "github:Bwc9876/gh-grader-preview";
@@ -29,7 +27,6 @@
     nixos-hardware,
     nix-index-database,
     lanzaboote,
-    waybar,
     ow-mod-man,
     gh-grader-preview,
     wayland-mpris-idle-inhibit,
@@ -45,6 +42,9 @@
         #(final: prev: {wayland-protocols-good = prev.wayland-protocols;})
         #hyprland.overlays.default
         #(final: prev: {wayland-protocols = prev.wayland-protocols-good;})
+        (final: prev: {
+          hyprland = prev.hyprland.overrideAttrs ({patches, ...}: {patches = [./res/hypr_ss_patch.txt] ++ patches;});
+        })
         ow-mod-man.overlays.default
         rust-overlay.overlays.default
       ];

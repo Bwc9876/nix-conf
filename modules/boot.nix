@@ -22,6 +22,9 @@
     # Use bootspec instead of systemd-boot
     loader.systemd-boot.enable = lib.mkForce false;
     bootspec.enable = true;
+    initrd.systemd = {
+      enable = true;
+    };
 
     # LanzaBoote is a bootloader that supports Secure Boot
     lanzaboote = {

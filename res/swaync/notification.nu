@@ -3,7 +3,8 @@
 const SILENCED_APP_NAMES = [
     "vesktop",
     "discord",
-    "thunderbird"
+    "thunderbird",
+    "newsboat"
 ]
 
 const APP_SOUNDS = {

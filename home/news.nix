@@ -136,6 +136,11 @@ in {
           tags = ["dev" "linux"];
         }
         {
+          title = "Cloudflare Blog";
+          url = "https://blog.cloudflare.com/rss";
+          tags = ["dev" "security"];
+        }
+        {
           title = "Rust Blog";
           url = "https://blog.rust-lang.org/feed.xml";
           tags = ["dev" "rust"];
@@ -253,6 +258,11 @@ in {
         {
           title = "Ars Technica";
           url = "https://arstechnica.com/feed/";
+          tags = ["tech"];
+        }
+        {
+          title = "Lobste";
+          url = "https://lobste.rs/rss";
           tags = ["tech"];
         }
         {
