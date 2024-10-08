@@ -10,7 +10,7 @@ print $"2. You need two partitions, one for the (ansi blue)root(ansi reset) \(/d
 print $"3. You could also create a (ansi blue)swap(ansi reset) partition"
 print "\n"
 print "For the first partition:"
-print $"- I would say use (ansi blue)ext4 filesystem(ansi reset) \(use `sudo mkfs.ext4 /dev/sdX2 -L NIXOS`\)"
+print $"- I would say to use a (ansi blue)ext4 filesystem(ansi reset) \(use `sudo mkfs.ext4 /dev/sdX2 -L NIXOS`\)"
 print "- This should be the largest of the partitions"
 print "\n"
 print $"For the EFI boot partition:"

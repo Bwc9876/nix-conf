@@ -67,6 +67,7 @@
       # Misc.
       skellock.just
       thenuprojectcontributors.vscode-nushell-lang
+      fill-labs.dependi
       zhwu95.riscv
       redhat.vscode-yaml
       ms-vsliveshare.vsliveshare
