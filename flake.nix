@@ -42,9 +42,6 @@
         #(final: prev: {wayland-protocols-good = prev.wayland-protocols;})
         #hyprland.overlays.default
         #(final: prev: {wayland-protocols = prev.wayland-protocols-good;})
-        (final: prev: {
-          hyprland = prev.hyprland.overrideAttrs ({patches, ...}: {patches = [./res/hypr_ss_patch.txt] ++ patches;});
-        })
         ow-mod-man.overlays.default
         rust-overlay.overlays.default
       ];
