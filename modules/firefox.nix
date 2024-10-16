@@ -123,6 +123,7 @@
         "react-devtools"
         "open-graph-preview-and-debug"
         "wave-accessibility-tool"
+        "styl-us"
 
         # Misc
         "plasma-integration" # integration with MPRIS & KDE Connect

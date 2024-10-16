@@ -86,11 +86,6 @@ in {
           tags = ["dev" "outer-wilds"];
         }
         {
-          title = "Berks Weekly";
-          url = "https://berksweekly.com/feed/";
-          tags = ["local"];
-        }
-        {
           title = "Philly Voice";
           url = "https://www.phillyvoice.com/feed/section/news/";
           tags = ["local"];
@@ -99,16 +94,6 @@ in {
           title = "ChesCo";
           url = "https://www.mychesco.com/feed";
           tags = ["local"];
-        }
-        {
-          title = "CBS World Headlines";
-          url = "https://www.cbsnews.com/latest/rss/world";
-          tags = ["world"];
-        }
-        {
-          title = "BBC World Headlines";
-          url = "http://feeds.bbci.co.uk/news/world/rss.xml";
-          tags = ["world"];
         }
         {
           title = "Mobius Digital";
@@ -133,6 +118,16 @@ in {
         {
           title = "Linux Kernel Planet";
           url = "https://planet.kernel.org/rss20.xml";
+          tags = ["dev" "linux"];
+        }
+        {
+          title = "Free Desktop Planet";
+          url = "https://planet.freedesktop.org/atom.xml";
+          tags = ["dev" "linux"];
+        }
+        {
+          title = "KDE Blog";
+          url = "https://blogs.kde.org/index.xml";
           tags = ["dev" "linux"];
         }
         {

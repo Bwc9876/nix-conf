@@ -31,7 +31,6 @@
       wget
       jq
       file
-      perl536Packages.TextLorem
       cowsay
       toilet
       gay
