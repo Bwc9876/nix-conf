@@ -8,7 +8,7 @@
       "clock#1",
       "clock#2",
       "custom/news",
-      "custom/weather",
+      // "custom/weather", - Broken
       "mpris"
     ],
     "modules-center": [],

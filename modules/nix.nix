@@ -16,7 +16,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "no-url-literals"
         "ca-derivations"
         "auto-allocate-uids"
         "cgroups"

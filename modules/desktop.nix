@@ -14,7 +14,13 @@
   qt = {
     enable = true;
     platformTheme = "qt5ct";
-    style = "kvantum";
+  };
+
+  environment.profileRelativeSessionVariables = let
+    qtVersions = with pkgs; [qt5 qt6];
+  in {
+    QT_PLUGIN_PATH = map (qt: "/${qt.qtbase.qtPluginPrefix}") qtVersions;
+    QML2_IMPORT_PATH = map (qt: "/${qt.qtbase.qtQmlPrefix}") qtVersions;
   };
 
   services.flatpak.enable = true;
@@ -155,6 +161,7 @@
     libsForQt5.qt5ct
     kdePackages.qt6ct
     libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
     (callPackage ../pkgs/theming.nix {}) # Custom themes
     adwaita-icon-theme # For fallback icons
 

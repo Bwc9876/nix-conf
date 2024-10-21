@@ -74,7 +74,7 @@
       ## Python
       python3
       python311Packages.django
-      # poetry
+      poetry
       pipenv
       black
 

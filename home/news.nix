@@ -60,10 +60,11 @@ in {
     enable = true;
     browser = ''"${../res/news-open.nu} %u"'';
 
+    # notify-program ${../res/news-notify.nu}
+
     extraConfig = ''
       confirm-mark-feed-read no
       confirm-mark-all-feeds-read no
-      notify-program ${../res/news-notify.nu}
       wrap-scroll yes
       text-width 90
 

@@ -124,19 +124,26 @@ def get_icon [condition: string, is_night: bool] {
     }
 }
 
+def error-exit [msg: string] {
+    let out = {
+        text: "󰧠",
+        tooltip: $"Failed to fetch weather:\n($msg)",
+        class: ["Unknown"]
+    };
+    print ($out | to json -r)
+    exit
+}
+
 def main [] {
 
     let raw = try {
         http get https://wttr.in/?format=j1&lang=us
     } catch { |err|
-        let out = {
-            text: "󰧠",
-            tooltip: $"Failed to fetch weather:\n($err.msg)",
-            class: ["Unknown"]
-        };
+        error-exit $err.msg;
+    }
 
-        print ($out | to json -r)
-        exit
+    if ($raw | str starts-with "Unknown location;") {
+        error-exit $raw;
     }
 
     let current_condition = $raw.current_condition.0
