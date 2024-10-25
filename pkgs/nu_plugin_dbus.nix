@@ -12,7 +12,7 @@ rustPlatform.buildRustPackage rec {
     if nushell.version == nu_version
     then "0.12.0"
     else abort "Nushell Version mismatch\nPlugin: ${nu_version}\tnixpkgs: ${nushell.version}";
-  nu_version = "0.99.0";
+  nu_version = "0.99.1";
 
   src = fetchFromGitHub {
     owner = "devyn";

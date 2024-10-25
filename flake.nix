@@ -44,6 +44,7 @@
         #(final: prev: {wayland-protocols = prev.wayland-protocols-good;})
         ow-mod-man.overlays.default
         rust-overlay.overlays.default
+        #(final: prev: {utillinux = final.util-linux;}) # FIXME: remove when node-env fixes
       ];
     };
     globalModules = [
