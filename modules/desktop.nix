@@ -14,13 +14,7 @@
   qt = {
     enable = true;
     platformTheme = "qt5ct";
-  };
-
-  environment.profileRelativeSessionVariables = let
-    qtVersions = with pkgs; [qt5 qt6];
-  in {
-    QT_PLUGIN_PATH = map (qt: "/${qt.qtbase.qtPluginPrefix}") qtVersions;
-    QML2_IMPORT_PATH = map (qt: "/${qt.qtbase.qtQmlPrefix}") qtVersions;
+    style = "kvantum";
   };
 
   services.flatpak.enable = true;
@@ -149,7 +143,6 @@
       vendorHash = "sha256-gG8v3JFncadfCEUa7iR6Sw8nifFNTciDaeBszOlGntU=";
     })
 
-    ## Screenshot / Record
     wf-recorder
     slurp
     grim
@@ -201,7 +194,6 @@
 
     ## 3D
     prusa-slicer
-    # blender
     # (callPackage renderdoc.overrideAttrs rec {
     #     version = "1.25";
     #     src = fetchFromGitHub {
@@ -211,6 +203,9 @@
     #         sha256 = "sha256-ViZMAuqbXN7upyVLc4arQy2EASHeoYViMGpCwZPEWuo=";
     #     };
     # })
+
+    ## Music
+    shortwave
 
     ## Office
     libreoffice-qt
@@ -222,7 +217,6 @@
 
     ## VNC
     novnc
-    wayvnc
     (writeScriptBin "ssh-vnc" (lib.readFile ../res/ssh-vnc.nu))
 
     ## Games

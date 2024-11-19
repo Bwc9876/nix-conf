@@ -30,11 +30,19 @@
       };
       extraPackages = with pkgs.bat-extras; [prettybat batman batgrep batwatch];
     };
-    # TODO: Fix colors
     neovim = {
       enable = true;
       viAlias = true;
       vimAlias = true;
     };
   };
+
+  # Use mold for linking Rust code
+  home.file.".cargo/config.toml".text = ''
+    [target.x86_64-unknown-linux-gnu]
+    linker = "${pkgs.clang}/bin/clang"
+    rustflags = [
+      "-C", "link-arg=--ld-path=${pkgs.mold}/bin/mold",
+    ]
+  '';
 }

@@ -6,8 +6,7 @@
   inputs,
   system,
   ...
-}:
-with lib; rec {
+}: {
   imports = [
     inputs.nix-index-database.hmModules.nix-index
     ./accounts.nix

@@ -31,6 +31,7 @@
       redhat.java
 
       # Typescript / Javascript
+      denoland.vscode-deno
       yoavbls.pretty-ts-errors
       dbaeumer.vscode-eslint
       esbenp.prettier-vscode

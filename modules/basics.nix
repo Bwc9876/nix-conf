@@ -7,6 +7,11 @@
   # Set the time zone.
   time.timeZone = "America/New_York";
 
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
+
   # Define a user account.
   users = {
     users.bean = {

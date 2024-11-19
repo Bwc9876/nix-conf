@@ -232,6 +232,16 @@ in {
           tags = ["personal-blog"];
         }
         {
+          title = "Anil Dash";
+          url = "https://www.anildash.com/feed.xml";
+          tags = ["personal-blog"];
+        }
+        {
+          title = "HiDeoo";
+          url = "https://hideoo.dev/notes/rss.xml";
+          tags = ["personal-blog"];
+        }
+        {
           title = "Scripting News";
           url = "http://scripting.com/rss.xml";
           tags = ["personal-blog"];

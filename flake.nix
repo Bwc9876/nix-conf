@@ -44,6 +44,7 @@
         #(final: prev: {wayland-protocols = prev.wayland-protocols-good;})
         ow-mod-man.overlays.default
         rust-overlay.overlays.default
+        nix-index-database.overlays.nix-index
         #(final: prev: {utillinux = final.util-linux;}) # FIXME: remove when node-env fixes
       ];
     };
@@ -65,7 +66,7 @@
     ];
   in {
     legacyPackages.${system} = pkgs;
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    formatter.${system} = pkgs.alejandra;
     nixosConfigurations.b-pc-tower = nixpkgs.lib.nixosSystem {
       inherit system pkgs;
       specialArgs = {

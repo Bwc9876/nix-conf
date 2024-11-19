@@ -2,6 +2,7 @@
   qt = {
     enable = true;
     platformTheme.name = "qtct";
+    style.name = "kvantum";
   };
 
   xdg.dataFile."applications/htop.desktop".text = ''

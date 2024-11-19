@@ -25,7 +25,7 @@
       nushell
 
       # Tools
-      inputs.nix-index-database.packages.${system}.comma-with-db
+      comma-with-db
       hyfetch
       lolcat
       wget

@@ -153,7 +153,6 @@ in {
       };
       decoration = {
         rounding = 10;
-        drop_shadow = false;
       };
       input = {
         numlock_by_default = true;
