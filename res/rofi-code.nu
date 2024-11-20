@@ -6,7 +6,7 @@ let paths = ls ~/.config/Code/User/workspaceStorage/*/workspace.json
 
 let paths_display = $paths | each {|it| $it | str replace $"/home/($env.USER)" "󰋜" | str replace "󰋜/Documents/GitHub" "󰊤"};
 
-let res = $paths_display | str join "\n" | rofi -dmenu -p "VSCode" | complete;
+let res = $paths_display | str join "\n" | rofi -dmenu -i -p "VSCode" | complete;
 
 if $res.exit_code == 1 {
     echo "Cancelled"
@@ -15,6 +15,6 @@ if $res.exit_code == 1 {
     let idx = $paths_display | enumerate | where {|it| $it.item == $choice} | first | get index;
     let path = $paths | get $idx;
     echo $"Opening ($path)"
-    code $path
+    codium $path
 }
 

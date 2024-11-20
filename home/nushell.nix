@@ -16,6 +16,7 @@ with lib; {
       man = "__batman";
       bgrep = "batgrep";
       neofetch = "hyfetch";
+      code = "codium";
       screensaver = "pipes-rs -k curved -p 10 --fps 30";
     };
     configFile.text = ''

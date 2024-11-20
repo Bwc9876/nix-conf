@@ -20,7 +20,7 @@ let places = if ($dataPath | path exists) {
 
 let menu = $places | each {|it| $"($it.name) <span color=\"#A2A2A2\"><i><small>\(($it.disp_loc)\)</small></i></span> \u{0}icon\u{1f}($it.icon)" } | str join "\n"
 
-let res = ($menu | rofi -dmenu -markup-rows -show-icons -p "Dolphin" | complete) 
+let res = ($menu | rofi -dmenu -i -markup-rows -show-icons -p "Dolphin" | complete) 
 
 if $res.exit_code == 1 {
     echo "Cancelled"

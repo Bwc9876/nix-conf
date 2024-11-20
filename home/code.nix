@@ -4,6 +4,7 @@
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
+    package = pkgs.vscodium;
 
     extensions = with pkgs.vscode-extensions; [
       # Theme
@@ -106,7 +107,7 @@
       "material-icon-theme.folders.color" = "#546E7B";
       "redhat.telemetry.enabled" = false;
       "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-      "prettier.prettierPath" = "${pkgs.nodePackages.prettier}/bin/prettier";
+      "prettier.prettierPath" = "${pkgs.nodePackages.prettier}/lib/node_modules/prettier";
       "rust-analyzer.cargo.allTargets" = false;
       "rust-analyzer.hover.actions.references.enable" = true;
       "dotnetAcquisitionExtension.enableTelemetry" = false;

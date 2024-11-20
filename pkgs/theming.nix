@@ -6,14 +6,14 @@
   src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "Sweet";
-    rev = "e133a6b40b0a5d5c8c2163de9b36150b285d15f2"; # Ambar-Blue: https://github.com/EliverLara/Sweet/commits/Ambar-Blue/
-    hash = "sha256-IdOwZM+r9yiWaNnobVGtMjGLGHjQHH0sf/yCFUxIT+0=";
+    rev = "051ee62cf998c8c95bd0b391eb3996d09d94dbcd"; # Ambar-Blue: https://github.com/EliverLara/Sweet/commits/Ambar-Blue/
+    hash = "sha256-laFBNuXUGw2wKregIyU4r/PMP/zLC3bATDl3eqvWy3o=";
   };
   icons-src = fetchFromGitHub {
     owner = "EliverLara";
     repo = "candy-icons";
-    rev = "eba39aed603a255ed756ed601e87349561217ef0"; # master: https://github.com/EliverLara/candy-icons/commits/master/
-    hash = "sha256-XAB+Ai7r5n/125mmkc/J0J1aPjFgQGeRPT+vc2LP6cE=";
+    rev = "6f6eb3d7dbdb4fb9aab31ec5aebeb7155225f0ab"; # master: https://github.com/EliverLara/candy-icons/commits/master/
+    hash = "sha256-VOUFs45n+5zQqk3pPsiQeL6aCWEUUje90PGt2ni7Bgg=";
   };
   cursor-src = ../res/cursors/Sweet-cursors.tar.xz;
   hypr-cursor-src = ../res/cursors/Sweet-cursors-hypr.tar.xz;
@@ -28,6 +28,9 @@ in
     ln -s -T $out/share/icons/candy-icons/apps/scalable/rss_indicator.svg $out/share/icons/candy-icons/apps/scalable/newsboat.svg
     ln -s -T $out/share/icons/candy-icons/apps/scalable/discord.svg $out/share/icons/candy-icons/apps/scalable/vesktop.svg
     ln -s -T $out/share/icons/candy-icons/apps/scalable/screengrab.svg $out/share/icons/candy-icons/apps/scalable/swappy.svg
+
+    rm $out/share/icons/candy-icons/apps/scalable/vscodium.svg
+    ln -s -T $out/share/icons/candy-icons/apps/scalable/code.svg $out/share/icons/candy-icons/apps/scalable/vscodium.svg
 
     # Cursor Theme
     tar -xf ${cursor-src} -C $out/share/icons

@@ -4,7 +4,7 @@ let dirs = zoxide query -l "" | lines
 
 let menu = $dirs | each {|it| $"($it | split row "/" | last) <span color=\"#A2A2A2\"><i><small>\(($it | str replace $"/home/($env.USER)" "~")\)</small></i></span>" } | str join "\n"
 
-let res = ($menu | rofi -dmenu -markup-rows -p "Zoxide" | complete)
+let res = ($menu | rofi -dmenu -i -markup-rows -p "Zoxide" | complete)
 
 if $res.exit_code == 1 {
     echo "Cancelled"

@@ -19,9 +19,9 @@
   };
 
   boot = {
-    # Use bootspec instead of systemd-boot
     loader.systemd-boot.enable = lib.mkForce false;
     bootspec.enable = true;
+
     initrd.systemd = {
       enable = true;
     };
@@ -31,12 +31,6 @@
       enable = true;
       pkiBundle = "/etc/secureboot";
     };
-
-    # Plymouth puts a theme on boot
-    # plymouth = {
-    #     enable = true;
-    #     theme = "bgrt";
-    # };
 
     # Use latest kernel with sysrqs and lockdown enabled
     kernelPackages = pkgs.linuxPackages_latest;

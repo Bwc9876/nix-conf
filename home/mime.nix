@@ -2,7 +2,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = let
-      textEditors = ["code.desktop"];
+      textEditors = ["codium.desktop"];
       browsers = ["firefox-devedition.desktop" "firefox.desktop" "chromium.desktop"];
       mailClients = ["userapp-Thunderbird-WKLTC2.desktop"];
       imageViewers = ["eog.desktop" "gimp.desktop"];
