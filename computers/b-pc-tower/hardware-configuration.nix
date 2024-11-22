@@ -40,6 +40,10 @@
     25565
   ];
 
+  networking.firewall.allowedUDPPorts = [
+    19132
+  ];
+
   networking.interfaces.enp4s0.wakeOnLan.enable = true;
 
   hardware.nvidia = {
