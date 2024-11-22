@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-let paths = ls ~/.config/Code/User/workspaceStorage/*/workspace.json 
+let paths = ls ~/.config/VSCodium/User/workspaceStorage/*/workspace.json 
                     | get name 
                     | each {|it| open $it | get folder | str substring 7..};
 

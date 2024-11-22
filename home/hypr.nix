@@ -180,10 +180,6 @@ in {
       };
       env = let
         cursorSize = "24";
-        hardwareCursors =
-          if hostName == "b-pc-tower"
-          then "1"
-          else "0";
       in [
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
@@ -192,7 +188,6 @@ in {
         "XCURSOR_THEME,Sweet-cursors"
         "XCURSOR_SIZE,${cursorSize}"
         "GRIMBLAST_EDITOR,swappy -f "
-        "WLR_NO_HARDWARE_CURSORS,${hardwareCursors}"
         "TERMINAL,foot"
       ];
       exec-once = [
@@ -208,7 +203,7 @@ in {
         "swayosd-server"
         "nm-applet"
         sunsetCmd
-        "udiskie -A -f dolphin"
+        "${pkgs.udiskie}/bin/udiskie -A -f dolphin"
         "nu ${../res/battery_notif.nu}"
         ''wayland-mpris-idle-inhibit --ignore "kdeconnect" --ignore "playerctld"''
         "playerctld"
