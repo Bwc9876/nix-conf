@@ -9,13 +9,6 @@ in {
     beanPubkey
   ];
 
-  nix.sshServe = {
-    enable = true;
-    keys = [
-      beanPubkey
-    ];
-  };
-
   services.openssh = {
     enable = true;
     openFirewall = true;
