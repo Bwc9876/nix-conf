@@ -1,42 +1,42 @@
-# Get editor completions based on the config schema
+# Get editor completions crustd on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[░▒▓](grey)[ \
+[░▒▓](crust)[ \
 $os\
 $hostname\
-[](bg:grey #999999)\
+[](bg:crust #999999)\
 $shell\
 $username\
-[](bg:grey #999999)\
+[](bg:crust #999999)\
 $directory\
-([](bg:grey #999999)\
+([](bg:crust #999999)\
 $git_branch\
 $git_commit\
 $git_state)\
-([](bg:grey #999999)\
+([](bg:crust #999999)\
 $nodejs\
 $python\
 $rust\
-$nix_shell)](bg:grey)\
-[ ](grey)"""
+$nix_shell)](bg:crust)\
+[ ](crust)"""
 
 right_format = """
-[ ](grey)
-($character$status[](bg:grey #999999))
-($cmd_duration[](bg:grey #999999))\
+[ ](crust)
+($character$status[](bg:crust #999999))
+($cmd_duration[](bg:crust #999999))\
 $time\
-[▓▒░](grey)
+[▓▒░](crust)
 """
 
-palette = "main"
+# palette = "main"
 add_newline = false
 
-[palettes.main]
-grey = "#303030"
-lightgrey = "#e5e5e5"
-header = "blue"
-footer = "green"
+# [palettes.main]
+# grey = "#303030"
+# lightgrey = "#e5e5e5"
+# blue = "blue"
+# green = "green"
 
 [line_break]
 disabled = true
@@ -45,16 +45,16 @@ disabled = true
 format = "[$hostname( $ssh_symbol) ]($style)"
 ssh_only = false
 ssh_symbol = ""
-style = "bold header bg:grey"
+style = "bold blue bg:crust"
 
 [username]
 format = "[$user ]($style)"
-style_user = "header bg:grey"
-style_root = "bold red bg:grey"
+style_user = "blue bg:crust"
+style_root = "bold red bg:crust"
 show_always = true
 
 [os]
-style = "bg:grey bold lightgrey"
+style = "bg:crust bold lightcrust"
 disabled = false
 format = "[$symbol ]($style)"
 
@@ -74,72 +74,72 @@ truncation_length = 10
 truncate_to_repo = true
 home_symbol = "󰋜"
 read_only = "󰌾"
-style = "bold footer bg:grey"
+style = "bold green bg:crust"
 format = "[ ($read_only )$path ]($style)"
 
 [git_branch]
 symbol = "󰘬"
-style = "bg:grey footer"
+style = "bg:crust green"
 format = '[ $symbol ($branch )]($style)'
 
 [git_status]
 conflicted = "󰀦"
 modified = "󰏫"
-style = "bg:grey footer"
+style = "bg:crust green"
 format = '[$all_status $ahead_behind ]($style)'
 
 [git_state]
 revert = "󰕍"
 rebase = "󱗬"
 merge = "󰘭"
-style = "bg:grey footer yellow"
+style = "bg:crust green yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\)'
 
 [nodejs]
 symbol = "󰎙"
-style = "bg:grey footer"
-not_capable_style = "bg:grey footer bold red"
+style = "bg:crust green"
+not_capable_style = "bg:crust green bold red"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = "󰌠"
-style = "bg:grey footer"
+style = "bg:crust green"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = "󱘗"
-style = "bg:grey footer"
+style = "bg:crust green"
 format = '[ $symbol ($version) ]($style)'
 
 [nix_shell]
-impure_msg = '[󱄅 impure](bold red bg:grey)'
-pure_msg = '[󱄅](bold green bg:grey)'
-unknown_msg = '[󱄅 unknown](bold yellow bg:grey)'
-style = "bg:grey footer"
-format = '[ $state ](bold blue bg:grey) '
+impure_msg = '[󱄅 impure](bold red bg:crust)'
+pure_msg = '[󱄅](bold green bg:crust)'
+unknown_msg = '[󱄅 unknown](bold yellow bg:crust)'
+style = "bg:crust green"
+format = '[ $state ](bold blue bg:crust) '
 
 [character]
 disabled = false
-success_symbol = "[󰗠](bold footer bg:grey)"
-error_symbol = "[󰀨](bold red bg:grey)"
-format = "[ $symbol ](bg:grey)"
+success_symbol = "[󰗠](bold green bg:crust)"
+error_symbol = "[󰀨](bold red bg:crust)"
+format = "[ $symbol ](bg:crust)"
 
 [status]
 disabled = false
-style = "bg:grey red"
+style = "bg:crust red"
 format = "[$status ]($style)"
 
 [cmd_duration]
 disabled = false
 min_time = 2000
-style = "bg:grey header"
+style = "bg:crust blue"
 format = "[ 󱎫 $duration ]($style)"
 
 [time]
 disabled = false
 use_12hr = true
 time_format = "%a %b %d %I:%M %p 󰥔"
-style = "bg:grey bold header"
+style = "bg:crust bold blue"
 format = "[ $time ]($style)"
 
 [shell]
@@ -148,6 +148,6 @@ powershell_indicator = '󰨊'
 nu_indicator = '󰨊'
 bash_indicator = "󱆃"
 unknown_indicator = '󰋗'
-style = 'bg:grey header'
+style = 'bg:crust blue'
 format = '[ $indicator ]($style)'
 disabled = false

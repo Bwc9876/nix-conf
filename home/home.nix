@@ -8,6 +8,7 @@
   ...
 }: {
   imports = [
+    inputs.catppuccin.homeManagerModules.catppuccin
     inputs.nix-index-database.hmModules.nix-index
     ./accounts.nix
     ./configFile.nix
@@ -21,8 +22,16 @@
     ./nvim.nix
     ./nushell.nix
     ./shell.nix
+    ./swaync.nix
+    ./waybar.nix
     ./xdg.nix
   ];
+
+  catppuccin = {
+    enable = true;
+    accent = "green";
+    flavor = "mocha";
+  };
 
   home = {
     username = "bean";

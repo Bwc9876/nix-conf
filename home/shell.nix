@@ -25,9 +25,6 @@
     };
     bat = {
       enable = true;
-      config = {
-        theme = "OneHalfDark";
-      };
       extraPackages = with pkgs.bat-extras; [prettybat batman batgrep batwatch];
     };
     neovim = {

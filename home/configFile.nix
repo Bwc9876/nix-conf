@@ -11,8 +11,6 @@
   xdg.configFile = {
     kdeglobals.source = ../res/kdeglobals;
     dolphinrc.source = ../res/dolphinrc;
-    waybar.source = ../res/waybar;
-    swaync.source = ../res/swaync;
     Vencord.source = ../res/vencord;
     "VencordDesktop/VencordDesktop/settings".source = ../res/vencord/settings;
     "VencordDesktop/VencordDesktop/themes".source = ../res/vencord/themes;
@@ -23,10 +21,6 @@
     "swappy/config".source = ../res/swappy;
     "gtk-3.0/settings.ini".source = ../res/gtk/settings.ini;
     "gtk-4.0/settings.ini".source = ../res/gtk/settings.ini;
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=Sweet-Ambar-Blue
-    '';
     "kdeconnect/config".text = ''
       [General]
       name=${lib.toUpper hostName}

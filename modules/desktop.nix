@@ -11,10 +11,10 @@
     #systemd.setPath.enable = true;
   };
 
-  qt = {
+  catppuccin = {
     enable = true;
-    platformTheme = "qt5ct";
-    style = "kvantum";
+    accent = "green";
+    flavor = "mocha";
   };
 
   services.flatpak.enable = true;
@@ -117,8 +117,6 @@
     swaynotificationcenter
     swayosd
 
-    ## Waybar
-    waybar
     qt6.qttools # For component
 
     ### Syncthing tray

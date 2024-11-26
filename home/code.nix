@@ -8,8 +8,8 @@
 
     extensions = with pkgs.vscode-extensions; [
       # Theme
-      zhuangtongfa.material-theme
-      pkief.material-icon-theme
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
 
       # Nix
       bbenoist.nix
@@ -54,9 +54,6 @@
       ms-python.black-formatter
       wholroyd.jinja
 
-      # XML
-      redhat.vscode-xml
-
       # Spelling / Grammar
       yzhang.dictionary-completion
       tekumara.typos-vscode
@@ -86,10 +83,10 @@
       "editor.minimap.enabled" = false;
       "editor.fontSize" = 16;
       "terminal.integrated.fontSize" = 16;
-      "workbench.colorTheme" = "One Dark Pro Darker";
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-mocha";
       "workbench.startupEditor" = "none";
       "workbench.welcomePage.walkthroughs.openOnInstall" = false;
-      "workbench.iconTheme" = "material-icon-theme";
       "terminal.integrated.fontFamily" = "monospace";
       "terminal.integrated.smoothScrolling" = true;
       "explorer.compactFolders" = false;
@@ -104,7 +101,6 @@
       "vscord.app.name" = "Visual Studio Code";
       "vscord.status.idle.disconnectOnIdle" = true;
       "vscord.behaviour.suppressNotifications" = true;
-      "material-icon-theme.folders.color" = "#546E7B";
       "redhat.telemetry.enabled" = false;
       "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
       "prettier.prettierPath" = "${pkgs.nodePackages.prettier}/lib/node_modules/prettier";

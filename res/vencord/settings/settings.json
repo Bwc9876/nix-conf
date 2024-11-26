@@ -4,7 +4,7 @@
   "autoUpdateNotification": false,
   "useQuickCss": true,
   "themeLinks": [
-    "https://raw.githubusercontent.com/refact0r/midnight-discord/master/midnight.css"
+    "https://github.com/catppuccin/discord/blob/main/themes/mocha.theme.css?raw=1"
   ],
   "enabledThemes": [],
   "enableReactDevtools": false,

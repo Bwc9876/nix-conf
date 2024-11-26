@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
+    platformTheme.name = "kvantum";
     style.name = "kvantum";
   };
 
@@ -28,7 +28,6 @@
         ];
       };
       location = "center";
-      theme = ../res/rofi-style.rasi;
     };
   };
 }

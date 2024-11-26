@@ -18,6 +18,7 @@
     wayland-mpris-idle-inhibit.inputs.nixpkgs.follows = "nixpkgs";
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = inputs @ {
@@ -31,6 +32,7 @@
     gh-grader-preview,
     wayland-mpris-idle-inhibit,
     rust-overlay,
+    catppuccin,
   }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -57,6 +59,7 @@
       ./configuration.nix
       # Load home manager
       home-manager.nixosModules.home-manager
+      catppuccin.nixosModules.catppuccin
       # Configure home manager
       {
         home-manager.useGlobalPkgs = true;
